@@ -93,7 +93,7 @@ function CheckObject(ObjectRepo, StrKey, ObjectType, ObjectName) {
   let ApplicationName;
   
   TabValue = StrKey.split(".");
-  ApplicationName = TabValue[1];
+  ApplicationName = TabValue[0];
   
   Delimitor = "####";
   

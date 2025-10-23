@@ -164,7 +164,7 @@ function CheckForm(ObjectRepo, StrKey, ObjectName) {
   
   if (StrValue === "" || StrValue === undefined) {
     
-    StrMessageError = "The Form : '" + ObjectName + "' of the Application : '" + ApplicationName + "' does not exist on the Object Repository";
+    StrMessageError = "The Form : '" + ObjectName + "' of the Application : '" + APP_NAME + "' does not exist on the Object Repository";
     StrError = BuiltIn.InputBox("ObjectRepository Object Error", StrMessageError,  StrKey);
     
   }
@@ -251,7 +251,7 @@ function GetForm(ObjectRepo, ApplicationName, FormName) {
 }
 // _______________________________________________________________________________________________________________________________________________________________  
 
-function WaitForElementReady2(ObjElement, ElementIsEnabled) {
+function WaitForElementReady(ObjElement, ElementIsEnabled) {
   
   let TimeOut = 60000;
   let Interval = 250;
