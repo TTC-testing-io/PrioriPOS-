@@ -8,7 +8,6 @@ var Library = require("Library");
 
 function LogOnPrioriPOS(Login, Password){
   
-
    KeyActions.FormIsDisplayed("PrioriPOSGUI","Login");
 
    KeyActions.SetField("PrioriPOSGUI", "Login", "Login", Login);
@@ -17,6 +16,12 @@ function LogOnPrioriPOS(Login, Password){
 
 }
 // _______________________________________________________________________________________________________________________________________________________________  
+
+
+
+
+
+
 
 // *** Exports************************************************ 
 module.exports.LogOnPrioriPOS = LogOnPrioriPOS;

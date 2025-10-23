@@ -3,7 +3,8 @@
 	<children>
 		<folder name="Test Cases">
 			<child name="Simple_Authentification" key="{A2C68003-BF08-4A8F-8BEB-9EA875D0A019}" path="Simple_Authentification.js" />
-			<child name="Simple_Attendance" key="{4B796587-DFC7-4B60-BDB0-3F8B0C7A8BDE}" path="Simple_Attendance.js" />
+			<child name="Simple_Attendance" key="{0CB30713-0B42-47D9-B3EB-2B5B16A16BE8}" path="Simple_Attendance.js" />
+			<child name="Simple_Cash_Register" key="{4153D719-D1EA-4207-8FBD-74B4CB00FBAB}" path="Simple_Cash_Register.js" />
 		</folder>
 		<child name="ObjectRepository" key="{478B9CC6-DDFB-4919-8BE4-F1C8E1B40CCC}" path="ObjectRepository.js" />
 		<child name="Hooks" key="{C9DF2E7B-4AEE-4282-93C4-2FC8E0A04955}" path="Hooks.js" />

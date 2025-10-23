@@ -3,7 +3,7 @@ var KeyActions = require("KeyActions");
 var MetaActions = require("MetaActions");
 
 
-function Test(){
+function LogOnPrioriPOSWith_Test(){
     
    KeyActions.LaunchApp("PrioriPOSGUI", 20);
    MetaActions.LogOnPrioriPOS("2011","111"); 
