@@ -10,10 +10,9 @@
 	<config language="{90F89436-9452-4F95-9882-6B5210079F13}" />
 	<testItems key="{398A9040-8403-4A99-BA18-5CCB373D079C}" version="14">
 		<children>
-			<testItem name="ProjectTestItem1" key="{8C1CA739-A247-4F5E-96C9-69BCF1E74B59}" group="False" parallel="False" enabled="True" load="False" testMoniker="{A2C68003-BF08-4A8F-8BEB-9EA875D0A019}LogOnPrioriPOSWith" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True" lnID="{00000000-0000-0000-0000-000000000000}">
+			<testItem name="CloseProcessIfExists" key="{E278E6CC-6F05-4387-A2D3-8A1CD9390374}" group="False" parallel="False" enabled="True" load="False" testMoniker="{AAC72864-F7B2-4DCD-ACF7-A3668C82E5FE}CloseProcessIfExists" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True" lnID="{00000000-0000-0000-0000-000000000000}">
 				<testParameters>
-					<param0 name="User" type="3" localVarName="" varType="0" value="" />
-					<param1 name="PassWord" type="3" localVarName="" varType="0" value="" />
+					<param0 name="ProcessName" type="3" localVarName="" varType="0" value="" />
 				</testParameters>
 				<environments activeCloud="SWT" />
 				<children />

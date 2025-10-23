@@ -260,6 +260,7 @@ function WaitForElementReady(ObjElement, ElementIsEnabled) {
   let result = false;
   
   while (Elapsed < TimeOut) {
+    
     if (ObjElement.Exists) {
       ObjElement.Refresh();
       
