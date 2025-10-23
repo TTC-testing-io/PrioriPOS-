@@ -30,21 +30,28 @@ function BlinkObject(ObjectToBlink) {
 // _______________________________________________________________________________________________________________________________________________________________  
 
 function CloseProcessIfExists(ProcessName) {
-  
-  let wmi = Sys.OleObject("WbemScripting.SWbemLocator");
-  let service = wmi.ConnectServer(".", "root\\cimv2");
-  let processList = service.ExecQuery("SELECT * FROM Win32_Process WHERE Name = '" + ProcessName + ".exe'");
-
-  let enumProc = new Enumerator(processList);
-
-  for (; !enumProc.atEnd(); enumProc.moveNext()) {
+      
+      var WshShell = Sys.OleObject("WScript.Shell");
+      var command = 'taskkill /F /IM "' + ProcessName + '.exe"';
     
-    let process = enumProc.item();
-    process.Terminate();
-    Log.Message("Process '" + ProcessName + "' Closed.");
+      var result = WshShell.Run(command, 0, true);
     
-  }
-  
+      if (result === 0) {
+        
+        Log.Message("The application: '" + ProcessName + "' successfully closed");
+        return "success";
+        
+      } else if (result === 128) {
+        
+        //Log.Warning("The application: '" + ProcessName + "' is not running.");
+        return "Non trouvé";
+        
+      } else {
+        
+        Log.Error("Error closing application '" + ProcessName + "'. Code: " + result);
+        return "error";
+        
+      }     
 }
 // _______________________________________________________________________________________________________________________________________________________________  
 

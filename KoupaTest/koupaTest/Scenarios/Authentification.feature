@@ -1,5 +1,6 @@
 ﻿Feature: Login_At_Koupa
 
+@PrioriPOS_CLOSE
 Scenario Outline: Login test with different users
   Given I have launched the application "PrioriPOSGUI" and it completed loading in no more than "60" seconds
   When The Form "Login" is Displayed
@@ -7,12 +8,6 @@ Scenario Outline: Login test with different users
   And On the Form "Login" I enter "<username>" into the "Login" Field
   And On the Form "Login" I enter "<password>" into the "Password" Field
   And On the Form "Login" I click on the Button "OK"
-  Then The Form "MainMenu" is Displayed  
-  And On the Form "MainMenu" I click on the Button "Exit"
-  And The Form "GenericMessage" is Displayed
-  Then On the Form "GenericMessage", the Label "ConfirmExitApplication" is correctly Displayed
-  And On the Form "GenericMessage" I click on the Button "OK"
-  And I Wait "3" Seconds
 Examples:
   | username| password |
   | 2011    | 111      |

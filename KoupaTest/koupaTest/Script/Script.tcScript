@@ -11,5 +11,6 @@
 		<child name="Tools" key="{7D67F3B5-9AFE-4504-8CBD-610B4951BD0F}" path="Tools.js" />
 		<child name="Library" key="{AAC72864-F7B2-4DCD-ACF7-A3668C82E5FE}" path="Library.js" />
 		<child name="StepDefinitions" key="{ADCACF75-FDBE-461B-8696-9FD0D654B2DC}" path="StepDefinitions.js" />
+		<child name="MetaActions" key="{2708D26C-9893-4695-A9F9-03C48A29C506}" path="MetaActions.js" />
 	</children>
 </Root>

@@ -1,16 +1,18 @@
 ﻿
 var KeyActions = require("KeyActions");
+var MetaActions = require("MetaActions");
 
-function Test_ProgDesc(){
-  
- let MyTest;
-  
+
+function Test(){
+    
    KeyActions.LaunchApp("PrioriPOSGUI", 20);
-   KeyActions.FormIsDisplayed("PrioriPOSGUI","Login");
-
-   KeyActions.SetField("PrioriPOSGUI", "Login", "Login", "2011");
-   KeyActions.SetField("PrioriPOSGUI", "Login", "Password", "111");
-   KeyActions.ClickButton("PrioriPOSGUI", "Login", "OK");
+   MetaActions.LogOnPrioriPOS("2011","111"); 
    
 }
     
+function LogOnPrioriPOSWith(User, PassWord)
+{
+    KeyActions.LaunchApp("PrioriPOSGUI", 20);
+    MetaActions.LogOnPrioriPOS(User, PassWord); 
+   
+}

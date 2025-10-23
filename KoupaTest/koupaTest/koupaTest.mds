@@ -9,7 +9,15 @@
 	</children>
 	<config language="{90F89436-9452-4F95-9882-6B5210079F13}" />
 	<testItems key="{398A9040-8403-4A99-BA18-5CCB373D079C}" version="14">
-		<children />
+		<children>
+			<testItem name="CloseProcessIfExists" key="{E278E6CC-6F05-4387-A2D3-8A1CD9390374}" group="False" parallel="False" enabled="True" load="False" testMoniker="{AAC72864-F7B2-4DCD-ACF7-A3668C82E5FE}CloseProcessIfExists" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True" lnID="{00000000-0000-0000-0000-000000000000}">
+				<testParameters>
+					<param0 name="ProcessName" type="3" localVarName="" varType="0" value="" />
+				</testParameters>
+				<environments activeCloud="SWT" />
+				<children />
+			</testItem>
+		</children>
 	</testItems>
 	<variables key="{4E20EC7C-8145-4F91-9436-E11ADA3EA8C6}">
 		<data Version="4">

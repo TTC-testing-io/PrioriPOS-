@@ -8,6 +8,7 @@ function ReadOR() {
   let Fso;
   let DataFile;
   let Delimitor;
+  let StrError
   let Line;
   let TabLine;
   let StrKey;
@@ -47,7 +48,7 @@ function ReadOR() {
           } else {
         
             let StrMessageError = "Error at line : " + LineNumber;
-            let StrError = BuiltIn.InputBox(StrMessageError, "ObjectRepository Error", StrLine);
+            StrError = BuiltIn.InputBox("ObjectRepository Object Error", StrMessageError,  StrKey);
           }
         }
       }
@@ -250,7 +251,7 @@ function GetForm(ObjectRepo, ApplicationName, FormName) {
 }
 // _______________________________________________________________________________________________________________________________________________________________  
 
-function WaitForElementReady(ObjElement, ElementIsEnabled) {
+function WaitForElementReady2(ObjElement, ElementIsEnabled) {
   
   let TimeOut = 60000;
   let Interval = 250;
@@ -259,6 +260,7 @@ function WaitForElementReady(ObjElement, ElementIsEnabled) {
   let result = false;
   
   while (Elapsed < TimeOut) {
+    
     if (ObjElement.Exists) {
       ObjElement.Refresh();
       
