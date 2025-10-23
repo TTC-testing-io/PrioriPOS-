@@ -1,0 +1,97 @@
+﻿
+function Debug(StrValue) {
+  // ***************************************************************
+  // Function Name : Debug
+  // Description   : Pause script and show an inputbox with values.
+  // Parameters    : None
+  // Returns       : none
+  // Dependancies  : None
+  // ***************************************************************
+  
+  BuiltIn.InputBox("Debug", StrValue);
+  BuiltIn.InputBox(StrValue, "Debug", StrValue);
+}
+// _______________________________________________________________________________________________________________________________________________________________  
+
+function BlinkObject(ObjectToBlink) {
+  
+  let Interval = 200;
+  
+  ObjectToBlink.BorderStyle = 1;
+  Delay(Interval);
+  ObjectToBlink.BorderStyle = 2;
+  Delay(Interval);
+  ObjectToBlink.BorderStyle = 1;
+  Delay(Interval);
+  ObjectToBlink.BorderStyle = 0;
+  Delay(Interval);
+  
+}
+// _______________________________________________________________________________________________________________________________________________________________  
+
+function CloseProcessIfExists(ProcessName) {
+  
+  let wmi = Sys.OleObject("WbemScripting.SWbemLocator");
+  let service = wmi.ConnectServer(".", "root\\cimv2");
+  let processList = service.ExecQuery("SELECT * FROM Win32_Process WHERE Name = '" + ProcessName + ".exe'");
+
+  let enumProc = new Enumerator(processList);
+
+  for (; !enumProc.atEnd(); enumProc.moveNext()) {
+    
+    let process = enumProc.item();
+    process.Terminate();
+    Log.Message("Process '" + ProcessName + "' Closed.");
+    
+  }
+  
+}
+// _______________________________________________________________________________________________________________________________________________________________  
+
+function ExportStepDefinitions() {
+  
+  let Fso;
+  let DataFile;
+  let OutputFile;
+  let FilePath;
+  let OutputPath;
+  let StrLine;
+  
+  Fso = Sys.OleObject("Scripting.FileSystemObject");
+  
+  FilePath = Project.Path + "Script\\StepDefinitions.svb";
+  OutputPath = Project.Path + "Script\\" + "Steps.js";
+  
+  DataFile = Fso.OpenTextFile(FilePath, 1, false, 0); // Lecture ASCII
+  OutputFile = Fso.CreateTextFile(OutputPath, true); // Écrase si existe
+  
+  while (!DataFile.AtEndOfStream) {
+    
+    StrLine = aqString.Trim(DataFile.ReadLine());
+    
+    if (StrLine.indexOf("' [") !== -1) {
+      
+      StrLine = aqString.Replace(StrLine, "' [Given ", "Given('");
+      StrLine = aqString.Replace(StrLine, "' [When ", "When('");
+      StrLine = aqString.Replace(StrLine, "' [Then ", "Then('");
+      StrLine = aqString.Replace(StrLine, "]", "', () => {});");
+      
+      OutputFile.WriteLine(StrLine);
+      Log.Message(StrLine);
+      
+    }
+    
+  }
+  
+  DataFile.Close();
+  OutputFile.Close();
+  
+}
+// _______________________________________________________________________________________________________________________________________________________________
+
+// *** Exports************************************************ 
+module.exports.BlinkObject = BlinkObject;
+module.exports.CloseProcessIfExists = CloseProcessIfExists;
+module.exports.ExportStepDefinitions = ExportStepDefinitions;
+module.exports.Debug = Debug;
+// *********************************************************** 

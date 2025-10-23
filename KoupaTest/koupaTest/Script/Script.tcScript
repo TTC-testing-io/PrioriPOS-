@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Root signature="{9252F941-DB23-4FCA-AA50-858B33BB4A19}" version="11.40">
+	<children>
+		<folder name="Test Cases">
+			<child name="Simple_Authentification" key="{A2C68003-BF08-4A8F-8BEB-9EA875D0A019}" path="Simple_Authentification.js" />
+			<child name="Simple_Attendance" key="{4B796587-DFC7-4B60-BDB0-3F8B0C7A8BDE}" path="Simple_Attendance.js" />
+		</folder>
+		<child name="ObjectRepository" key="{478B9CC6-DDFB-4919-8BE4-F1C8E1B40CCC}" path="ObjectRepository.js" />
+		<child name="Hooks" key="{C9DF2E7B-4AEE-4282-93C4-2FC8E0A04955}" path="Hooks.js" />
+		<child name="KeyActions" key="{27DE12CD-16C2-45AA-ABD9-DD95BDD077FE}" path="KeyActions.js" />
+		<child name="Tools" key="{7D67F3B5-9AFE-4504-8CBD-610B4951BD0F}" path="Tools.js" />
+		<child name="Library" key="{AAC72864-F7B2-4DCD-ACF7-A3668C82E5FE}" path="Library.js" />
+		<child name="StepDefinitions" key="{ADCACF75-FDBE-461B-8696-9FD0D654B2DC}" path="StepDefinitions.js" />
+	</children>
+</Root>

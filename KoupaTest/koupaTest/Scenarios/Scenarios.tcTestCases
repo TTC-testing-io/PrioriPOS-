@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Scenarios>
+	<Folder Name="01 - Campaign">
+		<Feature Path="01 - Light_Iteration.feature" />
+		<Feature Path="02 - Simple Iteration.feature" />
+		<Feature Path="03 - Full Iteration.feature" />
+	</Folder>
+	<Folder Name="02 - Requirements">
+		<Feature Path="Attendance.feature" />
+		<Feature Path="Authentification.feature" />
+		<Feature Path="Cashier on break.feature" />
+		<Feature Path="Sanity Tests.feature" />
+		<Feature Path="Change Current Cashier.feature" />
+		<Feature Path="Cash Register.feature" />
+	</Folder>
+	<Folder Name="04 - Others">
+		<Feature Path="02 - In Progress.feature" />
+		<Feature Path="99 - Legacy.feature" />
+		<Feature Path="01 -To Validate.feature" />
+		<Feature Path="03 - SandBox.feature" />
+	</Folder>
+	<Folder Name="03 - Modules">
+		<Feature Path="01- Open And Close Cash Register.feature" />
+	</Folder>
+</Scenarios>

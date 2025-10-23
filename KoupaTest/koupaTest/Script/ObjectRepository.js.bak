@@ -1,0 +1,302 @@
+﻿
+// _______________________________________________________________________________________________________________________________________________________________  
+
+function ReadOR() {
+  
+  let DicObject = {};
+  
+  let Fso;
+  let DataFile;
+  let Delimitor;
+  let Line;
+  let TabLine;
+  let StrKey;
+  let StrValue;
+  let i;
+  let LineNumber = 0;
+  
+  let FilePath = Project.Path + "Stores\\Files\\ObjectRepository.txt";
+  Delimitor = ">>";
+  
+  Fso = Sys.OleObject("Scripting.FileSystemObject");
+  
+  if (Fso.FileExists(FilePath)) {
+    
+    // Open file on Unicode
+    DataFile = Fso.OpenTextFile(FilePath, 1, false, -1);
+ 
+      while (!DataFile.AtEndOfStream) {
+  
+        let StrLine = DataFile.ReadLine().trim(); // trim natif JS
+  
+        LineNumber++;
+
+        // Ignorer les lignes vides, celles qui commencent par un espace ou une étoile
+        if (StrLine !== "" && StrLine.charAt(0) !== " " && StrLine.charAt(0) !== "*") {
+
+          let TabLine = StrLine.split(Delimitor); // split natif JS
+
+          // Vérifier que la ligne contient au moins deux éléments et un seul ">"
+          if (TabLine.length >= 2 && CountConsecutiveChar(StrLine, ">") === 1) {
+
+            let StrKey = TabLine[0].trim();
+            let StrValue = TabLine[1].trim();
+        
+            DicObject[StrKey] = StrValue;
+
+          } else {
+        
+            let StrMessageError = "Error at line : " + LineNumber;
+            let StrError = BuiltIn.InputBox(StrMessageError, "ObjectRepository Error", StrLine);
+          }
+        }
+      }
+
+    DataFile.Close();
+    
+  } else {
+    
+    Log.Error("File Not Found : " + FilePath);
+    
+  }
+  
+  DataFile = null;
+  Fso = null;
+  
+  return DicObject;
+}
+// _______________________________________________________________________________________________________________________________________________________________  
+
+function CountConsecutiveChar(StrLine, Delimitor) {
+  
+  let i;
+  let Count = 0;
+  
+  for (i = 0; i < StrLine.length - 1; i++) {
+    if (StrLine.charAt(i) === Delimitor && StrLine.charAt(i + 1) === Delimitor) {
+      Count = Count + 1;
+    }
+  }
+  
+  return Count;
+}
+// _______________________________________________________________________________________________________________________________________________________________  
+
+function CheckObject(ObjectRepo, StrKey, ObjectType, ObjectName) {
+  
+  let StrValue;
+  let StrMessageError;
+  let StrError;
+  let Delimitor;
+  let TabValue;
+  let ApplicationName;
+  
+  TabValue = StrKey.split(".");
+  ApplicationName = TabValue[1];
+  
+  Delimitor = "####";
+  
+  StrValue = ObjectRepo[StrKey];
+  
+  if (StrValue === "" || StrValue === undefined) {
+    
+    StrMessageError = "The " + ObjectType + " : " + ObjectName + " of the Application : " + ApplicationName + " does not exist on the Object Repository";
+    StrError = BuiltIn.InputBox("ObjectRepository Object Error", StrMessageError,  StrKey);
+  
+  }
+  
+  if (StrValue && StrValue.indexOf(Delimitor) !== -1) {
+    
+    TabValue = StrValue.split(Delimitor);
+    StrValue = TabValue[0];
+    
+  }
+  
+  return StrValue;
+  
+}
+// _______________________________________________________________________________________________________________________________________________________________  
+
+function GetStaticParameter(ObjectRepo, ApplicationName, FormName, ObjectType, ObjectName) {
+  
+  let StrValue;
+  let StrMessageError;
+  let StrError;
+  let Delimitor;
+  let TabValue;
+  let StrKey;
+  let ORObjectName;
+  
+  StrKey = ApplicationName + "." + FormName + "." + ObjectType + "." + ObjectName;
+  ORObjectName = CheckObject(ObjectRepo, StrKey, ObjectType, ObjectName);
+  
+  StrValue = ObjectRepo[StrKey];
+  
+  Delimitor = "####";
+  
+  if (StrValue && StrValue.indexOf(Delimitor) !== -1) {
+    TabValue = StrValue.split(Delimitor);
+    StrValue = TabValue[1];
+  } else {
+    
+   StrError = BuiltIn.InputBox("ObjectRepository Object Error", StrMessageError,  StrKey);
+    
+  }
+  
+  return StrValue;
+  
+}
+// _______________________________________________________________________________________________________________________________________________________________  
+
+function CheckForm(ObjectRepo, StrKey, ObjectName) {
+  
+  let StrValue;
+  let StrMessageError;
+  let StrError;
+  let TabValue;
+  let ApplicationName;
+
+  TabValue = StrKey.split(".");
+  ApplicationName = TabValue[0];
+  
+  StrValue = ObjectRepo[StrKey];
+  
+  if (StrValue === "" || StrValue === undefined) {
+    
+    StrMessageError = "The Form : '" + ObjectName + "' of the Application : '" + ApplicationName + "' does not exist on the Object Repository";
+    StrError = BuiltIn.InputBox("ObjectRepository Object Error", StrMessageError,  StrKey);
+    
+  }
+  
+  return StrValue;
+  
+}
+// _______________________________________________________________________________________________________________________________________________________________  
+
+function GetElement(ObjectRepo, ApplicationName, FormName, ObjectType, ObjectName) {
+  
+  let StrKey;
+  let OrFormName;
+  let ORObjectName;
+  let ObjApplication;
+  let ObjScreen;
+  let ObjElement;
+  
+  StrKey = ApplicationName + ".Form." + FormName;
+  OrFormName = CheckForm(ObjectRepo, StrKey, FormName);
+  
+  StrKey = ApplicationName + "." + FormName + "." + ObjectType + "." + ObjectName;
+  ORObjectName = CheckObject(ObjectRepo, StrKey, ObjectType, ObjectName);
+  
+  ObjApplication = Sys.Process(ApplicationName);
+  
+  ObjScreen = ObjApplication.WinFormsObject(OrFormName);
+  
+  ObjElement = ObjScreen.FindChild("WinFormsControlName", ORObjectName, 15, true);
+  
+  WaitForElementReady(ObjElement, true);
+  
+  return ObjElement;
+  
+}
+// _______________________________________________________________________________________________________________________________________________________________  
+
+function GetDisabledElement(ObjectRepo, ApplicationName, FormName, ObjectType, ObjectName) {
+  
+  let StrKey;
+  let OrFormName;
+  let ORObjectName;
+  let ObjApplication;
+  let ObjScreen;
+  let ObjElement;
+  
+  StrKey = ApplicationName + ".Form." + FormName;
+  OrFormName = CheckForm(ObjectRepo, StrKey, FormName);
+  
+  StrKey = ApplicationName + "." + FormName + "." + ObjectType + "." + ObjectName;
+  ORObjectName = CheckObject(ObjectRepo, StrKey, ObjectType, ObjectName);
+  
+  ObjApplication = Sys.Process(ApplicationName);
+  
+  ObjScreen = ObjApplication.WinFormsObject(OrFormName);
+  
+  ObjElement = ObjScreen.FindChild("WinFormsControlName", ORObjectName, 15, true);
+  
+  WaitForElementReady(ObjElement, false);
+  
+  return ObjElement;
+  
+}
+// _______________________________________________________________________________________________________________________________________________________________  
+
+function GetForm(ObjectRepo, ApplicationName, FormName) {
+  
+  let StrKey;
+  let OrFormName;
+  let ObjApplication;
+  let ObjForm;
+    
+  StrKey = ApplicationName + ".Form." + FormName;
+  
+  OrFormName = CheckForm(ObjectRepo, StrKey, FormName);
+  
+  ObjApplication = Sys.Process(ApplicationName);
+  
+  ObjForm = ObjApplication.WinFormsObject(OrFormName);
+  
+  WaitForElementReady(ObjForm, false);
+  
+  return ObjForm;
+}
+// _______________________________________________________________________________________________________________________________________________________________  
+
+function WaitForElementReady(ObjElement, ElementIsEnabled) {
+  
+  let TimeOut = 60000;
+  let Interval = 250;
+  let Elapsed = 0;
+  
+  let result = false;
+  
+  while (Elapsed < TimeOut) {
+    if (ObjElement.Exists) {
+      ObjElement.Refresh();
+      
+      if (ElementIsEnabled === true) {
+        
+        if (ObjElement.WaitProperty("Visible", true, 0) && ObjElement.WaitProperty("Enabled", true, 0)) {
+          result = true;
+          return result;
+          
+        }
+        
+      } else {
+        
+        if (ObjElement.WaitProperty("Visible", true, 0)) {
+          
+          result = true;
+          return result;
+          
+        }
+      }
+    }
+    
+    Delay(Interval);
+    Elapsed = Elapsed + Interval;
+  }
+  
+  return result;
+}
+// _________________________________________________________________________________________________________________________________________________________________
+
+// *** Exports*********************************************** 
+module.exports.ReadOR = ReadOR;
+module.exports.CountConsecutiveChar = CountConsecutiveChar;
+module.exports.CheckObject = CheckObject;
+module.exports.GetStaticParameter = GetStaticParameter;
+module.exports.CheckForm = CheckForm;
+module.exports.GetElement = GetElement;
+module.exports.GetDisabledElement = GetDisabledElement;
+module.exports.GetForm = GetForm;
+module.exports.WaitForElementReady = WaitForElementReady;
+// **********************************************************

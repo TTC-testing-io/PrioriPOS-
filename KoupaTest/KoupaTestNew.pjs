@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Root signature="{24B6FA0B-0143-461A-9758-AEB9E9A9428B}" version="15.0" key="{0EFD24B6-4EED-4218-BD31-29E0888AE225}">
+	<children>
+		<child name="koupaTest" key="{E48F5BB8-15A0-4D00-A35D-B6AD5FCE3AA0}" path="koupaTest\koupaTest.mds" />
+	</children>
+	<testItems key="{D792722A-0677-4329-A244-6FB91434ECD2}">
+		<children>
+			<testItem key="{E48F5BB8-15A0-4D00-A35D-B6AD5FCE3AA0}" enabled="True" timeout="0" stopOnError="True" description="" />
+		</children>
+	</testItems>
+	<variables key="{F1B111A0-8092-4FDD-ADD8-4559C25BD9C5}" />
+	<analysis key="{25561FB9-0DFD-45ED-AFEF-DC0234212CFF}" />
+	<scc key="{00000000-0000-0000-0000-000000000000}" name="">
+		<data />
+	</scc>
+</Root>

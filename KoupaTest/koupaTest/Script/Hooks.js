@@ -1,0 +1,76 @@
+﻿
+// *** Includes************************************* 
+var KeyActions = require("KeyActions");
+var ObjectRepository = require("ObjectRepository");
+var Library = require("Library");
+//**************************************************
+
+// _________________________________________________________________________________________________________________________________________________________________
+
+// [BeforeScenario]
+BeforeScenario(function(scenario) {
+// scenario parameter contains the Scenario object with Tags property
+    
+  if (scenario.Tags.Contains("@PrioriPOS_User1")) {
+    
+    Log.Message("Before : Launch PriroriPOS with User1 => 2011|111");
+    
+    Project.Variables.APP_NAME = "PrioriPOSGUI";
+    APP_NAME = Project.Variables.APP_NAME  
+     
+    LogOnPrioriPosWith(APP_NAME, "2011", "111");
+    
+  } else if (scenario.Tags.Contains("@PrioriPOS_UserRetail")) {
+    
+    Log.Message("Before : Launch PriroriPOS with User1 => 0987|0987");
+    
+    Project.Variables.APP_NAME = "PrioriPOSGUI";
+    APP_NAME = Project.Variables.APP_NAME  
+    
+    LogOnPrioriPosWith(APP_NAME,"0987", "0987");
+    
+  } 
+  
+})
+// _________________________________________________________________________________________________________________________________________________________________
+
+// [AfterScenario]
+AfterScenario(function(scenario) {
+// scenario parameter contains the Scenario object with Tags property
+    
+  if (scenario.Tags.Contains("@PrioriPOS_CLOSE")) {
+    
+    Log.Message("After : Close PriroriPOS With confirmation");
+    
+    APP_NAME = Project.Variables.APP_NAME  
+    
+    KeyActions.FormIsDisplayed(APP_NAME, "MainMenu");
+    KeyActions.ClickButton(APP_NAME, "MainMenu", "Exit");
+    KeyActions.FormIsDisplayed(APP_NAME, "GenericMessage");
+    KeyActions.CheckLabel(APP_NAME, "GenericMessage", "StaticLabel", "ConfirmExitApplication", "");
+    KeyActions.ClickButton(APP_NAME, "GenericMessage", "OK");
+    KeyActions.Wait(3);
+    
+  } 
+     
+})
+// _________________________________________________________________________________________________________________________________________________________________
+
+function LogOnPrioriPosWith(APP_NAME, StrLogin, StrPassword) {
+  
+  Library.CloseProcessIfExists(APP_NAME);
+  
+  KeyActions.LaunchApp(APP_NAME, 60);
+  
+  KeyActions.FormIsDisplayed(APP_NAME, "Login");
+  KeyActions.CheckLabel(APP_NAME, "Login", "StaticLabel", "TitleLogin", "");
+  KeyActions.SetField(APP_NAME, "Login", "Login", StrLogin);
+  KeyActions.SetField(APP_NAME, "Login", "Password", StrPassword);
+  KeyActions.ClickButton(APP_NAME, "Login", "OK");
+    
+}
+// _________________________________________________________________________________________________________________________________________________________________
+
+// ***Exports****************************************** 
+module.exports.LogOnPrioriPosWith = LogOnPrioriPosWith;
+//*****************************************************
