@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Root signature="{9252F941-DB23-4FCA-AA50-858B33BB4A19}" version="11.40">
+	<children>
+		<child name="DemoQA" key="{ECDF6046-FE23-4AD1-AED8-2EE4E5B47116}" path="DemoQA.svb" />
+	</children>
+</Root>

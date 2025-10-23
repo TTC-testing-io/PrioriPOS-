@@ -1,0 +1,301 @@
+﻿  
+Public Function ReadOR()
+  
+  Set DicObject = CreateObject("Scripting.Dictionary")
+  
+  Dim Fso
+  Dim DataFile
+  Dim Delimitor
+  Dim Line
+  Dim TabLine
+  Dim StrKey
+  Dim StrValue
+  dim i
+  
+  FilePath = Project.Path & "Stores\Files\ObjectRepository.txt" 
+  Delimitor = ">>"
+
+  Set Fso = CreateObject("Scripting.FileSystemObject")
+  
+  If Fso.FileExists(FilePath) Then
+  
+    'Open file on Unicode
+   Set DataFile = Fso.OpenTextFile(FilePath, 1, False, -1)
+    
+    While Not DataFile.AtEndOfStream
+      StrLine = Trim(DataFile.ReadLine)
+      LineNumber = LineNumber + 1
+      
+      ' Ignore empty lines  and lines beginning with "*" and
+      
+      If StrLine <> "" And Left(StrLine, 1) <> " " And Left(StrLine, 1) <> "*" Then
+      
+        TabLine = Split(StrLine, Delimitor)
+        
+        'Test if delimitor is properly used on the ObjectRepository.txt file
+        If UBound(TabLine) >= 1 And CountConsecutiveChar(StrLine,">") = 1 Then
+        
+          StrKey = Trim(TabLine(0))
+          StrValue = Trim(TabLine(1))
+          Call DicObject.Add(CStr(StrKey), CStr(StrValue))
+          
+        Else
+        
+            StrMessageError = "Error at line : " & LineNumber
+            StrError =  InputBox(StrMessageError,"ObjectRepository Object Error", StrLine)
+            
+        End If
+        
+      End If
+      
+    Wend
+
+    DataFile.Close
+    
+  Else
+  
+    Call Log.Error("File Not Found : " & FilePath)
+    
+  End If
+  
+  Set DataFile = Nothing
+  Set Fso = Nothing
+
+  Set ReadOR = DicObject
+  
+End Function
+'_______________________________________________________________________________________________________________________________________________________________  
+
+Public Function CountConsecutiveChar(StrLine, Delimitor)
+
+  Dim i
+  Dim Count
+  
+  Count = 0
+
+  For i = 1 To Len(StrLine) - 1
+  
+    If Mid(StrLine, i, 1) = Delimitor And Mid(StrLine, i + 1, 1) = Delimitor Then
+    
+      Count = Count + 1
+      
+    End If
+    
+  Next
+
+  CountConsecutiveChar = Count
+  
+End Function
+'_______________________________________________________________________________________________________________________________________________________________  
+
+Public Function CheckObject(ObjectRepo, StrKey, ObjectType, ObjectName)
+
+Dim StrValue
+Dim StrMessageError
+Dim StrError
+Dim Delimitor 
+
+  TabValue = Split(StrKey,".")
+  ApplicationName = TabValue(1)
+     
+  Delimitor = "####"  
+
+  StrValue = ObjectRepo(Cstr(StrKey))
+  
+    If StrValue = "" Then
+  
+      StrMessageError = "The " & ObjectType & " : " & ObjectName  & " of the Application : " & ApplicationName & " does not exist on the Object Repository"
+  
+      StrError =  InputBox(StrMessageError,"ObjectRepository Object Error", StrKey)
+    
+    End If
+    
+    If Instr(StrValue, Delimitor) <> 0 Then
+    
+     TabValue = Split(StrValue, Delimitor)
+     StrValue = TabValue(0)
+      
+    End if  
+     
+  CheckObject = StrValue
+   
+End Function
+'_______________________________________________________________________________________________________________________________________________________________  
+
+Public Function GetStaticParameter(ObjectRepo, ApplicationName, FormName, ObjectType, ObjectName)
+
+Dim StrValue
+Dim StrMessageError
+Dim StrError
+Dim Delimitor
+
+  StrKey = ApplicationName & "." & FormName & "." & ObjectType & "." & ObjectName
+  ORObjectName = CheckObject(ObjectRepo, StrKey, ObjectType, ObjectName) 
+
+  StrValue = ObjectRepo(Cstr(StrKey))
+  
+  Delimitor = "####"  
+
+    If Instr(StrValue, Delimitor) <> 0 Then
+    
+      TabValue = Split(StrValue, Delimitor)
+      StrValue = TabValue(1)
+    
+    Else
+    
+      StrError =  InputBox(StrMessageError,"ObjectRepository Object Error", StrKey)  
+       
+    End if
+     
+  GetStaticParameter = StrValue
+   
+End Function  
+'_______________________________________________________________________________________________________________________________________________________________  
+
+Public Function CheckForm(ObjectRepo, StrKey, ObjectName)
+
+Dim StrValue
+Dim StrMessageError
+Dim StrError
+
+  TabValue = Split(StrKey,".")
+  ApplicationName = TabValue(0)
+  
+  StrValue = ObjectRepo(Cstr(StrKey))
+  
+    If StrValue = "" Then
+     
+      StrMessageError = "The Form : '" & ObjectName  & "' of the Application : '" & ApplicationName & "' does not exist on the Object Repository"
+  
+      StrError =  InputBox(StrMessageError,"ObjectRepository Form Error", StrKey)
+    
+    End If 
+    
+  CheckForm = StrValue
+   
+End Function  
+'_______________________________________________________________________________________________________________________________________________________________  
+
+Public Function GetElement(ObjectRepo, ApplicationName, FormName, ObjectType, ObjectName)
+
+Dim StrKey
+Dim OrFormName
+Dim ORObjectName
+Dim ObjApplication
+Dim ObjScreen
+
+  StrKey = ApplicationName & ".Form." & FormName
+  OrFormName = CheckForm(ObjectRepo, StrKey, FormName)
+  
+  StrKey = ApplicationName & "." & FormName & "." & ObjectType & "." & ObjectName
+  ORObjectName = CheckObject(ObjectRepo, StrKey, ObjectType, ObjectName)
+  
+  Set ObjApplication = Sys.Process(ApplicationName)
+  	
+	Set ObjScreen = ObjApplication.WinFormsObject(OrFormName)
+  
+  Set ObjElement = ObjScreen.FindChild("WinFormsControlName", ORObjectName, 15, True)
+  
+  Call WaitForElementReady(ObjElement, True)
+    
+  Set GetElement = ObjElement
+  
+End function
+'_______________________________________________________________________________________________________________________________________________________________  
+
+Public Function GetDisabledElement(ObjectRepo, ApplicationName, FormName, ObjectType, ObjectName)
+
+Dim StrKey
+Dim OrFormName
+Dim ORObjectName
+Dim ObjApplication
+Dim ObjScreen
+
+  StrKey = ApplicationName & ".Form." & FormName
+  OrFormName = CheckForm(ObjectRepo, StrKey, FormName)
+  
+  StrKey = ApplicationName & "." & FormName & "." & ObjectType & "." & ObjectName
+  ORObjectName = CheckObject(ObjectRepo, StrKey, ObjectType, ObjectName)
+  
+  Set ObjApplication = Sys.Process(ApplicationName)
+  	
+	Set ObjScreen = ObjApplication.WinFormsObject(OrFormName)
+  
+  Set ObjElement = ObjScreen.FindChild("WinFormsControlName", ORObjectName, 15, True)
+  
+  Call WaitForElementReady(ObjElement, False)
+    
+  Set GetDisabledElement = ObjElement
+  
+End function
+'_______________________________________________________________________________________________________________________________________________________________  
+
+Public function GetForm(ObjectRepo, ApplicationName, FormName)
+
+Dim StrKey
+Dim OrFormName
+Dim ObjApplication
+
+	StrKey = ApplicationName & ".Form." & FormName
+	  
+  OrFormName = CheckForm(ObjectRepo, StrKey, FormName)
+  
+  Set ObjApplication = Sys.Process(ApplicationName)
+  
+  Set ObjForm = ObjApplication.WinFormsObject(OrFormName)
+  
+  Call WaitForElementReady(ObjForm, False)
+    
+  Set GetForm = ObjForm
+      
+End Function
+'_______________________________________________________________________________________________________________________________________________________________  
+
+Function WaitForElementReady(ObjElement, ElementIsEnabled)
+
+  Dim TimeOut
+  Dim Interval
+  Dim Elapsed
+  
+  TimeOut = 60000 
+  Interval = 250  
+  Elapsed = 0
+  
+  WaitForElementReady = False
+  
+    While Elapsed < TimeOut
+  
+        If ObjElement.Exists Then
+    
+          ObjElement.Refresh()
+          
+          Select Case ElementIsEnabled 
+          
+            Case True 
+     
+             If ObjElement.WaitProperty("Visible", True, 0) And ObjElement.WaitProperty("Enabled", True, 0)  Then
+            
+                 WaitForElementReady = True
+                 Exit Function
+        
+               End If
+           
+             Case False   
+           
+                If ObjElement.WaitProperty("Visible", True, 0) Then
+            
+                    WaitForElementReady = True
+                    Exit Function
+        
+                End If
+           
+           End Select
+      
+        End If
+    
+    Call Delay(Interval)
+    Elapsed = Elapsed + Interval
+    
+    Wend
+  
+End Function

@@ -1,0 +1,467 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Root signature="{B9D9273E-7266-43E0-BF02-97F168593604}" version="15.0">
+	<TestData Description="" Key="{863F371F-FD10-406D-A01B-EB7997BE0878}" Type="{79147B28-EE20-4294-B773-1D3787FBF37B}">
+		<Data>
+			<Extenders>
+				<NodeBitmaps>
+					<Bitmap Name="Aliases.browser.page502BadGateway" Data="61717A697000000001000000361000007801ED977B4C53571CC7B914FF11C64C79C81F53FC4785359400092DE5615757AC5445C16856DCA67B649B0BDB747F4CB70CD90C6E032533222E1312962D48A2F23081880681E17C0CC7C34EC634C652916D3C157ADBDE3EEE6FE75C2CB93DEDBD14FCD793FC7ACEEF9C7BCFE77B7EBF73EEBDD56C4E5D16C49554F41B876CD553A3B816729E8EA3D6F3B2C00850C15470444284266E4F7CB9FAD02B171A1A1A1A4B06672CFA3E379BDD353E91FECBF51BB2CF8E1F8F4CD36A298944B2C0E9052F475CC94BDA15EF669D52DFD7D5E780C7DACC5760CA09B0E34F16F4FDDEA6B9F8C014BB73EF5E2A24244470E20006C25684BDAC3A9A7ECBC3E4D786965D403BADD034E6CDE66BC93CDBD7FFC21AB93C0094CF255129D17A6DED86193E936C9F3656818B05F8F06F610DBA9B163A46B36D9B0F40A403B3379CDDE82079A4BFA9710B0C4D9BC168019F1CF0E390D3E370C6ACCFCB1341CE0DE198A3755B4896907FA0EB73C0A574483806588BEE266D0D5F9B983807F2D3C07B4D7534E30F2196507FD770178C3B00B61BC535649D371A8343962CF183E6BAF03E1762F0FB3737E6C241B4EE8ABE4A6427E1D8AD7270BA9D706E549C8FE3B0CA5058E8974F05515995EA7B7C0ED9DE58AF87938839657F0CC0B2C04E8D807B7218C0EDE272E0447BF1BD41710D9AD6213325F13D975299741DC9E3FB987DC974996339AED701FDFD76B0946838A38FE502D35E05E064A0675A7C2FE21844A5EB74640CD6BE11F71D9F47B64FF5FFC0ADD97EBE788EEBE17B6ADBCF9F701ACACDE231901D3C5141F2530F2B3B48A6C7DFD2B415A6996970F6360BB23D1A985F6BE03F066013F14CE49FC78CDADFBB49BEBA4A33ECE1917595B19ACBAFB5FAFD79F9382F28505078573806D9572727497E769D8E26B9D87FADB9003D67698E6FF9463B2F1FC781A5A7A0C424CCC7B1F0E19FF1CF6F355D029B0D6D6C542CA53981F1ED33F0F503617E4E9FCB4DF2D5A7350FC9F57FD4FE313A662C14153DC1C70D6C7507E6E55B7F7C9BD3BAE72F61BEB673748CE4A77EA5B8C2E7E3F3363031001D1D76484B1B856BD718700DF583E5C87A510DCE3B6D70679EF781EAA7ABBF91FCD5863587F9FCD2EE32601816F2F32738BEC130C1E5C1D15D8F34BCEA5703D35ECDBD0FF7DF135E3BCE7DFCFEB23292FFE2EA65A91EFED60B79306E1D879A1A9A63E3F563DBB7EF31D0340BEE9141B0371D01BA127D035418C076EE10B84CBD68D703548FB0F0FA80B849933333493EF6D3CB33FAB086338375303AEA068D66CC8B8F35E078B4B4D8381D5CA217F8D38B8A3F36EE8B498BC9DFDDFA16302E068A8B9FF8B03D71C07546C6AC169C9785985CFEE917427CD44F9DA8AD68361A1DA052CDC69CCF7CD67672728F4922090D13E10745A35250609E7E561679BF52F9C8111EAEF49B77524F4444EE0EA5F21F1739C7E2FD7FDD51513BDF243962BE54AACF532886E8C53367F3A7503CB44746E61BC45842634B97C627C8E56D3D8BD59098D8793B3434214968FE40FA29F467263A7AD73B494937EE06AA2329A9FBFEF2E5BB3FA0A810C16FBD40D8DED75014DE3F2B577EF9AD4CD6D8919272FB914261B6A21C59715B266BEA8C8D2D2A0D0F57AD0B0A0A0EF6BEF7B9271481FF017CFFB349" />
+					<Bitmap Name="Aliases.browser.pageDemoqa" Data="61717A697000000001000000361000007801ED977B4C53571CC7B914FF11C64C79C81F53FC4785359400092DE5615757AC5445C16856DCA67B649B0BDB747F4CB70CD90C6E032533222E1312962D48A2F23081880681E17C0CC7C34EC634C652916D3C157ADBDE3EEE6FE75C2CB93DEDBD14FCD793FC7ACEEF9C7BCFE77B7EBF73EEBDD56C4E5D16C49554F41B876CD553A3B816729E8EA3D6F3B2C00850C15470444284266E4F7CB9FAD02B171A1A1A1A4B06672CFA3E379BDD353E91FECBF51BB2CF8E1F8F4CD36A298944B2C0E9052F475CC94BDA15EF669D52DFD7D5E780C7DACC5760CA09B0E34F16F4FDDEA6B9F8C014BB73EF5E2A24244470E20006C25684BDAC3A9A7ECBC3E4D786965D403BADD034E6CDE66BC93CDBD7FFC21AB93C0094CF255129D17A6DED86193E936C9F3656818B05F8F06F610DBA9B163A46B36D9B0F40A403B3379CDDE82079A4BFA9710B0C4D9BC168019F1CF0E390D3E370C6ACCFCB1341CE0DE198A3755B4896907FA0EB73C0A574483806588BEE266D0D5F9B983807F2D3C07B4D7534E30F2196507FD770178C3B00B61BC535649D371A8343962CF183E6BAF03E1762F0FB3737E6C241B4EE8ABE4A6427E1D8AD7270BA9D706E549C8FE3B0CA5058E8974F05515995EA7B7C0ED9DE58AF87938839657F0CC0B2C04E8D807B7218C0EDE272E0447BF1BD41710D9AD6213325F13D975299741DC9E3FB987DC974996339AED701FDFD76B0946838A38FE502D35E05E064A0675A7C2FE21844A5EB74640CD6BE11F71D9F47B64FF5FFC0ADD97EBE788EEBE17B6ADBCF9F701ACACDE231901D3C5141F2530F2B3B48A6C7DFD2B415A6996970F6360BB23D1A985F6BE03F066013F14CE49FC78CDADFBB49BEBA4A33ECE1917595B19ACBAFB5FAFD79F9382F28505078573806D9572727497E769D8E26B9D87FADB9003D67698E6FF9463B2F1FC781A5A7A0C424CCC7B1F0E19FF1CF6F355D029B0D6D6C542CA53981F1ED33F0F503617E4E9FCB4DF2D5A7350FC9F57FD4FE313A662C14153DC1C70D6C7507E6E55B7F7C9BD3BAE72F61BEB673748CE4A77EA5B8C2E7E3F3363031001D1D76484B1B856BD718700DF583E5C87A510DCE3B6D70679EF781EAA7ABBF91FCD5863587F9FCD2EE32601816F2F32738BEC130C1E5C1D15D8F34BCEA5703D35ECDBD0FF7DF135E3BCE7DFCFEB23292FFE2EA65A91EFED60B79306E1D879A1A9A63E3F563DBB7EF31D0340BEE9141B0371D01BA127D035418C076EE10B84CBD68D703548FB0F0FA80B849933333493EF6D3CB33FAB086338375303AEA068D66CC8B8F35E078B4B4D8381D5CA217F8D38B8A3F36EE8B498BC9DFDDFA16302E068A8B9FF8B03D71C07546C6AC169C9785985CFEE917427CD44F9DA8AD68361A1DA052CDC69CCF7CD67672728F4922090D13E10745A35250609E7E561679BF52F9C8111EAEF49B77524F4444EE0EA5F21F1739C7E2FD7FDD51513BDF243962BE54AACF532886E8C53367F3A7503CB44746E61BC45842634B97C627C8E56D3D8BD59098D8793B3434214968FE40FA29F467263A7AD73B494937EE06AA2329A9FBFEF2E5BB3FA0A810C16FBD40D8DED75014DE3F2B577EF9AD4CD6D8919272FB914261B6A21C59715B266BEA8C8D2D2A0D0F57AD0B0A0A0EF6BEF7B9271481FF017CFFB349" />
+					<Bitmap Name="Aliases.browser.pageDemoqa2" Data="61717A697000000001000000361000007801ED977B4C53571CC7B914FF11C64C79C81F53FC4785359400092DE5615757AC5445C16856DCA67B649B0BDB747F4CB70CD90C6E032533222E1312962D48A2F23081880681E17C0CC7C34EC634C652916D3C157ADBDE3EEE6FE75C2CB93DEDBD14FCD793FC7ACEEF9C7BCFE77B7EBF73EEBDD56C4E5D16C49554F41B876CD553A3B816729E8EA3D6F3B2C00850C15470444284266E4F7CB9FAD02B171A1A1A1A4B06672CFA3E379BDD353E91FECBF51BB2CF8E1F8F4CD36A298944B2C0E9052F475CC94BDA15EF669D52DFD7D5E780C7DACC5760CA09B0E34F16F4FDDEA6B9F8C014BB73EF5E2A24244470E20006C25684BDAC3A9A7ECBC3E4D786965D403BADD034E6CDE66BC93CDBD7FFC21AB93C0094CF255129D17A6DED86193E936C9F3656818B05F8F06F610DBA9B163A46B36D9B0F40A403B3379CDDE82079A4BFA9710B0C4D9BC168019F1CF0E390D3E370C6ACCFCB1341CE0DE198A3755B4896907FA0EB73C0A574483806588BEE266D0D5F9B983807F2D3C07B4D7534E30F2196507FD770178C3B00B61BC535649D371A8343962CF183E6BAF03E1762F0FB3737E6C241B4EE8ABE4A6427E1D8AD7270BA9D706E549C8FE3B0CA5058E8974F05515995EA7B7C0ED9DE58AF87938839657F0CC0B2C04E8D807B7218C0EDE272E0447BF1BD41710D9AD6213325F13D975299741DC9E3FB987DC974996339AED701FDFD76B0946838A38FE502D35E05E064A0675A7C2FE21844A5EB74640CD6BE11F71D9F47B64FF5FFC0ADD97EBE788EEBE17B6ADBCF9F701ACACDE231901D3C5141F2530F2B3B48A6C7DFD2B415A6996970F6360BB23D1A985F6BE03F066013F14CE49FC78CDADFBB49BEBA4A33ECE1917595B19ACBAFB5FAFD79F9382F28505078573806D9572727497E769D8E26B9D87FADB9003D67698E6FF9463B2F1FC781A5A7A0C424CCC7B1F0E19FF1CF6F355D029B0D6D6C542CA53981F1ED33F0F503617E4E9FCB4DF2D5A7350FC9F57FD4FE313A662C14153DC1C70D6C7507E6E55B7F7C9BD3BAE72F61BEB673748CE4A77EA5B8C2E7E3F3363031001D1D76484B1B856BD718700DF583E5C87A510DCE3B6D70679EF781EAA7ABBF91FCD5863587F9FCD2EE32601816F2F32738BEC130C1E5C1D15D8F34BCEA5703D35ECDBD0FF7DF135E3BCE7DFCFEB23292FFE2EA65A91EFED60B79306E1D879A1A9A63E3F563DBB7EF31D0340BEE9141B0371D01BA127D035418C076EE10B84CBD68D703548FB0F0FA80B849933333493EF6D3CB33FAB086338375303AEA068D66CC8B8F35E078B4B4D8381D5CA217F8D38B8A3F36EE8B498BC9DFDDFA16302E068A8B9FF8B03D71C07546C6AC169C9785985CFEE917427CD44F9DA8AD68361A1DA052CDC69CCF7CD67672728F4922090D13E10745A35250609E7E561679BF52F9C8111EAEF49B77524F4444EE0EA5F21F1739C7E2FD7FDD51513BDF243962BE54AACF532886E8C53367F3A7503CB44746E61BC45842634B97C627C8E56D3D8BD59098D8793B3434214968FE40FA29F467263A7AD73B494937EE06AA2329A9FBFEF2E5BB3FA0A810C16FBD40D8DED75014DE3F2B577EF9AD4CD6D8919272FB914261B6A21C59715B266BEA8C8D2D2A0D0F57AD0B0A0A0EF6BEF7B9271481FF017CFFB349" />
+					<Bitmap Name="Aliases.browser.pageDemoqa2.formUserform" Data="61717A697000000001000000361000007801ED977B4C53571CC7B914FF11C64C79C81F53FC4785359400092DE5615757AC5445C16856DCA67B649B0BDB747F4CB70CD90C6E032533222E1312962D48A2F23081880681E17C0CC7C34EC634C652916D3C157ADBDE3EEE6FE75C2CB93DEDBD14FCD793FC7ACEEF9C7BCFE77B7EBF73EEBDD56C4E5D16C49554F41B876CD553A3B816729E8EA3D6F3B2C00850C15470444284266E4F7CB9FAD02B171A1A1A1A4B06672CFA3E379BDD353E91FECBF51BB2CF8E1F8F4CD36A298944B2C0E9052F475CC94BDA15EF669D52DFD7D5E780C7DACC5760CA09B0E34F16F4FDDEA6B9F8C014BB73EF5E2A24244470E20006C25684BDAC3A9A7ECBC3E4D786965D403BADD034E6CDE66BC93CDBD7FFC21AB93C0094CF255129D17A6DED86193E936C9F3656818B05F8F06F610DBA9B163A46B36D9B0F40A403B3379CDDE82079A4BFA9710B0C4D9BC168019F1CF0E390D3E370C6ACCFCB1341CE0DE198A3755B4896907FA0EB73C0A574483806588BEE266D0D5F9B983807F2D3C07B4D7534E30F2196507FD770178C3B00B61BC535649D371A8343962CF183E6BAF03E1762F0FB3737E6C241B4EE8ABE4A6427E1D8AD7270BA9D706E549C8FE3B0CA5058E8974F05515995EA7B7C0ED9DE58AF87938839657F0CC0B2C04E8D807B7218C0EDE272E0447BF1BD41710D9AD6213325F13D975299741DC9E3FB987DC974996339AED701FDFD76B0946838A38FE502D35E05E064A0675A7C2FE21844A5EB74640CD6BE11F71D9F47B64FF5FFC0ADD97EBE788EEBE17B6ADBCF9F701ACACDE231901D3C5141F2530F2B3B48A6C7DFD2B415A6996970F6360BB23D1A985F6BE03F066013F14CE49FC78CDADFBB49BEBA4A33ECE1917595B19ACBAFB5FAFD79F9382F28505078573806D9572727497E769D8E26B9D87FADB9003D67698E6FF9463B2F1FC781A5A7A0C424CCC7B1F0E19FF1CF6F355D029B0D6D6C542CA53981F1ED33F0F503617E4E9FCB4DF2D5A7350FC9F57FD4FE313A662C14153DC1C70D6C7507E6E55B7F7C9BD3BAE72F61BEB673748CE4A77EA5B8C2E7E3F3363031001D1D76484B1B856BD718700DF583E5C87A510DCE3B6D70679EF781EAA7ABBF91FCD5863587F9FCD2EE32601816F2F32738BEC130C1E5C1D15D8F34BCEA5703D35ECDBD0FF7DF135E3BCE7DFCFEB23292FFE2EA65A91EFED60B79306E1D879A1A9A63E3F563DBB7EF31D0340BEE9141B0371D01BA127D035418C076EE10B84CBD68D703548FB0F0FA80B849933333493EF6D3CB33FAB086338375303AEA068D66CC8B8F35E078B4B4D8381D5CA217F8D38B8A3F36EE8B498BC9DFDDFA16302E068A8B9FF8B03D71C07546C6AC169C9785985CFEE917427CD44F9DA8AD68361A1DA052CDC69CCF7CD67672728F4922090D13E10745A35250609E7E561679BF52F9C8111EAEF49B77524F4444EE0EA5F21F1739C7E2FD7FDD51513BDF243962BE54AACF532886E8C53367F3A7503CB44746E61BC45842634B97C627C8E56D3D8BD59098D8793B3434214968FE40FA29F467263A7AD73B494937EE06AA2329A9FBFEF2E5BB3FA0A810C16FBD40D8DED75014DE3F2B577EF9AD4CD6D8919272FB914261B6A21C59715B266BEA8C8D2D2A0D0F57AD0B0A0A0EF6BEF7B9271481FF017CFFB349" />
+				</NodeBitmaps>
+			</Extenders>
+		</Data>
+		<Children>
+			<Operation Type="{98EACF50-FA7B-4595-8EDC-4C0B21157A52}">
+				<Data Description="Launches the specified browser and opens the specified URL in it." BrowserName="chrome">
+					<Parameters LangId="{897793E3-73F3-4895-A956-3D41D3A24A45}">
+						<Parameter Name="URL" DefVarType="8" DefValueType="6" DefValueValue="" VarType="8" ValueType="6" ValueValue="https://demoqa.com/" />
+						<Parameter Name="PageLoadWaitTime" DefVarType="3" DefValueType="1" DefValueValue="-1" VarType="3" ValueType="1" ValueValue="-1" />
+					</Parameters>
+				</Data>
+			</Operation>
+			<Operation Type="{575D0372-CCEB-4D0F-AFE8-D2004F108913}">
+				<Data Description="Clicks the &apos;%n&apos; object." Action="Click">
+					<Parameters LangId="{897793E3-73F3-4895-A956-3D41D3A24A45}">
+						<Parameter Name="ClientX" DefVarType="3" DefValueType="1" DefValueValue="-1" VarType="3" ValueType="1" ValueValue="208" />
+						<Parameter Name="ClientY" DefVarType="3" DefValueType="1" DefValueValue="-1" VarType="3" ValueType="1" ValueValue="144" />
+						<Parameter Name="Shift" DefVarType="12" DefValueType="1" DefValueValue="0" VarType="3" ValueType="1" ValueValue="0">
+							<Values IsEnum="True">
+								<Value Type="1" Value="0" Text="skNoShift" />
+								<Value Type="1" Value="8192" Text="skShift" />
+								<Value Type="1" Value="32768" Text="skAlt" />
+								<Value Type="1" Value="16384" Text="skCtrl" />
+							</Values>
+						</Parameter>
+					</Parameters>
+					<ObjectSyntax LangId="{897793E3-73F3-4895-A956-3D41D3A24A45}" Code="Aliases.browser.BrowserWindow" />
+				</Data>
+			</Operation>
+			<Operation Type="{575D0372-CCEB-4D0F-AFE8-D2004F108913}">
+				<Data Description="Clicks the &apos;%n&apos; object." Action="Click">
+					<Parameters LangId="{897793E3-73F3-4895-A956-3D41D3A24A45}">
+						<Parameter Name="ClientX" DefVarType="3" DefValueType="1" DefValueValue="-1" VarType="3" ValueType="1" ValueValue="208" />
+						<Parameter Name="ClientY" DefVarType="3" DefValueType="1" DefValueValue="-1" VarType="3" ValueType="1" ValueValue="144" />
+						<Parameter Name="Shift" DefVarType="12" DefValueType="1" DefValueValue="0" VarType="3" ValueType="1" ValueValue="0">
+							<Values IsEnum="True">
+								<Value Type="1" Value="0" Text="skNoShift" />
+								<Value Type="1" Value="8192" Text="skShift" />
+								<Value Type="1" Value="32768" Text="skAlt" />
+								<Value Type="1" Value="16384" Text="skCtrl" />
+							</Values>
+						</Parameter>
+					</Parameters>
+					<ObjectSyntax LangId="{897793E3-73F3-4895-A956-3D41D3A24A45}" Code="Aliases.browser.BrowserWindow" />
+				</Data>
+			</Operation>
+			<Operation Type="{575D0372-CCEB-4D0F-AFE8-D2004F108913}">
+				<Data Description="Maximizes the specified Window object." Action="Maximize">
+					<ObjectSyntax LangId="{897793E3-73F3-4895-A956-3D41D3A24A45}" Code="Aliases.browser.BrowserWindow" />
+				</Data>
+			</Operation>
+			<Operation Type="{575D0372-CCEB-4D0F-AFE8-D2004F108913}">
+				<Data Description="Clicks the &apos;%n&apos; control." Action="Click">
+					<Parameters LangId="{897793E3-73F3-4895-A956-3D41D3A24A45}">
+						<Parameter Name="ClientX" DefVarType="3" DefValueType="1" DefValueValue="-1" VarType="3" ValueType="1" ValueValue="-1" />
+						<Parameter Name="ClientY" DefVarType="3" DefValueType="1" DefValueValue="-1" VarType="3" ValueType="1" ValueValue="-1" />
+						<Parameter Name="Shift" DefVarType="12" DefValueType="1" DefValueValue="0" VarType="3" ValueType="1" ValueValue="0">
+							<Values IsEnum="True">
+								<Value Type="1" Value="0" Text="skNoShift" />
+								<Value Type="1" Value="8192" Text="skShift" />
+								<Value Type="1" Value="32768" Text="skAlt" />
+								<Value Type="1" Value="16384" Text="skCtrl" />
+							</Values>
+						</Parameter>
+					</Parameters>
+					<ObjectSyntax LangId="{897793E3-73F3-4895-A956-3D41D3A24A45}" Code="Aliases.browser.page502BadGateway.textnode" />
+				</Data>
+			</Operation>
+			<Operation Type="{575D0372-CCEB-4D0F-AFE8-D2004F108913}">
+				<Data Description="Waits until the browser loads the page and is ready to accept user input." Action="Wait">
+					<Parameters LangId="{897793E3-73F3-4895-A956-3D41D3A24A45}">
+						<Parameter Name="WaitTime" DefVarType="3" DefValueType="1" DefValueValue="-1" VarType="3" ValueType="1" ValueValue="-1" />
+					</Parameters>
+					<ObjectSyntax LangId="{897793E3-73F3-4895-A956-3D41D3A24A45}" Code="Aliases.browser.pageDemoqa" />
+				</Data>
+			</Operation>
+			<Operation Type="{575D0372-CCEB-4D0F-AFE8-D2004F108913}">
+				<Data Description="Clicks the &apos;%n&apos; control." Action="Click">
+					<Parameters LangId="{897793E3-73F3-4895-A956-3D41D3A24A45}">
+						<Parameter Name="ClientX" DefVarType="3" DefValueType="1" DefValueValue="-1" VarType="3" ValueType="1" ValueValue="-1" />
+						<Parameter Name="ClientY" DefVarType="3" DefValueType="1" DefValueValue="-1" VarType="3" ValueType="1" ValueValue="-1" />
+						<Parameter Name="Shift" DefVarType="12" DefValueType="1" DefValueValue="0" VarType="3" ValueType="1" ValueValue="0">
+							<Values IsEnum="True">
+								<Value Type="1" Value="0" Text="skNoShift" />
+								<Value Type="1" Value="8192" Text="skShift" />
+								<Value Type="1" Value="32768" Text="skAlt" />
+								<Value Type="1" Value="16384" Text="skCtrl" />
+							</Values>
+						</Parameter>
+					</Parameters>
+					<ObjectSyntax LangId="{897793E3-73F3-4895-A956-3D41D3A24A45}" Code="Aliases.browser.pageDemoqa.panelForms" />
+				</Data>
+			</Operation>
+			<Operation Type="{575D0372-CCEB-4D0F-AFE8-D2004F108913}">
+				<Data Description="Clicks the &apos;%n&apos; control." Action="Click">
+					<Parameters LangId="{897793E3-73F3-4895-A956-3D41D3A24A45}">
+						<Parameter Name="ClientX" DefVarType="3" DefValueType="1" DefValueValue="-1" VarType="3" ValueType="1" ValueValue="-1" />
+						<Parameter Name="ClientY" DefVarType="3" DefValueType="1" DefValueValue="-1" VarType="3" ValueType="1" ValueValue="-1" />
+						<Parameter Name="Shift" DefVarType="12" DefValueType="1" DefValueValue="0" VarType="3" ValueType="1" ValueValue="0">
+							<Values IsEnum="True">
+								<Value Type="1" Value="0" Text="skNoShift" />
+								<Value Type="1" Value="8192" Text="skShift" />
+								<Value Type="1" Value="32768" Text="skAlt" />
+								<Value Type="1" Value="16384" Text="skCtrl" />
+							</Values>
+						</Parameter>
+					</Parameters>
+					<ObjectSyntax LangId="{897793E3-73F3-4895-A956-3D41D3A24A45}" Code="Aliases.browser.pageDemoqa.panelForms" />
+				</Data>
+			</Operation>
+			<Operation Type="{575D0372-CCEB-4D0F-AFE8-D2004F108913}">
+				<Data Description="Clicks the &apos;%n&apos; control." Action="Click">
+					<Parameters LangId="{897793E3-73F3-4895-A956-3D41D3A24A45}">
+						<Parameter Name="ClientX" DefVarType="3" DefValueType="1" DefValueValue="-1" VarType="3" ValueType="1" ValueValue="-1" />
+						<Parameter Name="ClientY" DefVarType="3" DefValueType="1" DefValueValue="-1" VarType="3" ValueType="1" ValueValue="-1" />
+						<Parameter Name="Shift" DefVarType="12" DefValueType="1" DefValueValue="0" VarType="3" ValueType="1" ValueValue="0">
+							<Values IsEnum="True">
+								<Value Type="1" Value="0" Text="skNoShift" />
+								<Value Type="1" Value="8192" Text="skShift" />
+								<Value Type="1" Value="32768" Text="skAlt" />
+								<Value Type="1" Value="16384" Text="skCtrl" />
+							</Values>
+						</Parameter>
+					</Parameters>
+					<ObjectSyntax LangId="{897793E3-73F3-4895-A956-3D41D3A24A45}" Code="Aliases.browser.pageDemoqa.textnodePracticeForm.textnodeItem0.textnodePracticeForm2" />
+				</Data>
+			</Operation>
+			<Operation Type="{575D0372-CCEB-4D0F-AFE8-D2004F108913}">
+				<Data Description="Waits until the browser loads the page and is ready to accept user input." Action="Wait">
+					<Parameters LangId="{897793E3-73F3-4895-A956-3D41D3A24A45}">
+						<Parameter Name="WaitTime" DefVarType="3" DefValueType="1" DefValueValue="-1" VarType="3" ValueType="1" ValueValue="-1" />
+					</Parameters>
+					<ObjectSyntax LangId="{897793E3-73F3-4895-A956-3D41D3A24A45}" Code="Aliases.browser.pageDemoqa2" />
+				</Data>
+			</Operation>
+			<Operation Type="{575D0372-CCEB-4D0F-AFE8-D2004F108913}">
+				<Data Description="Sets the text %p1 in the &apos;%n&apos; text editor." Action="SetText">
+					<Parameters LangId="{897793E3-73F3-4895-A956-3D41D3A24A45}">
+						<Parameter Name="Text" DefVarType="8" VarType="8" ValueType="6" ValueValue="nom" />
+					</Parameters>
+					<ObjectSyntax LangId="{897793E3-73F3-4895-A956-3D41D3A24A45}" Code="Aliases.browser.pageDemoqa2.formUserform.textboxFirstname" />
+				</Data>
+			</Operation>
+			<Operation Type="{575D0372-CCEB-4D0F-AFE8-D2004F108913}">
+				<Data Description="Enters %p1 in the &apos;%n&apos; object." Action="Keys">
+					<Parameters LangId="{897793E3-73F3-4895-A956-3D41D3A24A45}">
+						<Parameter Name="Keys" DefVarType="8" VarType="8" ValueType="6" ValueValue="[Tab]" />
+					</Parameters>
+					<ObjectSyntax LangId="{897793E3-73F3-4895-A956-3D41D3A24A45}" Code="Aliases.browser.pageDemoqa2.formUserform.textboxFirstname" />
+				</Data>
+			</Operation>
+			<Operation Type="{575D0372-CCEB-4D0F-AFE8-D2004F108913}">
+				<Data Description="Sets the text %p1 in the &apos;%n&apos; text editor." Action="SetText">
+					<Parameters LangId="{897793E3-73F3-4895-A956-3D41D3A24A45}">
+						<Parameter Name="Text" DefVarType="8" VarType="8" ValueType="6" ValueValue="prenom" />
+					</Parameters>
+					<ObjectSyntax LangId="{897793E3-73F3-4895-A956-3D41D3A24A45}" Code="Aliases.browser.pageDemoqa2.formUserform.textboxLastname" />
+				</Data>
+			</Operation>
+			<Operation Type="{575D0372-CCEB-4D0F-AFE8-D2004F108913}">
+				<Data Description="Enters %p1 in the &apos;%n&apos; object." Action="Keys">
+					<Parameters LangId="{897793E3-73F3-4895-A956-3D41D3A24A45}">
+						<Parameter Name="Keys" DefVarType="8" VarType="8" ValueType="6" ValueValue="[Tab]" />
+					</Parameters>
+					<ObjectSyntax LangId="{897793E3-73F3-4895-A956-3D41D3A24A45}" Code="Aliases.browser.pageDemoqa2.formUserform.textboxLastname" />
+				</Data>
+			</Operation>
+			<Operation Type="{575D0372-CCEB-4D0F-AFE8-D2004F108913}">
+				<Data Description="Sets the text %p1 in the &apos;%n&apos; text editor." Action="SetText">
+					<Parameters LangId="{897793E3-73F3-4895-A956-3D41D3A24A45}">
+						<Parameter Name="Text" DefVarType="8" VarType="8" ValueType="6" ValueValue="unemail" />
+					</Parameters>
+					<ObjectSyntax LangId="{897793E3-73F3-4895-A956-3D41D3A24A45}" Code="Aliases.browser.pageDemoqa2.formUserform.textboxUseremail" />
+				</Data>
+			</Operation>
+			<Operation Type="{575D0372-CCEB-4D0F-AFE8-D2004F108913}">
+				<Data Description="Enters %p1 in the &apos;%n&apos; object." Action="Keys">
+					<Parameters LangId="{897793E3-73F3-4895-A956-3D41D3A24A45}">
+						<Parameter Name="Keys" DefVarType="8" VarType="8" ValueType="6" ValueValue="~[ReleaseLast][ReleaseLast]~^à" />
+					</Parameters>
+					<ObjectSyntax LangId="{897793E3-73F3-4895-A956-3D41D3A24A45}" Code="Aliases.browser.pageDemoqa2.formUserform.textboxUseremail" />
+				</Data>
+			</Operation>
+			<Operation Type="{575D0372-CCEB-4D0F-AFE8-D2004F108913}">
+				<Data Description="Sets the text %p1 in the &apos;%n&apos; text editor." Action="SetText">
+					<Parameters LangId="{897793E3-73F3-4895-A956-3D41D3A24A45}">
+						<Parameter Name="Text" DefVarType="8" VarType="8" ValueType="6" ValueValue="unemail@test" />
+					</Parameters>
+					<ObjectSyntax LangId="{897793E3-73F3-4895-A956-3D41D3A24A45}" Code="Aliases.browser.pageDemoqa2.formUserform.textboxUseremail" />
+				</Data>
+			</Operation>
+			<Operation Type="{575D0372-CCEB-4D0F-AFE8-D2004F108913}">
+				<Data Description="Sets the text %p1 in the &apos;%n&apos; text editor." Action="SetText">
+					<Parameters LangId="{897793E3-73F3-4895-A956-3D41D3A24A45}">
+						<Parameter Name="Text" DefVarType="8" VarType="8" ValueType="6" ValueValue="unemail@test.com" />
+					</Parameters>
+					<ObjectSyntax LangId="{897793E3-73F3-4895-A956-3D41D3A24A45}" Code="Aliases.browser.pageDemoqa2.formUserform.textboxUseremail" />
+				</Data>
+			</Operation>
+			<Operation Type="{575D0372-CCEB-4D0F-AFE8-D2004F108913}">
+				<Data Description="Clicks the &apos;%n&apos; control." Action="Click">
+					<Parameters LangId="{897793E3-73F3-4895-A956-3D41D3A24A45}">
+						<Parameter Name="ClientX" DefVarType="3" DefValueType="1" DefValueValue="-1" VarType="3" ValueType="1" ValueValue="-1" />
+						<Parameter Name="ClientY" DefVarType="3" DefValueType="1" DefValueValue="-1" VarType="3" ValueType="1" ValueValue="-1" />
+						<Parameter Name="Shift" DefVarType="12" DefValueType="1" DefValueValue="0" VarType="3" ValueType="1" ValueValue="0">
+							<Values IsEnum="True">
+								<Value Type="1" Value="0" Text="skNoShift" />
+								<Value Type="1" Value="8192" Text="skShift" />
+								<Value Type="1" Value="32768" Text="skAlt" />
+								<Value Type="1" Value="16384" Text="skCtrl" />
+							</Values>
+						</Parameter>
+					</Parameters>
+					<ObjectSyntax LangId="{897793E3-73F3-4895-A956-3D41D3A24A45}" Code="Aliases.browser.pageDemoqa2.formUserform.labelMale" />
+				</Data>
+			</Operation>
+			<Operation Type="{575D0372-CCEB-4D0F-AFE8-D2004F108913}">
+				<Data Description="Enters %p1 in the &apos;%n&apos; object." Action="Keys">
+					<Parameters LangId="{897793E3-73F3-4895-A956-3D41D3A24A45}">
+						<Parameter Name="Keys" DefVarType="8" VarType="8" ValueType="6" ValueValue="0" />
+					</Parameters>
+					<ObjectSyntax LangId="{897793E3-73F3-4895-A956-3D41D3A24A45}" Code="Aliases.browser.pageDemoqa2.formUserform.textboxUsernumber" />
+				</Data>
+			</Operation>
+			<Operation Type="{575D0372-CCEB-4D0F-AFE8-D2004F108913}">
+				<Data Description="Sets the text %p1 in the &apos;%n&apos; text editor." Action="SetText">
+					<Parameters LangId="{897793E3-73F3-4895-A956-3D41D3A24A45}">
+						<Parameter Name="Text" DefVarType="8" VarType="8" ValueType="6" ValueValue="0620010203" />
+					</Parameters>
+					<ObjectSyntax LangId="{897793E3-73F3-4895-A956-3D41D3A24A45}" Code="Aliases.browser.pageDemoqa2.formUserform.textboxUsernumber" />
+				</Data>
+			</Operation>
+			<Operation Type="{575D0372-CCEB-4D0F-AFE8-D2004F108913}">
+				<Data Description="Clicks the &apos;%n&apos; control." Action="Click">
+					<Parameters LangId="{897793E3-73F3-4895-A956-3D41D3A24A45}">
+						<Parameter Name="ClientX" DefVarType="3" DefValueType="1" DefValueValue="-1" VarType="3" ValueType="1" ValueValue="-1" />
+						<Parameter Name="ClientY" DefVarType="3" DefValueType="1" DefValueValue="-1" VarType="3" ValueType="1" ValueValue="-1" />
+						<Parameter Name="Shift" DefVarType="12" DefValueType="1" DefValueValue="0" VarType="3" ValueType="1" ValueValue="0">
+							<Values IsEnum="True">
+								<Value Type="1" Value="0" Text="skNoShift" />
+								<Value Type="1" Value="8192" Text="skShift" />
+								<Value Type="1" Value="32768" Text="skAlt" />
+								<Value Type="1" Value="16384" Text="skCtrl" />
+							</Values>
+						</Parameter>
+					</Parameters>
+					<ObjectSyntax LangId="{897793E3-73F3-4895-A956-3D41D3A24A45}" Code="Aliases.browser.pageDemoqa2.formUserform.textboxDateofbirthinput" />
+				</Data>
+			</Operation>
+			<Operation Type="{575D0372-CCEB-4D0F-AFE8-D2004F108913}">
+				<Data Description="Clicks the &apos;%n&apos; control." Action="Click">
+					<Parameters LangId="{897793E3-73F3-4895-A956-3D41D3A24A45}">
+						<Parameter Name="ClientX" DefVarType="3" DefValueType="1" DefValueValue="-1" VarType="3" ValueType="1" ValueValue="-1" />
+						<Parameter Name="ClientY" DefVarType="3" DefValueType="1" DefValueValue="-1" VarType="3" ValueType="1" ValueValue="-1" />
+						<Parameter Name="Shift" DefVarType="12" DefValueType="1" DefValueValue="0" VarType="3" ValueType="1" ValueValue="0">
+							<Values IsEnum="True">
+								<Value Type="1" Value="0" Text="skNoShift" />
+								<Value Type="1" Value="8192" Text="skShift" />
+								<Value Type="1" Value="32768" Text="skAlt" />
+								<Value Type="1" Value="16384" Text="skCtrl" />
+							</Values>
+						</Parameter>
+					</Parameters>
+					<ObjectSyntax LangId="{897793E3-73F3-4895-A956-3D41D3A24A45}" Code="Aliases.browser.pageDemoqa2.formUserform.panel19" />
+				</Data>
+			</Operation>
+			<Operation Type="{575D0372-CCEB-4D0F-AFE8-D2004F108913}">
+				<Data Description="Clicks the &apos;%n&apos; control." Action="Click">
+					<Parameters LangId="{897793E3-73F3-4895-A956-3D41D3A24A45}">
+						<Parameter Name="ClientX" DefVarType="3" DefValueType="1" DefValueValue="-1" VarType="3" ValueType="1" ValueValue="-1" />
+						<Parameter Name="ClientY" DefVarType="3" DefValueType="1" DefValueValue="-1" VarType="3" ValueType="1" ValueValue="-1" />
+						<Parameter Name="Shift" DefVarType="12" DefValueType="1" DefValueValue="0" VarType="3" ValueType="1" ValueValue="0">
+							<Values IsEnum="True">
+								<Value Type="1" Value="0" Text="skNoShift" />
+								<Value Type="1" Value="8192" Text="skShift" />
+								<Value Type="1" Value="32768" Text="skAlt" />
+								<Value Type="1" Value="16384" Text="skCtrl" />
+							</Values>
+						</Parameter>
+					</Parameters>
+					<ObjectSyntax LangId="{897793E3-73F3-4895-A956-3D41D3A24A45}" Code="Aliases.browser.pageDemoqa2.formUserform.panel" />
+				</Data>
+			</Operation>
+			<Operation Type="{575D0372-CCEB-4D0F-AFE8-D2004F108913}">
+				<Data Description="Sets the text %p1 in the &apos;%n&apos; text editor." Action="SetText">
+					<Parameters LangId="{897793E3-73F3-4895-A956-3D41D3A24A45}">
+						<Parameter Name="Text" DefVarType="8" VarType="8" ValueType="6" ValueValue="u" />
+					</Parameters>
+					<ObjectSyntax LangId="{897793E3-73F3-4895-A956-3D41D3A24A45}" Code="Aliases.browser.pageDemoqa2.formUserform.textboxSubjectsinput" />
+				</Data>
+			</Operation>
+			<Operation Type="{575D0372-CCEB-4D0F-AFE8-D2004F108913}">
+				<Data Description="Enters %p1 in the &apos;%n&apos; object." Action="Keys">
+					<Parameters LangId="{897793E3-73F3-4895-A956-3D41D3A24A45}">
+						<Parameter Name="Keys" DefVarType="8" VarType="8" ValueType="6" ValueValue="[Down][Enter]" />
+					</Parameters>
+					<ObjectSyntax LangId="{897793E3-73F3-4895-A956-3D41D3A24A45}" Code="Aliases.browser.pageDemoqa2.formUserform.textboxSubjectsinput" />
+				</Data>
+			</Operation>
+			<Operation Type="{575D0372-CCEB-4D0F-AFE8-D2004F108913}">
+				<Data Description="Clicks the &apos;%n&apos; control." Action="Click">
+					<Parameters LangId="{897793E3-73F3-4895-A956-3D41D3A24A45}">
+						<Parameter Name="ClientX" DefVarType="3" DefValueType="1" DefValueValue="-1" VarType="3" ValueType="1" ValueValue="-1" />
+						<Parameter Name="ClientY" DefVarType="3" DefValueType="1" DefValueValue="-1" VarType="3" ValueType="1" ValueValue="-1" />
+						<Parameter Name="Shift" DefVarType="12" DefValueType="1" DefValueValue="0" VarType="3" ValueType="1" ValueValue="0">
+							<Values IsEnum="True">
+								<Value Type="1" Value="0" Text="skNoShift" />
+								<Value Type="1" Value="8192" Text="skShift" />
+								<Value Type="1" Value="32768" Text="skAlt" />
+								<Value Type="1" Value="16384" Text="skCtrl" />
+							</Values>
+						</Parameter>
+					</Parameters>
+					<ObjectSyntax LangId="{897793E3-73F3-4895-A956-3D41D3A24A45}" Code="Aliases.browser.pageDemoqa2.formUserform.panelSports" />
+				</Data>
+			</Operation>
+			<Operation Type="{575D0372-CCEB-4D0F-AFE8-D2004F108913}">
+				<Data Description="Clicks the &apos;%n&apos; control." Action="Click">
+					<Parameters LangId="{897793E3-73F3-4895-A956-3D41D3A24A45}">
+						<Parameter Name="ClientX" DefVarType="3" DefValueType="1" DefValueValue="-1" VarType="3" ValueType="1" ValueValue="-1" />
+						<Parameter Name="ClientY" DefVarType="3" DefValueType="1" DefValueValue="-1" VarType="3" ValueType="1" ValueValue="-1" />
+						<Parameter Name="Shift" DefVarType="12" DefValueType="1" DefValueValue="0" VarType="3" ValueType="1" ValueValue="0">
+							<Values IsEnum="True">
+								<Value Type="1" Value="0" Text="skNoShift" />
+								<Value Type="1" Value="8192" Text="skShift" />
+								<Value Type="1" Value="32768" Text="skAlt" />
+								<Value Type="1" Value="16384" Text="skCtrl" />
+							</Values>
+						</Parameter>
+					</Parameters>
+					<ObjectSyntax LangId="{897793E3-73F3-4895-A956-3D41D3A24A45}" Code="Aliases.browser.pageDemoqa2.formUserform.labelSports" />
+				</Data>
+			</Operation>
+			<Operation Type="{575D0372-CCEB-4D0F-AFE8-D2004F108913}">
+				<Data Description="Clicks the &apos;%n&apos; control." Action="Click">
+					<Parameters LangId="{897793E3-73F3-4895-A956-3D41D3A24A45}">
+						<Parameter Name="ClientX" DefVarType="3" DefValueType="1" DefValueValue="-1" VarType="3" ValueType="1" ValueValue="-1" />
+						<Parameter Name="ClientY" DefVarType="3" DefValueType="1" DefValueValue="-1" VarType="3" ValueType="1" ValueValue="-1" />
+						<Parameter Name="Shift" DefVarType="12" DefValueType="1" DefValueValue="0" VarType="3" ValueType="1" ValueValue="0">
+							<Values IsEnum="True">
+								<Value Type="1" Value="0" Text="skNoShift" />
+								<Value Type="1" Value="8192" Text="skShift" />
+								<Value Type="1" Value="32768" Text="skAlt" />
+								<Value Type="1" Value="16384" Text="skCtrl" />
+							</Values>
+						</Parameter>
+					</Parameters>
+					<ObjectSyntax LangId="{897793E3-73F3-4895-A956-3D41D3A24A45}" Code="Aliases.browser.pageDemoqa2.formUserform.labelReading" />
+				</Data>
+			</Operation>
+			<Operation Type="{575D0372-CCEB-4D0F-AFE8-D2004F108913}">
+				<Data Description="Clicks the &apos;%n&apos; control." Action="Click">
+					<Parameters LangId="{897793E3-73F3-4895-A956-3D41D3A24A45}">
+						<Parameter Name="ClientX" DefVarType="3" DefValueType="1" DefValueValue="-1" VarType="3" ValueType="1" ValueValue="-1" />
+						<Parameter Name="ClientY" DefVarType="3" DefValueType="1" DefValueValue="-1" VarType="3" ValueType="1" ValueValue="-1" />
+						<Parameter Name="Shift" DefVarType="12" DefValueType="1" DefValueValue="0" VarType="3" ValueType="1" ValueValue="0">
+							<Values IsEnum="True">
+								<Value Type="1" Value="0" Text="skNoShift" />
+								<Value Type="1" Value="8192" Text="skShift" />
+								<Value Type="1" Value="32768" Text="skAlt" />
+								<Value Type="1" Value="16384" Text="skCtrl" />
+							</Values>
+						</Parameter>
+					</Parameters>
+					<ObjectSyntax LangId="{897793E3-73F3-4895-A956-3D41D3A24A45}" Code="Aliases.browser.pageDemoqa2.formUserform.labelMusic" />
+				</Data>
+			</Operation>
+			<Operation Type="{575D0372-CCEB-4D0F-AFE8-D2004F108913}">
+				<Data Description="Clicks the &apos;%n&apos; control." Action="Click">
+					<Parameters LangId="{897793E3-73F3-4895-A956-3D41D3A24A45}">
+						<Parameter Name="ClientX" DefVarType="3" DefValueType="1" DefValueValue="-1" VarType="3" ValueType="1" ValueValue="-1" />
+						<Parameter Name="ClientY" DefVarType="3" DefValueType="1" DefValueValue="-1" VarType="3" ValueType="1" ValueValue="-1" />
+						<Parameter Name="Shift" DefVarType="12" DefValueType="1" DefValueValue="0" VarType="3" ValueType="1" ValueValue="0">
+							<Values IsEnum="True">
+								<Value Type="1" Value="0" Text="skNoShift" />
+								<Value Type="1" Value="8192" Text="skShift" />
+								<Value Type="1" Value="32768" Text="skAlt" />
+								<Value Type="1" Value="16384" Text="skCtrl" />
+							</Values>
+						</Parameter>
+					</Parameters>
+					<ObjectSyntax LangId="{897793E3-73F3-4895-A956-3D41D3A24A45}" Code="Aliases.browser.pageDemoqa2.formUserform.vg" />
+				</Data>
+			</Operation>
+			<Operation Type="{575D0372-CCEB-4D0F-AFE8-D2004F108913}">
+				<Data Description="Sets the text %p1 in the &apos;%n&apos; text editor." Action="SetText">
+					<Parameters LangId="{897793E3-73F3-4895-A956-3D41D3A24A45}">
+						<Parameter Name="Text" DefVarType="8" VarType="8" ValueType="6" ValueValue="" />
+					</Parameters>
+					<ObjectSyntax LangId="{897793E3-73F3-4895-A956-3D41D3A24A45}" Code="Aliases.browser.pageDemoqa2.formUserform.textboxReactSelect3Input" />
+				</Data>
+			</Operation>
+			<Operation Type="{575D0372-CCEB-4D0F-AFE8-D2004F108913}">
+				<Data Description="Clicks the &apos;%n&apos; control." Action="Click">
+					<Parameters LangId="{897793E3-73F3-4895-A956-3D41D3A24A45}">
+						<Parameter Name="ClientX" DefVarType="3" DefValueType="1" DefValueValue="-1" VarType="3" ValueType="1" ValueValue="-1" />
+						<Parameter Name="ClientY" DefVarType="3" DefValueType="1" DefValueValue="-1" VarType="3" ValueType="1" ValueValue="-1" />
+						<Parameter Name="Shift" DefVarType="12" DefValueType="1" DefValueValue="0" VarType="3" ValueType="1" ValueValue="0">
+							<Values IsEnum="True">
+								<Value Type="1" Value="0" Text="skNoShift" />
+								<Value Type="1" Value="8192" Text="skShift" />
+								<Value Type="1" Value="32768" Text="skAlt" />
+								<Value Type="1" Value="16384" Text="skCtrl" />
+							</Values>
+						</Parameter>
+					</Parameters>
+					<ObjectSyntax LangId="{897793E3-73F3-4895-A956-3D41D3A24A45}" Code="Aliases.browser.pageDemoqa2.formUserform.panelReactSelect3Option0" />
+				</Data>
+			</Operation>
+			<Operation Type="{575D0372-CCEB-4D0F-AFE8-D2004F108913}">
+				<Data Description="Clicks the &apos;%n&apos; control." Action="Click">
+					<Parameters LangId="{897793E3-73F3-4895-A956-3D41D3A24A45}">
+						<Parameter Name="ClientX" DefVarType="3" DefValueType="1" DefValueValue="-1" VarType="3" ValueType="1" ValueValue="-1" />
+						<Parameter Name="ClientY" DefVarType="3" DefValueType="1" DefValueValue="-1" VarType="3" ValueType="1" ValueValue="-1" />
+						<Parameter Name="Shift" DefVarType="12" DefValueType="1" DefValueValue="0" VarType="3" ValueType="1" ValueValue="0">
+							<Values IsEnum="True">
+								<Value Type="1" Value="0" Text="skNoShift" />
+								<Value Type="1" Value="8192" Text="skShift" />
+								<Value Type="1" Value="32768" Text="skAlt" />
+								<Value Type="1" Value="16384" Text="skCtrl" />
+							</Values>
+						</Parameter>
+					</Parameters>
+					<ObjectSyntax LangId="{897793E3-73F3-4895-A956-3D41D3A24A45}" Code="Aliases.browser.pageDemoqa2.formUserform.panelSelectCity" />
+				</Data>
+			</Operation>
+			<Operation Type="{575D0372-CCEB-4D0F-AFE8-D2004F108913}">
+				<Data Description="Clicks the &apos;%n&apos; control." Action="Click">
+					<Parameters LangId="{897793E3-73F3-4895-A956-3D41D3A24A45}">
+						<Parameter Name="ClientX" DefVarType="3" DefValueType="1" DefValueValue="-1" VarType="3" ValueType="1" ValueValue="-1" />
+						<Parameter Name="ClientY" DefVarType="3" DefValueType="1" DefValueValue="-1" VarType="3" ValueType="1" ValueValue="-1" />
+						<Parameter Name="Shift" DefVarType="12" DefValueType="1" DefValueValue="0" VarType="3" ValueType="1" ValueValue="0">
+							<Values IsEnum="True">
+								<Value Type="1" Value="0" Text="skNoShift" />
+								<Value Type="1" Value="8192" Text="skShift" />
+								<Value Type="1" Value="32768" Text="skAlt" />
+								<Value Type="1" Value="16384" Text="skCtrl" />
+							</Values>
+						</Parameter>
+					</Parameters>
+					<ObjectSyntax LangId="{897793E3-73F3-4895-A956-3D41D3A24A45}" Code="Aliases.browser.pageDemoqa2.formUserform.panelReactSelect4Option2" />
+				</Data>
+			</Operation>
+			<Operation Type="{575D0372-CCEB-4D0F-AFE8-D2004F108913}">
+				<Data Description="Clicks the &apos;%n&apos; button." Action="ClickButton">
+					<ObjectSyntax LangId="{897793E3-73F3-4895-A956-3D41D3A24A45}" Code="Aliases.browser.pageDemoqa2.formUserform.buttonSubmit" />
+				</Data>
+			</Operation>
+			<Operation Type="{575D0372-CCEB-4D0F-AFE8-D2004F108913}">
+				<Data Description="Clicks the &apos;%n&apos; button." Action="ClickButton">
+					<ObjectSyntax LangId="{897793E3-73F3-4895-A956-3D41D3A24A45}" Code="Aliases.browser.pageDemoqa2.buttonCloselargemodal" />
+				</Data>
+			</Operation>
+		</Children>
+	</TestData>
+	<Parameters Key="{8C3621EC-5D0B-42EA-8D4B-18396236D54F}" />
+</Root>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Root signature="{9252F941-DB23-4FCA-AA50-858B33BB4A19}" version="11.40">
+	<children>
+		<child name="TestRunner" key="{80C9D0A6-5905-41DB-96B2-489D8EB68968}" path="TestRunner.svb" />
+		<child name="ObjectRepository" key="{ED3ECAB9-EA41-4E83-B7E3-0E2443D57FB0}" path="ObjectRepository.svb" />
+		<child name="KeyActions" key="{11126B2E-B911-4624-821D-3955B0FA903F}" path="KeyActions.svb" />
+		<child name="StepDefinitions" key="{F852D987-6F68-4CA4-911D-78E662B28740}" path="StepDefinitions.svb" />
+		<child name="Library" key="{B700355D-4819-4C4D-995D-51189F8C60DD}" path="Library.svb" />
+		<child name="Tools" key="{3A3A5478-4074-4D34-935B-7E47C5E6AFEE}" path="Tools.svb" />
+		<child name="Hooks" key="{26493390-3D0B-4C27-907C-4FB8D925062E}" path="Hooks.svb" />
+	</children>
+</Root>

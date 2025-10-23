@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Root signature="{24B6FA0B-0143-461A-9758-AEB9E9A9428B}" version="15.0" key="{EFDAB72F-1C2A-4FC9-8A7C-453DDE6C6E3D}">
+	<children>
+		<child name="PriorityPOS_Retail_Robot" key="{689B779D-DD79-48E4-BEC1-7FD307DFFC07}" path="TestProject1\PriorityPOS_Retail_Robot.mds" />
+	</children>
+	<testItems key="{8711AD8B-0233-4CEC-B06E-9968ED1E7AB2}">
+		<children>
+			<testItem key="{689B779D-DD79-48E4-BEC1-7FD307DFFC07}" enabled="True" timeout="0" stopOnError="True" description="" />
+		</children>
+	</testItems>
+	<variables key="{BA5ABEE5-0BF0-4AA9-88A2-A4B0BB91C51D}" />
+	<analysis key="{6AF8744B-F237-4F52-8DB1-7BAFB6FE8A0F}" />
+	<scc key="{00000000-0000-0000-0000-000000000000}" name="">
+		<data />
+	</scc>
+</Root>

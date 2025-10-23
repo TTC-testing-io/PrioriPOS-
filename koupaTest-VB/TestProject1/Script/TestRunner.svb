@@ -1,0 +1,18 @@
+﻿'USEUNIT KeyActions
+        
+Sub Test_ProgDesc()
+    
+ Dim MyTest
+
+  Call LaunchApp("PrioriPOSGUI", 20)
+  Call FormIsDisplayed("PrioriPOSGUI","Login")
+
+  Call SetField("PrioriPOSGUI", "Login", "Login", "2011")
+  Call SetField("PrioriPOSGUI", "Login", "Password", "111")
+  Call ClickButton("PrioriPOSGUI", "Login", "Continue")
+  
+End Sub
+
+
+
+

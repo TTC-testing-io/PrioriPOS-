@@ -1,0 +1,100 @@
+﻿'_______________________________________________________________________________________________________________________________________________________________  
+
+Public Function Debug(StrValue)
+
+'***************************************************************
+' Function Name : Debug
+' Description   : Pause script and show an inputbox with values.
+' Parameters    : None
+' Returns       : none
+' Dependancies  : None
+
+'***************************************************************
+
+  Call InputBox("Debug", StrValue)
+
+End Function
+'_______________________________________________________________________________________________________________________________________________________________  
+
+Public Function BlinkObject(ObjectToBlink)
+
+Dim Interval
+
+  Interval = 200
+
+  With ObjectToBlink
+  
+    .BorderStyle = 1
+    Delay(Interval)
+    .BorderStyle = 2
+    Delay(Interval)
+    .BorderStyle = 1
+    Delay(Interval)
+    .BorderStyle = 0
+    Delay(Interval)
+    
+  End With
+  
+End Function
+'_______________________________________________________________________________________________________________________________________________________________  
+
+
+Sub CloseProcessIfExists(ProcessName)
+
+  Dim wmi
+  Dim processList
+  Dim process
+
+  Set wmi = GetObject("winmgmts:")
+  Set processList = wmi.ExecQuery("SELECT * FROM Win32_Process WHERE Name = '" & processName & "'")
+
+  For Each process In processList
+  
+    process.Terminate()
+    
+    Log.Message "Processus '" & processName & "' Closed."
+    
+  Next
+  
+End Sub
+'_______________________________________________________________________________________________________________________________________________________________  
+
+Public Sub ExportStepDefinitions()
+ 
+  Dim Fso 
+  Dim DataFile 
+  Dim OutputFile 
+  Dim FilePath
+  Dim OutputPath
+  Dim StrLine
+
+    Set Fso = CreateObject("Scripting.FileSystemObject")
+
+    FilePath = Project.Path & "Script\StepDefinitions.svb" 
+    OutputPath = Project.Path & "Script\" & "Steps.js"
+
+    Set DataFile = Fso.OpenTextFile(FilePath, 1, False, 0) ' Lecture ASCII
+    Set OutputFile = Fso.CreateTextFile(OutputPath, True) ' Écrase si existe
+
+      While Not DataFile.AtEndOfStream
+        StrLine = Trim(DataFile.ReadLine)
+
+           If InStr(StrLine, "' [") <> 0 Then
+              StrLine = Replace(StrLine, "' [Given ", "Given('")
+              StrLine = Replace(StrLine, "' [When ", "When('")
+              StrLine = Replace(StrLine, "' [Then ", "Then('")
+              StrLine = Replace(StrLine, "]", "', () => {});")
+
+              OutputFile.WriteLine StrLine
+              Call Log.Message(StrLine)
+              
+          End If
+    
+      Wend
+
+  DataFile.Close
+  OutputFile.Close
+    
+End Sub
+'_______________________________________________________________________________________________________________________________________________________________  
+

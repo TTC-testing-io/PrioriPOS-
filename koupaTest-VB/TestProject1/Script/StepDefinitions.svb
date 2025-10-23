@@ -1,0 +1,241 @@
+﻿'*** DO NOT DELETE THE COMMENTS***
+'USEUNIT Hooks  
+'USEUNIT KeyActions
+'USEUNIT Library
+'*********************************
+'_________________________________________________________________________________________________________________________________________________________________
+
+' [Given I have launched the application {arg} and it completed loading in no more than {arg} seconds]
+Sub I_have_launched_the_application_and_it_completed_loading_in_no_more_than_seconds(Application_Name, TimeOutMax)
+
+  Call LaunchApp(Application_Name, TimeOutMax)
+  
+End Sub
+'_________________________________________________________________________________________________________________________________________________________________
+
+' [Given The Form {arg} is Displayed]
+Sub The_Form_is_Displayed_Given(FormName)
+
+  Call FormIsDisplayed(APP_NAME, FormName) 
+ 
+End Sub
+
+' [When The Form {arg} is Displayed]
+Sub The_Form_is_Displayed_When(FormName)
+
+  Call FormIsDisplayed(APP_NAME, FormName) 
+ 
+End Sub
+
+' [Then The Form {arg} is Displayed]
+Sub The_Form_is_Displayed_Then(FormName)
+
+  Call FormIsDisplayed(APP_NAME, FormName) 
+ 
+End Sub
+'_________________________________________________________________________________________________________________________________________________________________
+
+' [When On the Form {arg} The Button {arg} is Disabled]
+Sub On_the_Form_The_Button_is_Disabled_When(FormName, ObjectName)
+
+  Call ElementIsDisabled(APP_NAME, FormName, "Button", ObjectName)
+ 
+End Sub
+
+' [Then On the Form {arg} The Button {arg} is Disabled]
+Sub On_the_Form_The_Button_is_Disabled_Then(FormName, ObjectName)
+
+ Call ElementIsDisabled(APP_NAME, FormName, "Button", ObjectName)
+ 
+End Sub
+'_________________________________________________________________________________________________________________________________________________________________
+
+' [When On the Form {arg} The Button {arg} is Enabled]
+Sub On_the_Form_The_Button_is_Enabled_When(FormName, ObjectName)
+
+    Call ElementIsEnabled(APP_NAME, FormName, "Button", ObjectName )
+    
+End Sub
+
+' [Then On the Form {arg} The Button {arg} is Enabled]
+Sub On_the_Form_The_Button_is_Enabled_Then(FormName, ObjectName)
+
+    Call ElementIsEnabled(APP_NAME, FormName, "Button", ObjectName )
+    
+End Sub
+'_________________________________________________________________________________________________________________________________________________________________
+
+' [When On the Form {arg} The Buttons {arg} are Enabled]
+Sub On_the_Form_The_Buttons_are_Enabled_When(FormName, ObjectNames)
+
+  TabObjName = Split(ObjectNames,"|")
+  
+  For Each TmpName In TabObjName
+  
+    Call ElementIsEnabled(APP_NAME, FormName, "Button", TmpName)
+  
+  Next  
+
+End Sub
+
+' [Then On the Form {arg} The Buttons {arg} are Enabled]
+Sub On_the_Form_The_Buttons_are_Enabled_Then(FormName, ObjectNames)
+
+  TabObjName = Split(ObjectNames,"|")
+  
+  For Each TmpName In TabObjName
+  
+    Call ElementIsEnabled(APP_NAME, FormName, "Button", TmpName)
+  
+  Next  
+
+End Sub
+'_________________________________________________________________________________________________________________________________________________________________
+
+' [When On the Form {arg} The Buttons {arg} are Disabled]
+Sub On_the_Form_The_Buttons_are_Disabled_When(FormName, ObjectNames)
+
+  TabObjName = Split(ObjectNames,"|")
+  
+  For Each TmpName In TabObjName
+  
+    Call ElementIsDisabled(APP_NAME, FormName, "Button", TmpName)
+  
+  Next  
+
+End Sub
+
+' [Then On the Form {arg} The Buttons {arg} are Disabled]
+Sub On_the_Form_The_Buttons_are_Disabled_Then(FormName, ObjectNames)
+
+  TabObjName = Split(ObjectNames,"|")
+  
+  For Each TmpName In TabObjName
+  
+    Call ElementIsDisabled(APP_NAME, FormName, "Button", TmpName)
+  
+  Next  
+
+End Sub
+'_________________________________________________________________________________________________________________________________________________________________
+
+' [When On the Form {arg} The Button {arg} is Named {arg}]
+Sub On_the_Form_The_Button_is_Named_When(FormName, ObjectName, ExpectedValue)
+
+  Call  CheckButtonCaption(APP_NAME, FormName, ObjectName, ExpectedValue)
+
+End Sub
+
+' [Then On the Form {arg} The Button {arg} is Named {arg}]
+Sub On_the_Form_The_Button_is_Named_Then(FormName, ObjectName, ExpectedValue)
+
+  Call  CheckButtonCaption(APP_NAME, FormName, ObjectName, ExpectedValue)
+  
+End Sub
+'_________________________________________________________________________________________________________________________________________________________________
+
+' [When On the Form {arg} I enter {arg} into the {arg} Field]
+Sub On_the_Form_I_enter_into_the_Field_When(FormName, Value, ObjectName)
+
+  Call SetField(APP_NAME, FormName, ObjectName, Value)
+
+End Sub
+
+' [Then On the Form {arg} I enter {arg} into the {arg} Field]
+Sub On_the_Form_I_enter_into_the_Field_Then(FormName, Value, ObjectName)
+
+  Call SetField(APP_NAME, FormName, ObjectName, Value)
+
+End Sub
+
+'_________________________________________________________________________________________________________________________________________________________________
+
+' [When On the Form {arg} The Label {arg} displays the Text {arg}]
+Sub On_the_Form_The_Label_displays_the_message_When(FormName, ObjectName, ExpectedValue)
+  
+  Call CheckLabel(APP_NAME, FormName, "Label", ObjectName, ExpectedValue)
+	 
+End Sub
+
+' [Then On the Form {arg} The Label {arg} displays the Text {arg}]
+Sub On_the_Form_The_Label_displays_the_message_Then(FormName, ObjectName, ExpectedValue)
+  
+   Call CheckLabel(APP_NAME, FormName, "Label", ObjectName, ExpectedValue)
+	 
+End Sub
+'_________________________________________________________________________________________________________________________________________________________________
+
+' [When On the Form {arg} The TextBox {arg} displays the Text {arg}]
+Sub On_the_Form_The_TextBox_displays_the_Text_When(FormName, ObjectName, ExpectedValue)
+
+   Call CheckField(APP_NAME, FormName, ObjectName, ExpectedValue)
+  
+End Sub
+
+' [Then On the Form {arg} The TextBox {arg} displays the Text {arg}]
+Sub On_the_Form_The_TextBox_displays_the_Text_Then(FormName, ObjectName, ExpectedValue)
+
+   Call CheckField(APP_NAME, FormName, ObjectName, ExpectedValue)
+   
+End Sub
+'_________________________________________________________________________________________________________________________________________________________________
+
+' [When On the Form {arg}, the Label {arg} is correctly Displayed]
+Sub on_the_Form___the_Label_is_correctly_Displayed_When(FormName, ObjectName)
+
+  Call CheckLabel(APP_NAME, FormName, "StaticLabel", ObjectName,"")
+
+End Sub
+
+' [Then On the Form {arg}, the Label {arg} is correctly Displayed]
+Sub on_the_Form___the_Label_is_correctly_Displayed_Then(FormName, ObjectName)
+
+  Call CheckLabel(APP_NAME, FormName, "StaticLabel", ObjectName,"")
+    
+End Sub
+'_________________________________________________________________________________________________________________________________________________________________
+
+' [When On the Form {arg} I click on the Button {arg}]
+Sub On_the_Form_I_click_on_the_Button_When(FormName, ObjectName)
+
+  Call ClickButton(APP_NAME, FormName, ObjectName)
+ 
+End Sub
+
+' [Then On the Form {arg} I click on the Button {arg}]
+Sub On_the_Form_I_click_on_the_Button_Then(FormName, ObjectName)
+
+  Call ClickButton(APP_NAME, FormName, ObjectName)
+ 
+End Sub
+'_________________________________________________________________________________________________________________________________________________________________
+
+' [When I Wait {arg} Seconds]
+Sub I_Wait_Seconds_When(Seconds)
+
+  Call Wait(Seconds)
+
+End Sub
+
+' [Then I Wait {arg} Seconds]
+Sub I_Wait_Seconds_Then(Seconds)
+
+  Call Wait(Seconds)
+
+End Sub
+'_________________________________________________________________________________________________________________________________________________________________
+
+' [When PauseTest]
+Sub PauseTest_When()
+
+  Call PausePopup()
+
+End Sub
+
+' [Then PauseTest]
+Sub PauseTest_Then()
+
+  Call PausePopup()
+
+End Sub
+'_________________________________________________________________________________________________________________________________________________________________

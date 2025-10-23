@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE Nodes [
+
+<!ENTITY % NameValue "CDATA">
+<!ENTITY % PropType "(I|S|D|L|H|B)">
+<!ENTITY % VersionValue "CDATA">
+
+<!ELEMENT Prp (#PCDATA)>
+<!ELEMENT Node (Node|Prp)*>
+<!ELEMENT Nodes (Node)+>
+
+<!ATTLIST Nodes version CDATA "1">
+
+<!ATTLIST Node name CDATA #REQUIRED>
+
+<!ATTLIST Prp name CDATA #REQUIRED>
+<!ATTLIST Prp type CDATA #REQUIRED>
+<!ATTLIST Prp value CDATA #REQUIRED>
+]>
+<Nodes version="1">
+	<Node name="root">
+		<Node name="projects">
+			<Node name="project0">
+				<Node name="tests">
+					<Node name="test0">
+						<Node name="warnings"/>
+						<Node name="errors">
+							<Node name="error2">
+								<Prp name="msg" type="S" value="The script execution was interrupted."/>
+							</Node>
+							<Node name="error1">
+								<Prp name="msg" type="S" value="The process &quot;&quot; was not found."/>
+							</Node>
+							<Node name="error0">
+								<Prp name="msg" type="S" value="The script execution was interrupted."/>
+							</Node>
+						</Node>
+						<Prp name="status" type="I" value="2"/>
+						<Prp name="durationwithoutchildren" type="I" value="206384"/>
+						<Prp name="starttime" type="D" value="45949.578971875"/>
+						<Prp name="duration" type="I" value="206384"/>
+						<Prp name="name" type="S" value="Check Buttons State after Login_New"/>
+						<Prp name="executionpoint" type="S" value="executionpoint://ewAxADQAMAA1AEQANwA1ADkALQBFADEARQAzAC0ANABBADEANgAtADgANQA0ADUALQAxADIAQwBEADAARAA4AEUANgA1ADEANgB9AC8AewAwAEMARQA3ADQARgBDADUALQBFADIAQwBEAC0ANAAyADIAMAAtADkAMwBDADIALQAzADgARAA4AEIANwBEADEAMQBCAEUAMAB9AC8AqpN8BLDIC0qKPrSbfs3IGwAAAAAvAGUAbQBwAHQAeQA="/>
+					</Node>
+				</Node>
+				<Prp name="failedtests" type="I" value="1"/>
+				<Prp name="incompletedtests" type="I" value="0"/>
+				<Prp name="starttime" type="D" value="45949.578971875"/>
+				<Prp name="duration" type="I" value="206384"/>
+				<Prp name="warningtests" type="I" value="0"/>
+				<Prp name="name" type="S" value="PriorityPOS_Retail_Robot"/>
+				<Prp name="loadtests" type="I" value="0"/>
+			</Node>
+		</Node>
+		<Prp name="starttime" type="D" value="45949.5789714931"/>
+		<Prp name="host" type="S" value="DANIEL-PORTABLE"/>
+		<Prp name="successtestwithretries" type="I" value="0"/>
+		<Prp name="key" type="S" value="{7A31019F-B370-40FA-846F-8A970D12B190}"/>
+		<Prp name="loadtests" type="I" value="0"/>
+		<Prp name="executionstatus" type="I" value="2"/>
+		<Prp name="name" type="S" value="koupaTest"/>
+		<Prp name="warningtests" type="I" value="0"/>
+		<Prp name="warningtestwithretries" type="I" value="0"/>
+		<Prp name="user" type="S" value="danie"/>
+		<Prp name="incompletedtests" type="I" value="0"/>
+		<Prp name="stop" type="D" value="45949.5813627315"/>
+		<Prp name="tests" type="I" value="1"/>
+		<Prp name="testname" type="S" value="Check Buttons State after Login_New"/>
+		<Prp name="failedtests" type="I" value="1"/>
+	</Node>
+</Nodes>

@@ -1,0 +1,271 @@
+﻿'*** DO NOT DELETE THE COMMENTS*** 
+'USEUNIT ObjectRepository
+'USEUNIT Library    
+'*********************************
+'_______________________________________________________________________________________________________________________________________________________________  
+
+Public ObjectRepo
+
+Public APP_NAME
+
+Set ObjectRepo = ObjectRepository.ReadOR()
+'_________________________________________________________________________________________________________________________________________________________________
+
+Public Function LaunchApp(ApplicationName, TimeOutMax)
+	
+	Dim ProcessFound
+	
+  ' Launch the Application
+
+    APP_NAME = ApplicationName
+	
+    Select Case LCase(ApplicationName)
+  
+      Case Lcase("PrioriPOSGUI")  
+          
+         Call TestedApps.PrioriPOSGUI.Run(1, True)
+        
+      Case Else
+    
+        Call MsgBox("The application : '" & ApplicationName & "' is not present on TestedApps Folder ", vbCritical, "Fatal Error : Missing Application")
+        Runner.Stop
+  
+    End Select
+  
+' Attendre que le processus démarre (TimeOutMax en millisecondes)
+	Set ProcessFound = Sys.WaitProcess(ApplicationName, TimeOutMax * 1000)
+	
+  	If Not ProcessFound.Exists Then
+		
+  		Call Log.Error("The process " & ApplicationName & " did not started after" & TimeOutMax & " seconds.")
+  		Set LaunchApp = Nothing
+    
+  		Exit Function
+		
+  	End If
+	
+	Call Log.Message("Process " & ApplicationName & " Start Successfull")
+	
+End Function
+'_________________________________________________________________________________________________________________________________________________________________
+
+Public Function AppIsClosed(ApplicationName, TimeOutMax)
+
+  Dim StartTime
+  Dim IsClosed
+  
+  StartTime = Timer
+  IsClosed = False
+
+  Do While Timer - StartTime < TimeOutMax
+  
+    If Not Sys.Process(ApplicationName).Exists Then
+    
+      IsClosed = True
+      Exit Do
+    End If
+    
+    Delay(1000)
+      
+  Loop
+
+  If IsClosed Then
+  
+    Call Log.Checkpoint("The process '" & ApplicationName & "' has been successfully Closed.")
+    AppIsClosed = True
+    
+  Else
+  
+    Call Log.Error("The process '" & ApplicationName & "' is still running after " & TimeOutMax & " seconds.")
+    AppIsClosed = False
+    
+  End If
+
+End Function
+'_________________________________________________________________________________________________________________________________________________________________
+
+Public Function FormIsDisplayed(ApplicationName, FormName)
+ 
+  Set ObjForm = GetForm(ObjectRepo, ApplicationName, FormName)
+
+  	If ObjForm.Exists Then
+    
+		  Call Log.Picture(ObjForm, FormName & " : Is Displayed")
+  		
+  	Else
+		
+  		Call Log.Error("Error FormIsDisplayed : " &  FormName & " : Not Found") 
+		
+  	End If
+  
+End Function
+'_________________________________________________________________________________________________________________________________________________________________
+
+Public Function SetField(ApplicationName, FormName, ObjectName, Value)
+	
+  Set ObjTextBox  = GetElement(ObjectRepo, ApplicationName, FormName, "TextBox", ObjectName)
+	
+  	If ObjTextBox.Exists Then
+    
+      Call ObjTextBox.SetFocus  
+      Call ObjTextBox.SetText(Value)
+		  Call Log.Checkpoint(ObjectName & " : " & Value )  
+      
+  	Else
+    
+  		Call Log.Error("Error SetField : " &  ObjectName & " : Not Found") 
+		
+  	End If
+    	
+End Function 
+'_________________________________________________________________________________________________________________________________________________________________
+
+Public Function ClickButton(ApplicationName, FormName, ObjectName)
+	
+  Set ObjButton = GetElement(ObjectRepo, ApplicationName, FormName, "Button", ObjectName)
+	
+    If ObjButton.Exists Then
+    
+      Call ObjButton.SetFocus  
+      Call ObjButton.Click()  
+  		Call Log.Checkpoint(ObjectName & " : Click OK")	
+     
+    Else
+		 
+      Call Log.Error("Error ClickButton : " &  ObjectName & " : Not found") 
+		
+    End If
+    
+End Function
+'_________________________________________________________________________________________________________________________________________________________________
+
+Public Function ElementIsEnabled(ApplicationName, FormName, ObjectType, ObjectName)
+	 
+  Set ObjElement = GetElement(ObjectRepo, ApplicationName, FormName, ObjectType, ObjectName )
+  
+    If ObjElement.Exists Then
+    
+      If ObjElement.Enabled = True Then
+      
+  	  	Call Log.Checkpoint(ObjectType & " : " & ObjectName & " => Enabled")	
+     
+      Else
+		 
+        Call Log.Error("Error ElementIsEnabled : " & ObjectType & " : " & ObjectName & " => Disabled")	
+		
+      End If
+      
+    Else
+    
+      Call Log.Error("Error ElementIsEnabled : " &  ObjectName & " : Not Found")    
+      
+    End If 
+	
+End Function
+'_________________________________________________________________________________________________________________________________________________________________
+
+Public Function ElementIsDisabled(ApplicationName, FormName, ObjectType, ObjectName)
+	 
+  Set ObjElement  = GetDisabledElement(ObjectRepo, ApplicationName, FormName, ObjectType, ObjectName)
+  
+    If ObjElement.Exists Then
+      
+      If ObjElement.Enabled = False Then
+      
+  	  	Call Log.Checkpoint(ObjectType & " : " & ObjectName & " => Disabled")	
+     
+      Else
+		 
+        Call Log.Error("Error ElementIsDisabled : " & ObjectType & " : " & ObjectName & " => Enabled")	
+		
+      End If
+      
+    Else
+    
+      Call Log.Error("Error ElementIsDisabled : " &  ObjectName & " : Not Found")    
+      
+    End If 
+	
+End Function
+'_________________________________________________________________________________________________________________________________________________________________
+
+Public Function CheckLabel(ApplicationName, FormName, ObjectType, ObjectName, ExpectedValue)
+	    
+   Set ObjLabel = GetElement(ObjectRepo, ApplicationName, FormName, ObjectType, ObjectName)
+   
+   If ObjectType = "StaticLabel" Then
+    
+      ExpectedValue = GetStaticParameter(ObjectRepo, ApplicationName, FormName, ObjectType, ObjectName )
+    
+    End If   
+   
+    If ObjLabel.Exists Then
+      
+      Call BlinkObject(ObjLabel)
+    
+      ActualValue = ObjLabel.WndCaption
+      
+        If (ActualValue = ExpectedValue) Then
+       
+        	Call Log.Checkpoint(ObjectName & " : " & ExpectedValue )
+          
+        Else
+        
+          Call Log.Error("Error CheckLabel : Expected Value => " & ExpectedValue & " | Actual Value => " & ActualValue) 	
+        
+        End If 
+  		
+    Else
+		 
+      Call Log.Error("Error CheckLabel : " &  ObjectName & " : Not Found") 
+		
+    End If
+	
+End Function
+'_________________________________________________________________________________________________________________________________________________________________
+
+Public Function CheckButtonCaption(ApplicationName, FormName, ObjectName, ExpectedValue)
+	    
+   Set ObjButton = GetElement(ObjectRepo, ApplicationName, FormName, "Button", ObjectName)
+   
+    If ObjButton.Exists Then
+      
+      ActualValue = ObjButton.WndCaption
+      
+        If (ActualValue = ExpectedValue) Then
+       
+        	Call Log.Checkpoint(ObjectName & " : " & ExpectedValue )
+          
+        Else
+        
+          Call Log.Error("Error CheckButtonCaption : Expected Value => " & ExpectedValue & " | Actual Value => " & ActualValue) 	
+        
+        End If 
+  		
+    Else
+		 
+      Call Log.Error("Error CheckButtonCaption : " &  ObjectName & " : Not Found") 
+		
+    End If
+	
+End Function
+'_________________________________________________________________________________________________________________________________________________________________
+
+Public Function Wait(MiliSeconds)
+
+  Dim Seconds
+
+  MiliSeconds = CInt(MiliSeconds)
+
+  Seconds = MiliSeconds * 1000
+
+  Call Delay(Seconds)
+
+End function
+'_________________________________________________________________________________________________________________________________________________________________
+
+Public Function PausePopup()
+
+  Call MsgBox("Click OK to continue", vbOKOnly + vbInformation, "Popup Pause")
+
+End Function 

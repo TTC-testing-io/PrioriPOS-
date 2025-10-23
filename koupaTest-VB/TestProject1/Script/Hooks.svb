@@ -1,0 +1,66 @@
+﻿'*** DO NOT DELETE THE COMMENTS***  
+'USEUNIT KeyActions
+'USEUNIT ObjectRepository
+'USEUNIT Library
+'*********************************
+'_________________________________________________________________________________________________________________________________________________________________
+
+' [BeforeScenario]
+Sub BeforeScenario(scenario)
+ 
+  If scenario.Tags.Contains("@PrioriPOS_User1") Then
+  
+   Log.Message "Before : Launch PriroriPOS with User1 => 2011|111"
+  
+    APP_NAME = "PrioriPOSGUI"
+  
+    Call LogPrioriPosWith("2011", "111") 
+   
+  End If
+  
+  If scenario.Tags.Contains("@PrioriPOS_UserRetail") Then
+  
+   Log.Message "Before : Launch PriroriPOS with User1 => 0987|0987"
+  
+    APP_NAME = "PrioriPOSGUI"
+  
+    Call LogPrioriPosWith("0987", "0987") 
+    
+  End If
+  
+  
+End Sub
+'_________________________________________________________________________________________________________________________________________________________________
+
+' [AfterScenario]
+Sub AfterScenario(scenario)
+  
+  If scenario.Tags.Contains("@PrioriPOS_CLOSE") Then
+    
+    Log.Message "After : Close PriroriPOS With confirmation"
+    
+    APP_NAME = "PrioriPOSGUI"
+     
+    Call FormIsDisplayed(APP_NAME,"MainMenu")
+    Call ClickButton(APP_NAME, "MainMenu", "Exit")
+    Call FormIsDisplayed(APP_NAME,"GenericMessage")
+    Call CheckLabel(APP_NAME, "GenericMessage", "StaticLabel", "ConfirmExitApplication","")
+    Call ClickButton(APP_NAME, "GenericMessage", "OK")
+    Call Wait(3)
+    
+  End If
+
+End Sub
+'_________________________________________________________________________________________________________________________________________________________________
+
+Sub LogPrioriPosWith(StrLogin, StrPassword) 
+
+    Call CloseProcessIfExists(APP_NAME & ".exe")
+    Call LaunchApp(APP_NAME, 60)
+    Call FormIsDisplayed(APP_NAME,"Login")
+    Call CheckLabel(APP_NAME, "Login", "StaticLabel", "TitleLogin","")
+    Call SetField(APP_NAME, "Login", "Login", StrLogin)
+    Call SetField(APP_NAME, "Login", "Password", StrPassword)
+    Call ClickButton(APP_NAME, "Login", "OK")
+   
+End Sub    

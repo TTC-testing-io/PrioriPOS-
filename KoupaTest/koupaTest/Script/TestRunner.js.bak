@@ -1,0 +1,17 @@
+﻿
+var KeyActions = require("KeyActions");
+
+        
+function Test_ProgDesc(){
+  
+ let MyTest;
+  
+   KeyActions.LaunchApp("PrioriPOSGUI", 20);
+   KeyActions.FormIsDisplayed("PrioriPOSGUI","Login");
+
+   KeyActions.SetField("PrioriPOSGUI", "Login", "Login", "2011");
+   KeyActions.SetField("PrioriPOSGUI", "Login", "Password", "111");
+   KeyActions.ClickButton("PrioriPOSGUI", "Login", "Continue");
+   
+}
+    

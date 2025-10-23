@@ -1,0 +1,80 @@
+﻿Sub Test1()
+  'Runs the "PrioriPOSGUI" tested application.
+  Call TestedApps.PrioriPOSGUI.Run(1, True)
+  
+  'Clicks the 'txtUsername' object.
+  Call Aliases.PrioriPOSGUI.LoginForm.employeeIdentifierControl.usernameAndPasswordLogin.swipeCardPanel.txtUsername.Click(10, 10)
+  'Clicks the 'txtUsername' object.
+  Call Aliases.PrioriPOSGUI.LoginForm.employeeIdentifierControl.usernameAndPasswordLogin.swipeCardPanel.txtUsername.Click(10, 10)
+  'Enters the text '2011' in the 'txtUsername' text editor.
+  Call Aliases.PrioriPOSGUI.LoginForm.employeeIdentifierControl.usernameAndPasswordLogin.swipeCardPanel.txtUsername.SetText("2011")
+  'Clicks the 'password_FieldValue' object.
+  Call Aliases.PrioriPOSGUI.LoginForm.employeeIdentifierControl.usernameAndPasswordLogin.password.password_FieldValue.Click(10, 10)
+  'Enters text in the 'password_FieldValue' text editor.
+  Call Aliases.PrioriPOSGUI.LoginForm.employeeIdentifierControl.usernameAndPasswordLogin.password.password_FieldValue.SetText(Project.Variables.Password1)
+  'Clicks the 'btnOK' button.
+  Call Aliases.PrioriPOSGUI.LoginForm.btnOK.ClickButton
+  'Clicks the 'btnExit' button.
+  Call Aliases.PrioriPOSGUI.MainForm.btnExit.ClickButton
+  'Clicks the 'btnOK' button.
+  Call Aliases.PrioriPOSGUI.GenericMessageForm.btnOK.ClickButton
+
+End Sub
+
+
+
+Sub RunTestedAppByName(appName)
+    Dim app
+    Set app = TestedApps.ItemByName(appName)
+    If Not app Is Nothing Then
+        Call app.Run
+    Else
+        Log.Error "L'application '" & appName & "' n'a pas été trouvée dans TestedApps."
+    End If
+End Sub
+
+
+Sub Test_ProgDesc()
+
+  ' Attendre max 10 secondes que la fenêtre soit prête
+  
+   Call RunTestedAppByName("PrioriPOSGUI")
+  
+    If Not Sys.Process("PrioriPOSGUI").WaitWindow("WindowsForms10.Window", "PrioriPOS - Connexion", 1, 10000).Exists Then
+      Log.Error "La fenêtre de login n'est pas trouvée."
+      Exit Sub
+    End If
+    
+    Set loginForm = Sys.Process("PrioriPOSGUI").Window("WindowsForms10.Window", "PrioriPOS - Connexion", 1)
+
+
+    ' Remplir le champ utilisateur
+    Set txtUsername = loginForm.Window("loginForm").Window("txtUsername")
+    txtUsername.Click 10, 10
+    txtUsername.SetText "2011"
+
+    ' Remplir le champ mot de passe
+    Set txtPassword = loginForm.Window("loginForm").Window("txtPassword")
+    txtPassword.Click 10, 10
+    txtUsername.SetText "111"
+
+    ' Cliquer sur le bouton OK
+     Set btnOK = loginForm.Window("loginForm").Window("btnOK")
+    
+     btnOK.ClickButton
+
+'    ' Attendre la fenêtre principale et cliquer sur Exit
+'    Set mainForm = Sys.Process("PrioriPOSGUI").Window("MainForm", "", 1)
+'    If mainForm.Exists Then
+'        mainForm.Window("btnExit").ClickButton
+'    Else
+'        Log.Error "La fenêtre principale n'est pas trouvée."
+'        Exit Sub
+'    End If
+'
+'    ' Gérer la boîte de dialogue de confirmation
+'    Set msgForm = Sys.Process("PrioriPOSGUI").Window("GenericMessageForm", "", 1)
+'    If msgForm.Exists Then
+'        msgForm.Window("btnOK").ClickButton
+'    End If
+End Sub

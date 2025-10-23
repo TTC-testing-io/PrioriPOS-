@@ -1,0 +1,14 @@
+﻿'*** DO NOT DELETE THE COMMENTS*** 
+'USEUNIT Library    
+'*********************************
+'_______________________________________________________________________________________________________________________________________________________________  
+
+Sub CreateFeature()
+
+  Call ExportStepDefinitions()
+
+  Set Shell = CreateObject("WScript.Shell")
+   
+  Call Shell.Run( "code """ & Shell.ExpandEnvironmentStrings(Project.Path) & """", 0, False)
+  
+End sub

@@ -1,0 +1,300 @@
+﻿
+// *** Includes************************************* 
+var ObjectRepository = require("ObjectRepository");
+var Library = require("Library");
+
+module.exports.LaunchApp = LaunchApp;
+module.exports.AppIsClosed = AppIsClosed;
+module.exports.FormIsDisplayed = FormIsDisplayed;
+module.exports.SetField = SetField;
+module.exports.ClickButton = ClickButton;
+module.exports.ElementIsEnabled = ElementIsEnabled;
+module.exports.ElementIsDisabled = ElementIsDisabled;
+module.exports.CheckLabel = CheckLabel;
+module.exports.CheckButtonCaption = CheckButtonCaption;
+module.exports.Wait = Wait;
+module.exports.PausePopup = PausePopup;
+// *************************************************
+
+var ObjectRepo;
+
+ObjectRepo = ObjectRepository.ReadOR()
+
+// _________________________________________________________________________________________________________________________________________________________________
+
+function LaunchApp(ApplicationName, TimeOutMax) {
+  
+  let ProcessFound;
+  
+  // Launch the Application
+  
+  Project.Variables.APP_NAME = ApplicationName;
+  
+  switch(ApplicationName.toLowerCase()) {
+      
+    case "prioriposgui":
+    
+      TestedApps.PrioriPOSGUI.Run(1, true);
+      break;
+      
+    default:
+    
+      BuiltIn.MessageDlg("The application: '" + ApplicationName + "' is not present in the TestedApps folder", mtWarning, 0, 0);
+      Runner.Stop();
+      break;
+      
+  }
+  
+  // Attendre que le processus démarre (TimeOutMax en millisecondes)
+  ProcessFound = Sys.WaitProcess(ApplicationName, TimeOutMax * 1000);
+  
+  if (!ProcessFound.Exists) {
+    
+    Log.Error(`The process ${ApplicationName} did not started after ${TimeOutMax} seconds.`);
+    return null;
+    
+  }
+  
+  Log.Message(`Process ${ApplicationName} Start Successfull`);
+}
+// _________________________________________________________________________________________________________________________________________________________________
+
+function AppIsClosed(ApplicationName, TimeOutMax) {
+  
+  let StartTime = Timer;
+  let IsClosed = false;
+  
+  while (Timer - StartTime < TimeOutMax) {
+    if (!Sys.Process(ApplicationName).Exists) {
+      IsClosed = true;
+      break;
+    }
+    Delay(1000);
+  }
+  
+  if (IsClosed) {
+    Log.Checkpoint(`The process '${ApplicationName}' has been successfully Closed.`);
+    return true;
+  } else {
+    Log.Error(`The process '${ApplicationName}' is still running after ${TimeOutMax} seconds.`);
+    return false;
+  }
+}
+// _________________________________________________________________________________________________________________________________________________________________
+
+function FormIsDisplayed(ApplicationName, FormName) {
+  
+  let ObjForm = ObjectRepository.GetForm(ObjectRepo, ApplicationName, FormName);
+  
+  if (ObjForm.Exists) {
+    
+    Log.Picture(ObjForm, `${FormName} : Is Displayed`);
+    
+  } else {
+    
+    Log.Error(`Error FormIsDisplayed : ${FormName} : Not Found`);
+    
+  }
+}
+// _________________________________________________________________________________________________________________________________________________________________
+
+function SetField(ApplicationName, FormName, ObjectName, Value) {
+  
+  let ObjTextBox = ObjectRepository.GetElement(ObjectRepo, ApplicationName, FormName, "TextBox", ObjectName);
+  
+  if (ObjTextBox.Exists) {
+    
+    ObjTextBox.SetFocus();
+    ObjTextBox.SetText(Value);
+    
+    Log.Checkpoint(`${ObjectName} : ${Value}`);
+    
+  } else {
+    
+    Log.Error(`Error SetField : ${ObjectName} : Not Found`);
+    
+  }
+}
+// _________________________________________________________________________________________________________________________________________________________________
+
+function ClickButton(ApplicationName, FormName, ObjectName) {
+  
+  let ObjButton = ObjectRepository.GetElement(ObjectRepo, ApplicationName, FormName, "Button", ObjectName);
+  
+  if (ObjButton.Exists) {
+    
+    ObjButton.SetFocus();
+    ObjButton.Click();
+    
+    Log.Checkpoint(`${ObjectName} : Click OK`);
+    
+  } else {
+    
+    Log.Error(`Error ClickButton : ${ObjectName} : Not found`);
+    
+  }
+}
+// _________________________________________________________________________________________________________________________________________________________________
+
+function ElementIsEnabled(ApplicationName, FormName, ObjectType, ObjectName) {
+  
+  let ObjElement = ObjectRepository.GetElement(ObjectRepo, ApplicationName, FormName, ObjectType, ObjectName);
+  
+  if (ObjElement.Exists) {
+    
+    if (ObjElement.Enabled === true) {
+      
+      Log.Checkpoint(`${ObjectType} : ${ObjectName} => Enabled`);
+      
+    } else {
+      
+      Log.Error(`Error ElementIsEnabled : ${ObjectType} : ${ObjectName} => Disabled`);
+      
+    }
+    
+  } else {
+    
+    Log.Error(`Error ElementIsEnabled : ${ObjectName} : Not Found`);
+    
+  }
+}
+// _________________________________________________________________________________________________________________________________________________________________
+
+function ElementIsDisabled(ApplicationName, FormName, ObjectType, ObjectName) {
+  
+  let ObjElement = ObjectRepository.GetDisabledElement(ObjectRepo, ApplicationName, FormName, ObjectType, ObjectName);
+  
+  if (ObjElement.Exists) {
+    
+    if (ObjElement.Enabled === false) {
+      
+      Log.Checkpoint(`${ObjectType} : ${ObjectName} => Disabled`);
+      
+    } else {
+      
+      Log.Error(`Error ElementIsDisabled : ${ObjectType} : ${ObjectName} => Enabled`);
+    }
+  } else {
+    
+    Log.Error(`Error ElementIsDisabled : ${ObjectName} : Not Found`);
+    
+  }
+}
+// _________________________________________________________________________________________________________________________________________________________________
+
+function CheckLabel(ApplicationName, FormName, ObjectType, ObjectName, ExpectedValue) {
+  
+  let ObjLabel = ObjectRepository.GetElement(ObjectRepo, ApplicationName, FormName, ObjectType, ObjectName);
+  
+  if (ObjectType === "StaticLabel") {
+    
+    ExpectedValue = ObjectRepository.GetStaticParameter(ObjectRepo, ApplicationName, FormName, ObjectType, ObjectName);
+    
+  }
+  
+  if (ObjLabel.Exists) {
+    
+    Library.BlinkObject(ObjLabel);
+    
+    let ActualValue = ObjLabel.WndCaption;
+    
+    if (ActualValue === ExpectedValue) {
+      
+      Log.Checkpoint(`${ObjectName} : ${ExpectedValue}`);
+      
+    } else {
+      
+      Log.Error(`Error CheckLabel : Expected Value => ${ExpectedValue} | Actual Value => ${ActualValue}`);
+      
+    }
+  } else {
+    
+    Log.Error(`Error CheckLabel : ${ObjectName} : Not Found`);
+    
+  }
+}
+// _________________________________________________________________________________________________________________________________________________________________
+
+function CheckField(ApplicationName, FormName, ObjectType, ObjectName, ExpectedValue) {
+  
+  let ObjTextBox = ObjectRepository.GetElement(ObjectRepo, ApplicationName, FormName, "TextBox", ObjectName);
+    
+  if (ObjTextBox.Exists) {
+    
+    ObjTextBox.SetFocus
+    
+    let ActualValue = wText;
+    
+    if (ActualValue === ExpectedValue) {
+      
+      Log.Checkpoint(`${ObjectName} : ${ExpectedValue}`);
+      
+    } else {
+      
+      Log.Error(`Error CheckField : Expected Value => ${ExpectedValue} | Actual Value => ${ActualValue}`);
+      
+    }
+  } else {
+    
+    Log.Error(`Error CheckField : ${ObjectName} : Not Found`);
+    
+  }
+}
+// _________________________________________________________________________________________________________________________________________________________________
+
+
+function CheckButtonCaption(ApplicationName, FormName, ObjectName, ExpectedValue) {
+  
+  let ObjButton = ObjectRepository.GetElement(ObjectRepo, ApplicationName, FormName, "Button", ObjectName);
+  
+  if (ObjButton.Exists) {
+    
+    let ActualValue = ObjButton.WndCaption;
+    
+    if (ActualValue === ExpectedValue) {
+      
+      Log.Checkpoint(`${ObjectName} : ${ExpectedValue}`);
+      
+    } else {
+      
+      Log.Error(`Error CheckButtonCaption : Expected Value => ${ExpectedValue} | Actual Value => ${ActualValue}`);
+      
+    }
+  } else {
+    
+    Log.Error(`Error CheckButtonCaption : ${ObjectName} : Not Found`);
+    
+  }
+}
+// _________________________________________________________________________________________________________________________________________________________________
+
+function Wait(MiliSeconds) {
+  
+  MiliSeconds = parseInt(MiliSeconds);
+  let Seconds = MiliSeconds * 1000;
+  Delay(Seconds);
+  
+}
+// _________________________________________________________________________________________________________________________________________________________________
+
+function PausePopup() {
+  
+ BuiltIn.ShowMessage("Click OK to continue");
+ 
+}
+// _________________________________________________________________________________________________________________________________________________________________
+
+// ***Exports**********************************************
+module.exports.LaunchApp = LaunchApp;
+module.exports.AppIsClosed = AppIsClosed;
+module.exports.FormIsDisplayed = FormIsDisplayed;
+module.exports.SetField = SetField;
+module.exports.ClickButton = ClickButton;
+module.exports.ElementIsEnabled = ElementIsEnabled;
+module.exports.ElementIsDisabled = ElementIsDisabled;
+module.exports.CheckLabel = CheckLabel;
+module.exports.CheckButtonCaption = CheckButtonCaption;
+module.exports.Wait = Wait;
+module.exports.PausePopup = PausePopup;
+module.exports.CheckField = CheckField;
+// ********************************************************

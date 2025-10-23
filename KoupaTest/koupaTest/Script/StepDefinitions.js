@@ -1,0 +1,162 @@
+﻿
+// *** Includes************************************* 
+var Hooks = require("Hooks");
+var KeyActions = require("KeyActions");
+var Library = require("Library");
+// ************************************************* 
+
+var APP_NAME = Project.Variables.APP_NAME 
+
+// _________________________________________________________________________________________________________________________________________________________________
+
+Given("I have launched the application {arg} and it completed loading in no more than {arg} seconds", function (Application_Name, TimeOutMax){
+  
+ KeyActions.LaunchApp(Application_Name, TimeOutMax);
+  
+});
+// _________________________________________________________________________________________________________________________________________________________________
+
+Given("The Form {arg} is Displayed", function (FormName){
+  
+ KeyActions.FormIsDisplayed(APP_NAME, FormName);
+  
+});
+
+When("The Form {arg} is Displayed", function (FormName){
+  
+ KeyActions.FormIsDisplayed(APP_NAME, FormName);
+ 
+});
+
+Then("The Form {arg} is Displayed", function (FormName){
+  
+ KeyActions.FormIsDisplayed(APP_NAME, FormName);
+ 
+});
+// _________________________________________________________________________________________________________________________________________________________________
+
+Then("On the Form {arg}, the Label {arg} is correctly Displayed", function (FormName, ObjectName){
+  
+ KeyActions.CheckLabel(APP_NAME, FormName, "StaticLabel", ObjectName, "");
+  
+});
+// _________________________________________________________________________________________________________________________________________________________________
+
+Then("On the Form {arg} The Label {arg} displays the Text {arg}", function (FormName, ObjectName, ExpectedValue){
+  
+  KeyActions.CheckLabel(APP_NAME, FormName, "Label", ExpectedValue);
+   
+});
+// _________________________________________________________________________________________________________________________________________________________________
+
+Then("On the Form {arg} The TextBox {arg} displays the Text {arg}", function (FormName, ObjectName, ExpectedValue){
+  
+  KeyActions.CheckField(APP_NAME, FormName, "TextBox", ObjectName, ExpectedValue);
+  
+});
+// _________________________________________________________________________________________________________________________________________________________________
+
+Then("On the Form {arg} The Button {arg} is Named {arg}", function (FormName, ObjectName, ExpectedValue){
+  
+  KeyActions.CheckButtonCaption(APP_NAME, FormName, ObjectName, ExpectedValue);
+  
+});
+// _________________________________________________________________________________________________________________________________________________________________
+
+When("On the Form {arg} I click on the Button {arg}", function (FormName, ObjectName){
+  
+ KeyActions.ClickButton(APP_NAME, FormName, ObjectName);
+   
+});
+
+Then("On the Form {arg} I click on the Button {arg}", function (FormName, ObjectName){
+  
+ KeyActions.ClickButton(APP_NAME, FormName, ObjectName);
+
+});
+// _________________________________________________________________________________________________________________________________________________________________
+
+When("On the Form {arg} I enter {arg} into the {arg} Field", function (FormName, Value, ObjectName){
+  
+  KeyActions.SetField(APP_NAME, FormName, ObjectName, Value);
+
+});
+
+
+Then("On the Form {arg} I enter {arg} into the {arg} Field", function (FormName, Value, ObjectName){
+  
+  KeyActions.SetField(APP_NAME, FormName, ObjectName, Value);
+  
+});
+// _________________________________________________________________________________________________________________________________________________________________
+
+Then("On the Form {arg} The Buttons {arg} are Enabled", function (FormName, ObjectNames){
+  
+  let TabObjName = ObjectNames.split("|");
+  
+  for (let i = 0; i < TabObjName.length; i++) {
+    
+    let TmpName = TabObjName[i];
+    
+    KeyActions.ElementIsEnabled(APP_NAME, FormName, "Button", TmpName);
+    
+  }
+  
+});
+// _________________________________________________________________________________________________________________________________________________________________
+
+Then("On the Form {arg} The Buttons {arg} are Disabled", function (FormName, ObjectNames){
+ 
+  let TabObjName = ObjectNames.split("|");
+  
+  for (let i = 0; i < TabObjName.length; i++) {
+    
+    let TmpName = TabObjName[i];
+    
+    KeyActions.ElementIsDisabled(APP_NAME, FormName, "Button", TmpName);
+    
+  }
+
+});
+// _________________________________________________________________________________________________________________________________________________________________
+
+Then("On the Form {arg} The Button {arg} is Enabled", function (FormName, ObjectName){
+  
+   KeyActions.ElementIsEnabled(APP_NAME, FormName, "Button", ObjectName);
+   
+});
+// _________________________________________________________________________________________________________________________________________________________________
+
+Then("On the Form {arg} The Button {arg} is Disabled", function (FormName, ObjectName){
+  
+  KeyActions.ElementIsDisabled(APP_NAME, FormName, "Button", ObjectName);
+  
+});
+// _________________________________________________________________________________________________________________________________________________________________
+
+Then("PauseTest", function (){
+  
+ KeyActions.PausePopup();
+  
+});
+
+Given("PauseTest", function (){
+
+ KeyActions.PausePopup();
+
+});
+
+When("PauseTest", function (){
+  
+ KeyActions.PausePopup();
+   
+});
+// _________________________________________________________________________________________________________________________________________________________________
+
+Then("I Wait {arg} Seconds", function (Seconds){
+  
+  KeyActions.Wait(Seconds);
+   
+});
+// _________________________________________________________________________________________________________________________________________________________________
+

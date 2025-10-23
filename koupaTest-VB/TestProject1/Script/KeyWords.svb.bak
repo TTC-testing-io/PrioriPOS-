@@ -1,0 +1,68 @@
+﻿
+
+'_________________________________________________________________________________________________________________________________________________________________
+
+Public Function LaunchApp(AppName, TimeOutMax)
+
+    Dim processFound
+    
+    ' Lancer l'application
+    Call TestedApps.PrioriPOSGUI.Run(1, True)
+    
+    ' Attendre que le processus démarre (TimeOutMax en millisecondes)
+    Set processFound = Sys.WaitProcess(AppName, TimeOutMax * 1000)
+    
+    If Not processFound.Exists Then
+    
+        Log.Error "Le processus " & AppName & " n'a pas démarré après " & TimeOutMax & " secondes."
+        Set LaunchApp = Nothing
+        Exit Function
+        
+    End If
+    
+    Log.Message "Le processus " & AppName & " a démarré avec succès."
+    Set LaunchApp = Sys.Process(AppName)
+    
+End Function
+'_________________________________________________________________________________________________________________________________________________________________
+
+
+Public Function SetField(ObjApplication, ScreenName, ObjectName, Value)
+
+
+  Set ObjScreen = ObjApplication.WinFormsObject(ScreenName)
+
+  Set ObjTextBox = ObjScreen.FindChild("WinFormsControlName", ObjectName, 15, True)
+  
+  If ObjTextBox.Exists Then
+    ObjTextBox.SetText Value
+    Log.Message "Username saisi avec succès"
+    
+  Else
+  
+    Log.Error "Le contrôle txtUsername n'a pas été trouvé."
+    
+  End If
+
+End Function 
+'_________________________________________________________________________________________________________________________________________________________________
+
+
+Public Function ClickButton(ObjApplication, ScreenName, ObjectName)
+
+
+ Set ObjScreen = ObjApplication.WinFormsObject(ScreenName)
+
+  Set ObjButton = ObjScreen.FindChild("WinFormsControlName", ObjectName, 15, True)
+  
+  If ObjButton.Exists Then
+    ObjButton.Click
+    Log.Message "clic sur le bouton : " & ObjectName
+    
+  Else
+  
+    Log.Error "Le contrôle txtUsername n'a pas été trouvé."
+    
+  End If
+
+End Function 

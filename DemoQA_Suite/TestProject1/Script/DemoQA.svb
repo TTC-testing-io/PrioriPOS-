@@ -1,0 +1,14 @@
+﻿Sub LaunchUrl()
+  ' Récupère l’URL définie dans la variable de projet
+  Dim myUrl
+  
+  myUrl = "https://demoqa.com/"
+  
+  ' Lance le navigateur Chrome (peut être IE, Edge, etc.)
+  Browsers.Item("chrome").Run(myUrl)
+  
+  ' Petit message pour confirmer
+  Log.Message "Ouverture de l'URL : " & myUrl
+  
+  
+End Sub

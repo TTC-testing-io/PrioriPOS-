@@ -1,0 +1,51 @@
+Given('I have launched the application {arg} and it completed loading in no more than {arg} seconds', () => {});
+When('I have launched the application {arg} and it completed loading in no more than {arg} seconds', () => {});
+Then('I have launched the application {arg} and it completed loading in no more than {arg} seconds', () => {});
+
+Given('The Form {arg} is Displayed', () => {});
+When('The Form {arg} is Displayed', () => {});
+Then('The Form {arg} is Displayed', () => {});
+
+Given('On the Form {arg} The Button {arg} is Disabled', () => {});
+When('On the Form {arg} The Button {arg} is Disabled', () => {});
+Then('On the Form {arg} The Button {arg} is Disabled', () => {});
+
+Given('On the Form {arg} The Button {arg} is Enabled', () => {});
+When('On the Form {arg} The Button {arg} is Enabled', () => {});
+Then('On the Form {arg} The Button {arg} is Enabled', () => {});
+
+Given('On the Form {arg} The Buttons {arg} are Enabled', () => {});
+When('On the Form {arg} The Buttons {arg} are Enabled', () => {});
+Then('On the Form {arg} The Buttons {arg} are Enabled', () => {});
+
+Given('On the Form {arg} The Buttons {arg} are Disabled', () => {});
+When('On the Form {arg} The Buttons {arg} are Disabled', () => {});
+Then('On the Form {arg} The Buttons {arg} are Disabled', () => {});
+
+Given('On the Form {arg} The Button {arg} is Named {arg}', () => {});
+When('On the Form {arg} The Button {arg} is Named {arg}', () => {});
+Then('On the Form {arg} The Button {arg} is Named {arg}', () => {});
+
+Given('On the Form {arg} I enter {arg} into the {arg} Field', () => {});
+When('On the Form {arg} I enter {arg} into the {arg} Field', () => {});
+Then('On the Form {arg} I enter {arg} into the {arg} Field', () => {});
+
+Given('On the Form {arg} The Label {arg} displays the Text {arg}', () => {});
+When('On the Form {arg} The Label {arg} displays the Text {arg}', () => {});
+Then('On the Form {arg} The Label {arg} displays the Text {arg}', () => {});
+
+Given('On the Form {arg}, the Label {arg} is correctly Displayed', () => {});
+When('On the Form {arg}, the Label {arg} is correctly Displayed', () => {});
+Then('On the Form {arg}, the Label {arg} is correctly Displayed', () => {});
+
+Given('On the Form {arg} I click on the Button {arg}', () => {});
+When('On the Form {arg} I click on the Button {arg}', () => {});
+Then('On the Form {arg} I click on the Button {arg}', () => {});
+
+When('I Wait {arg} Seconds', () => {});
+When('I Wait {arg} Seconds', () => {});
+Then('I Wait {arg} Seconds', () => {});
+
+Given('PauseTest', () => {});
+When('PauseTest', () => {});
+Then('PauseTest', () => {});
