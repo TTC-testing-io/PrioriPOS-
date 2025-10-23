@@ -1,10 +1,16 @@
 ﻿
+var KeyActions = require("KeyActions");
+var MetaActions = require("MetaActions");
 
 function CheckIn(){
+  
+   KeyActions.LaunchApp("PrioriPOSGUI", 20);
   
 }
 
 
 function CheckOut(){
   
+   KeyActions.LaunchApp("PrioriPOSGUI", 20);
+   
 }

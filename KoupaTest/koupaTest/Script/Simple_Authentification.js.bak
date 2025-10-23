@@ -9,15 +9,8 @@ function Test(){
    MetaActions.LogOnPrioriPOS("2011","111"); 
    
 }
-
-function LogonWith(User, PassWord){
     
-   KeyActions.LaunchApp("PrioriPOSGUI", 20);
-   MetaActions.LogOnPrioriPOS(User, PassWord); 
-   
-}
-    
-function Main()
+function LogOnPrioriPOSWith(User, PassWord)
 {
     KeyActions.LaunchApp("PrioriPOSGUI", 20);
     MetaActions.LogOnPrioriPOS(User, PassWord); 
