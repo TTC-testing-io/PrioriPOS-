@@ -93,7 +93,7 @@ function CheckObject(ObjectRepo, StrKey, ObjectType, ObjectName) {
   let ApplicationName;
   
   TabValue = StrKey.split(".");
-  ApplicationName = TabValue[1];
+  ApplicationName = TabValue[0];
   
   Delimitor = "####";
   
@@ -190,9 +190,13 @@ function GetElement(ObjectRepo, ApplicationName, FormName, ObjectType, ObjectNam
   ORObjectName = CheckObject(ObjectRepo, StrKey, ObjectType, ObjectName);
   
   ObjApplication = Sys.Process(ApplicationName);
+ 
+  //WaitForElementReady(ORObjectName, true);
   
+  ObjApplication.WinFormsObject(OrFormName).WaitProperty("Visible", true, 10)
+     
   ObjScreen = ObjApplication.WinFormsObject(OrFormName);
-  
+    
   ObjElement = ObjScreen.FindChild("WinFormsControlName", ORObjectName, 15, true);
   
   WaitForElementReady(ObjElement, true);
@@ -251,7 +255,30 @@ function GetForm(ObjectRepo, ApplicationName, FormName) {
 }
 // _______________________________________________________________________________________________________________________________________________________________  
 
-function WaitForElementReady2(ObjElement, ElementIsEnabled) {
+function GetAccount(ApplicationName, AccountName){
+ 
+  let StrValue;
+  let StrMessageError;
+  let StrError;
+  let TabValue;
+ 
+  StrKey = ApplicationName + ".Account." + AccountName;
+ 
+  StrAccount = ObjectRepo[StrKey];
+  
+    if (StrAccount === "" || StrAccount === undefined) {
+    
+      StrMessageError = "The Form : '" + ObjectName + "' of the Application : '" + ApplicationName + "' does not exist on the Object Repository";
+      StrError = BuiltIn.InputBox("ObjectRepository Object Error", StrMessageError,  StrKey);
+    
+    }
+  
+  return StrAccount;
+ 
+}
+// _______________________________________________________________________________________________________________________________________________________________  
+
+function WaitForElementReady(ObjElement, ElementIsEnabled) {
   
   let TimeOut = 60000;
   let Interval = 250;
@@ -266,7 +293,7 @@ function WaitForElementReady2(ObjElement, ElementIsEnabled) {
       
       if (ElementIsEnabled === true) {
         
-        if (ObjElement.WaitProperty("Visible", true, 0) && ObjElement.WaitProperty("Enabled", true, 0)) {
+        if (ObjElement.WaitProperty("Visible", true, 3) && ObjElement.WaitProperty("Enabled", true, 3)) {
           result = true;
           return result;
           
@@ -274,7 +301,7 @@ function WaitForElementReady2(ObjElement, ElementIsEnabled) {
         
       } else {
         
-        if (ObjElement.WaitProperty("Visible", true, 0)) {
+        if (ObjElement.WaitProperty("Visible", true, 3)) {
           
           result = true;
           return result;
@@ -301,4 +328,5 @@ module.exports.GetElement = GetElement;
 module.exports.GetDisabledElement = GetDisabledElement;
 module.exports.GetForm = GetForm;
 module.exports.WaitForElementReady = WaitForElementReady;
+module.exports.GetAccount = GetAccount;
 // **********************************************************
