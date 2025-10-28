@@ -1,37 +1,25 @@
 ﻿
-
-
+// *** Includes************************************* 
 var KeyActions = require("KeyActions");
-
 var MetaActions = require("MetaActions");
- 
-function CheckIn(user, password) {
+// *************************************************
+
   
-  KeyActions.ClickButton("PrioriPOSGUI", "TimeReportMenu", "Enter");
-  MetaActions.LogOnPrioriPOS(user, password);
+function CheckIn() {
+  
+ KeyActions.LaunchApp("PrioriPOSGUI", 20);  
+ MetaActions.PrioriPOSLogAccount("User1");
+ MetaActions.PrioriPOSCheckIn("User1")
+ MetaActions.PrioriPOSClose();
 
 }
  
-function CheckOut(user, password) {
-
-  KeyActions.LaunchApp("PrioriPOSGUI", 20);
-  MetaActions.LogOnPrioriPOS(user, password);
-  KeyActions.ClickButton("PrioriPOSGUI", "TimeReportMenu", "Exit");
-  MetaActions.LogOnPrioriPOS(user, password);
-
-}
- 
-function CheckIn_Test() {
+function CheckOut() {
   
-  KeyActions.LaunchApp("PrioriPOSGUI", 20);
-  CheckIn("2011", "111");
-
-}
- 
-function CheckOut_Test() {
-  
-  KeyActions.LaunchApp("PrioriPOSGUI", 20);
-  CheckOut("2011", "111");
+ KeyActions.LaunchApp("PrioriPOSGUI", 20);  
+ MetaActions.PrioriPOSLogAccount("User1");
+ MetaActions.PrioriPOSCheckOut("User1")
+ MetaActions.PrioriPOSClose();
 
 }
  

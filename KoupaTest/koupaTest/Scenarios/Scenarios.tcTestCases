@@ -12,14 +12,14 @@
 		<Feature Path="Sanity Tests.feature" />
 		<Feature Path="Change Current Cashier.feature" />
 		<Feature Path="Cash Register.feature" />
+		<Feature Path="Cash Register (old).feature" />
+		<Feature Path="Attendance (old).feature" />
+		<Feature Path="Cashier on break (old).feature" />
 	</Folder>
-	<Folder Name="04 - Others">
+	<Folder Name="03 - Others">
 		<Feature Path="02 - In Progress.feature" />
 		<Feature Path="99 - Legacy.feature" />
 		<Feature Path="01 -To Validate.feature" />
 		<Feature Path="03 - SandBox.feature" />
-	</Folder>
-	<Folder Name="03 - Modules">
-		<Feature Path="01- Open And Close Cash Register.feature" />
 	</Folder>
 </Scenarios>

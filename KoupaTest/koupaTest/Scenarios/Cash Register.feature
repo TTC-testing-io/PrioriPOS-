@@ -1,24 +1,17 @@
 ﻿Feature: Cash Register
 
-@PrioriPOS_User1 
-Scenario: Open Cash Register 
-  Given The Form "MainMenu" is Displayed
-  When On the Form "MainMenu" I click on the Button "OpenCashRegister"
-  And The Form "CashierDeclaration" is Displayed
-  Then On the Form "CashierDeclaration", the Label "Title" is correctly Displayed
-  And On the Form "CashierDeclaration" I click on the Button "OK"
-  And The Form "GenericMessage" is Displayed
-  And On the Form "GenericMessage", the Label "ErrorAtPrinting" is correctly Displayed
-  And On the Form "GenericMessage" I click on the Button "OK"
-  Then On the Form "MainMenu" The Buttons "Transaction|CashierBreak|CashierDeclaration|ChangeWorkShift|CloseCashRegister" are Enabled
+# Functional Gherkin
+@PrioriPOS_CLOSE
+Scenario: Open Cash Register (Functional Wording)
+  Given I have launched the PrioriPOS application
+  When I m logged as "User1"
+  And I open the cash register
+  Then The cash register is open and the interface buttons are updated accordingly
 
-@PrioriPOS_CLOSE    
-Scenario: Close Cash Register 
-  Given The Form "MainMenu" is Displayed
-  When On the Form "MainMenu" I click on the Button "CloseCashRegister"
-  And The Form "CloseCashRegister" is Displayed
-  Then On the Form "CloseCashRegister", the Label "Title" is correctly Displayed
-  And On the Form "CloseCashRegister" I click on the Button "ConfirmReport"
-  And On the Form "CloseCashRegister" The Button "OK" is Enabled
-  And On the Form "CloseCashRegister" I click on the Button "OK"
-  Then On the Form "MainMenu" The Buttons "Transaction|CashierBreak|CashierDeclaration|ChangeWorkShift|CloseCashRegister" are Enabled
+@PrioriPOS_CLOSE
+Scenario: Close Cash Register (Functional Wording)
+  Given I have launched the PrioriPOS application
+  When I m logged as "User1"
+  And I close the cash register
+  Then The cash register is closed and the interface buttons are updated accordingly
+  

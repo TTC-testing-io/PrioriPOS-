@@ -49,6 +49,8 @@ function ReadOR() {
         
             let StrMessageError = "Error at line : " + LineNumber;
             StrError = BuiltIn.InputBox("ObjectRepository Object Error", StrMessageError,  StrKey);
+            Log.Error(StrMessageError);
+            
           }
         }
       }
@@ -74,8 +76,11 @@ function CountConsecutiveChar(StrLine, Delimitor) {
   let Count = 0;
   
   for (i = 0; i < StrLine.length - 1; i++) {
+    
     if (StrLine.charAt(i) === Delimitor && StrLine.charAt(i + 1) === Delimitor) {
+      
       Count = Count + 1;
+      
     }
   }
   
@@ -103,6 +108,8 @@ function CheckObject(ObjectRepo, StrKey, ObjectType, ObjectName) {
     
     StrMessageError = "The " + ObjectType + " : " + ObjectName + " of the Application : " + ApplicationName + " does not exist on the Object Repository";
     StrError = BuiltIn.InputBox("ObjectRepository Object Error", StrMessageError,  StrKey);
+    Log.Error(StrMessageError);
+    Runner.stop();
   
   }
   
@@ -136,11 +143,15 @@ function GetStaticParameter(ObjectRepo, ApplicationName, FormName, ObjectType, O
   Delimitor = "####";
   
   if (StrValue && StrValue.indexOf(Delimitor) !== -1) {
+    
     TabValue = StrValue.split(Delimitor);
     StrValue = TabValue[1];
+    
   } else {
     
    StrError = BuiltIn.InputBox("ObjectRepository Object Error", StrMessageError,  StrKey);
+   Log.Error(StrMessageError);
+   Runner.stop();
     
   }
   
@@ -166,6 +177,8 @@ function CheckForm(ObjectRepo, StrKey, ObjectName) {
     
     StrMessageError = "The Form : '" + ObjectName + "' of the Application : '" + ApplicationName + "' does not exist on the Object Repository";
     StrError = BuiltIn.InputBox("ObjectRepository Object Error", StrMessageError,  StrKey);
+    Log.Error(StrMessageError);
+    Runner.stop();
     
   }
   
@@ -253,32 +266,9 @@ function GetForm(ObjectRepo, ApplicationName, FormName) {
 }
 // _______________________________________________________________________________________________________________________________________________________________  
 
-function GetAccount(ApplicationName, AccountName){
- 
-  let StrValue;
-  let StrMessageError;
-  let StrError;
-  let TabValue;
- 
-  StrKey = ApplicationName + ".Account." + AccountName;
- 
-  StrAccount = ObjectRepo[StrKey];
-  
-    if (StrAccount === "" || StrAccount === undefined) {
-    
-      StrMessageError = "The Form : '" + ObjectName + "' of the Application : '" + ApplicationName + "' does not exist on the Object Repository";
-      StrError = BuiltIn.InputBox("ObjectRepository Object Error", StrMessageError,  StrKey);
-    
-    }
-  
-  return StrAccount;
- 
-}
-// _______________________________________________________________________________________________________________________________________________________________  
-
 function WaitForElementReady(ObjElement, ElementIsEnabled) {
   
-  let TimeOut = 60000;
+  let TimeOut = 90000;
   let Interval = 250;
   let Elapsed = 0;
   
@@ -318,13 +308,12 @@ function WaitForElementReady(ObjElement, ElementIsEnabled) {
 
 // *** Exports*********************************************** 
 module.exports.ReadOR = ReadOR;
-module.exports.CountConsecutiveChar = CountConsecutiveChar;
-module.exports.CheckObject = CheckObject;
-module.exports.GetStaticParameter = GetStaticParameter;
-module.exports.CheckForm = CheckForm;
-module.exports.GetElement = GetElement;
-module.exports.GetDisabledElement = GetDisabledElement;
 module.exports.GetForm = GetForm;
+module.exports.GetElement = GetElement;
+module.exports.CheckForm = CheckForm;
+module.exports.CheckObject = CheckObject;
+module.exports.CountConsecutiveChar = CountConsecutiveChar;
+module.exports.GetStaticParameter = GetStaticParameter;
+module.exports.GetDisabledElement = GetDisabledElement;
 module.exports.WaitForElementReady = WaitForElementReady;
-module.exports.GetAccount = GetAccount;
 // **********************************************************
