@@ -2,18 +2,7 @@
 // *** Includes************************************* 
 var ObjectRepository = require("ObjectRepository");
 var Library = require("Library");
-
-module.exports.LaunchApp = LaunchApp;
-module.exports.AppIsClosed = AppIsClosed;
-module.exports.FormIsDisplayed = FormIsDisplayed;
-module.exports.SetField = SetField;
-module.exports.ClickButton = ClickButton;
-module.exports.ElementIsEnabled = ElementIsEnabled;
-module.exports.ElementIsDisabled = ElementIsDisabled;
-module.exports.CheckLabel = CheckLabel;
-module.exports.CheckButtonCaption = CheckButtonCaption;
-module.exports.Wait = Wait;
-module.exports.PausePopup = PausePopup;
+//var Hooks = require("Hooks");
 // *************************************************
 
 var ObjectRepo;
@@ -73,11 +62,15 @@ function AppIsClosed(ApplicationName, TimeOutMax) {
   }
   
   if (IsClosed) {
+    
     Log.Checkpoint(`The process '${ApplicationName}' has been successfully Closed.`);
     return true;
+    
   } else {
+    
     Log.Error(`The process '${ApplicationName}' is still running after ${TimeOutMax} seconds.`);
     return false;
+    
   }
 }
 // _________________________________________________________________________________________________________________________________________________________________
@@ -97,6 +90,26 @@ function FormIsDisplayed(ApplicationName, FormName) {
   }
 }
 // _________________________________________________________________________________________________________________________________________________________________
+
+function FormIsNotDisplayed(ApplicationName, FormName) {
+  
+  let ObjForm = ObjectRepository.GetForm(ObjectRepo, ApplicationName, FormName);
+  
+  Wait(3);
+  
+  if (!ObjForm.Exists) {
+    
+    Log.Picture(ObjForm, `${FormName} : Is Not Displayed`);
+    
+  } else {
+    
+    Log.Error(`Error FormIsNotDisplayed : ${FormName} : Is Displayed`);
+    
+  }
+}
+// _________________________________________________________________________________________________________________________________________________________________
+
+
 
 function SetField(ApplicationName, FormName, ObjectName, Value) {
   
@@ -160,6 +173,21 @@ function ElementIsEnabled(ApplicationName, FormName, ObjectType, ObjectName) {
 }
 // _________________________________________________________________________________________________________________________________________________________________
 
+function ElementsAreEnabled(ApplicationName, FormName, ObjectType, ObjectNames) {
+
+ let TabObjName = ObjectNames.split("|");
+  
+  for (let i = 0; i < TabObjName.length; i++) {
+    
+    let TmpName = TabObjName[i];
+    
+    ElementIsEnabled(ApplicationName, FormName, ObjectType, TmpName);
+    
+  }
+  
+ }
+// _________________________________________________________________________________________________________________________________________________________________
+
 function ElementIsDisabled(ApplicationName, FormName, ObjectType, ObjectName) {
   
   let ObjElement = ObjectRepository.GetDisabledElement(ObjectRepo, ApplicationName, FormName, ObjectType, ObjectName);
@@ -181,6 +209,21 @@ function ElementIsDisabled(ApplicationName, FormName, ObjectType, ObjectName) {
   }
 }
 // _________________________________________________________________________________________________________________________________________________________________
+
+function ElementsAreDisabled(ApplicationName, FormName, ObjectType, ObjectNames) {
+
+ let TabObjName = ObjectNames.split("|");
+  
+  for (let i = 0; i < TabObjName.length; i++) {
+    
+    let TmpName = TabObjName[i];
+    
+    ElementIsDisabled(ApplicationName, FormName, ObjectType, TmpName);
+    
+  }
+  
+ }
+ // _________________________________________________________________________________________________________________________________________________________________
 
 function CheckLabel(ApplicationName, FormName, ObjectType, ObjectName, ExpectedValue) {
   
@@ -242,7 +285,6 @@ function CheckField(ApplicationName, FormName, ObjectType, ObjectName, ExpectedV
 }
 // _________________________________________________________________________________________________________________________________________________________________
 
-
 function CheckButtonCaption(ApplicationName, FormName, ObjectName, ExpectedValue) {
   
   let ObjButton = ObjectRepository.GetElement(ObjectRepo, ApplicationName, FormName, "Button", ObjectName);
@@ -266,6 +308,29 @@ function CheckButtonCaption(ApplicationName, FormName, ObjectName, ExpectedValue
     
   }
 }
+// _______________________________________________________________________________________________________________________________________________________________  
+
+function GetAccount(ApplicationName, AccountName){
+ 
+  let StrMessageError;
+  let StrError;
+  let StrKey;
+  let SterAccount;
+ 
+  StrKey = ApplicationName + ".Account." + AccountName;
+ 
+  StrAccount = ObjectRepo[StrKey];
+  
+    if (StrAccount === "" || StrAccount === undefined) {
+    
+      StrMessageError = "The Account :" + StrAccount + "' does not exist on the Object Repository";
+      StrError = BuiltIn.InputBox("ObjectRepository Object Error", StrMessageError,  StrKey);
+    
+    }
+  
+  return StrAccount;
+ 
+}
 // _________________________________________________________________________________________________________________________________________________________________
 
 function Wait(MiliSeconds) {
@@ -286,14 +351,19 @@ function PausePopup() {
 
 // ***Exports**********************************************
 module.exports.LaunchApp = LaunchApp;
+module.exports.GetAccount = GetAccount;
 module.exports.AppIsClosed = AppIsClosed;
 module.exports.FormIsDisplayed = FormIsDisplayed;
 module.exports.SetField = SetField;
 module.exports.ClickButton = ClickButton;
 module.exports.ElementIsEnabled = ElementIsEnabled;
 module.exports.ElementIsDisabled = ElementIsDisabled;
+module.exports.ElementsAreEnabled = ElementsAreEnabled;
+module.exports.ElementsAreDisabled = ElementsAreDisabled;
 module.exports.CheckLabel = CheckLabel;
 module.exports.CheckButtonCaption = CheckButtonCaption;
 module.exports.Wait = Wait;
 module.exports.PausePopup = PausePopup;
+module.exports.CheckField = CheckField;
+module.exports.FormIsNotDisplayed = FormIsNotDisplayed;
 // ********************************************************

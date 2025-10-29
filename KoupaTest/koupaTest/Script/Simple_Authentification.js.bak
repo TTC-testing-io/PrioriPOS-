@@ -1,18 +1,19 @@
 ﻿
 var KeyActions = require("KeyActions");
 var MetaActions = require("MetaActions");
-
-
-function Test(){
     
-   KeyActions.LaunchApp("PrioriPOSGUI", 20);
-   MetaActions.LogOnPrioriPOS("2011","111"); 
+function LogOnPrioriPOSWith_Test(){
+  
+ KeyActions.LaunchApp("PrioriPOSGUI", 20);  
+ MetaActions.LogOnPrioriPOS("2011", "111")
+ MetaActions.PrioriPOSClose();
    
 }
-    
-function LogOnPrioriPOSWith(User, PassWord)
-{
-    KeyActions.LaunchApp("PrioriPOSGUI", 20);
-    MetaActions.LogOnPrioriPOS(User, PassWord); 
+
+function LogOnPrioriPOSWithAccount_Test(){
+  
+ KeyActions.LaunchApp("PrioriPOSGUI", 20);  
+ MetaActions.PrioriPOSLogAccount("User1");
+ MetaActions.PrioriPOSClose();
    
 }

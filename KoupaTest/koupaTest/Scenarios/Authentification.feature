@@ -1,68 +1,11 @@
-﻿Feature: Login_At_Koupa
+﻿Feature: Authentification
 
-@PrioriPOS_CLOSE
-Scenario Outline: Login test with different users
-  Given I have launched the application "PrioriPOSGUI" and it completed loading in no more than "60" seconds
-  When The Form "Login" is Displayed
-  Then On the Form "Login", the Label "TitleLogin" is correctly Displayed
-  And On the Form "Login" I enter "<username>" into the "Login" Field
-  And On the Form "Login" I enter "<password>" into the "Password" Field
-  And On the Form "Login" I click on the Button "OK"
-Examples:
-  | username| password |
-  | 2011    | 111      |
-  | 0987    | 0987     |
+Scenario: Connect as User1
+  Given I have launched the PrioriPOS application
+  When I m logged as "User1"
+  Then On the Form "MainMenu", the Label "User1" is correctly Displayed
   
-Scenario: Non-passing Test -> No Login and No Password
-  Given I have launched the application "PrioriPOSGUI" and it completed loading in no more than "60" seconds
-  When The Form "Login" is Displayed
-  Then On the Form "Login", the Label "TitleLogin" is correctly Displayed
-  And On the Form "Login" I click on the Button "OK"
-  And The Form "GenericMessage" is Displayed
-  Then On the Form "GenericMessage", the Label "PleaseTypeLoginAndMdp" is correctly Displayed
-  And On the Form "GenericMessage" I click on the Button "OK"
-  And On the Form "Login" I click on the Button "Cancel"
-  And I Wait "3" Seconds
-     
-Scenario: Non-Passing Test -> Only Login
-  Given I have launched the application "PrioriPOSGUI" and it completed loading in no more than "60" seconds
-  When The Form "Login" is Displayed
-  Then On the Form "Login", the Label "TitleLogin" is correctly Displayed
-  And On the Form "Login" I enter "2011" into the "Login" Field
-  And On the Form "Login" I click on the Button "OK"
-  And The Form "GenericMessage" is Displayed
-  Then On the Form "GenericMessage", the Label "PleaseTypeLoginAndMdp" is correctly Displayed
-  And On the Form "GenericMessage" I click on the Button "OK"
-  And On the Form "Login" I click on the Button "Cancel"
-  And I Wait "3" Seconds
-  
-Scenario: Non-Passing Test -> Only Password
-  Given I have launched the application "PrioriPOSGUI" and it completed loading in no more than "60" seconds
-  When The Form "Login" is Displayed
-  Then On the Form "Login", the Label "TitleLogin" is correctly Displayed
-  And On the Form "Login" I enter "111" into the "Password" Field
-  And On the Form "Login" I click on the Button "OK"
-  And The Form "GenericMessage" is Displayed
-  Then On the Form "GenericMessage", the Label "PleaseTypeLoginAndMdp" is correctly Displayed
-  And On the Form "GenericMessage" I click on the Button "OK"
-  And On the Form "Login" I click on the Button "Cancel"
-  And I Wait "3" Seconds
-  
-Scenario Outline: Non-Passing Test -> Wrong Authentifications
-  Given I have launched the application "PrioriPOSGUI" and it completed loading in no more than "90" seconds
-  When The Form "Login" is Displayed
-  Then On the Form "Login", the Label "TitleLogin" is correctly Displayed
-  And On the Form "Login" I enter "<username>" into the "Login" Field
-  And On the Form "Login" I enter "<password>" into the "Password" Field
-  And On the Form "Login" I click on the Button "OK"
-  And The Form "GenericMessage" is Displayed
-  Then On the Form "GenericMessage", the Label "PleaseTypeLoginAndMdp" is correctly Displayed
-  And On the Form "GenericMessage" I click on the Button "OK"
-  And On the Form "Login" I click on the Button "Cancel"
-  And I Wait "3" Seconds
-Examples:
-  | username| password |
-  | 2011    | Wrong    |
-  | Wrong   | 111      |
-  | Wrong1  | Wrong2   |
-  
+Scenario: Connect as Retail
+  Given I have launched the PrioriPOS application
+  When I m logged as "User_Retail"
+  Then On the Form "MainMenu", the Label "User_Retail" is correctly Displayed

@@ -49,6 +49,8 @@ function ReadOR() {
         
             let StrMessageError = "Error at line : " + LineNumber;
             StrError = BuiltIn.InputBox("ObjectRepository Object Error", StrMessageError,  StrKey);
+            Log.Error(StrMessageError);
+            
           }
         }
       }
@@ -74,8 +76,11 @@ function CountConsecutiveChar(StrLine, Delimitor) {
   let Count = 0;
   
   for (i = 0; i < StrLine.length - 1; i++) {
+    
     if (StrLine.charAt(i) === Delimitor && StrLine.charAt(i + 1) === Delimitor) {
+      
       Count = Count + 1;
+      
     }
   }
   
@@ -103,6 +108,8 @@ function CheckObject(ObjectRepo, StrKey, ObjectType, ObjectName) {
     
     StrMessageError = "The " + ObjectType + " : " + ObjectName + " of the Application : " + ApplicationName + " does not exist on the Object Repository";
     StrError = BuiltIn.InputBox("ObjectRepository Object Error", StrMessageError,  StrKey);
+    Log.Error(StrMessageError);
+    Runner.stop();
   
   }
   
@@ -136,11 +143,15 @@ function GetStaticParameter(ObjectRepo, ApplicationName, FormName, ObjectType, O
   Delimitor = "####";
   
   if (StrValue && StrValue.indexOf(Delimitor) !== -1) {
+    
     TabValue = StrValue.split(Delimitor);
     StrValue = TabValue[1];
+    
   } else {
     
    StrError = BuiltIn.InputBox("ObjectRepository Object Error", StrMessageError,  StrKey);
+   Log.Error(StrMessageError);
+   Runner.stop();
     
   }
   
@@ -166,6 +177,8 @@ function CheckForm(ObjectRepo, StrKey, ObjectName) {
     
     StrMessageError = "The Form : '" + ObjectName + "' of the Application : '" + ApplicationName + "' does not exist on the Object Repository";
     StrError = BuiltIn.InputBox("ObjectRepository Object Error", StrMessageError,  StrKey);
+    Log.Error(StrMessageError);
+    Runner.stop();
     
   }
   
@@ -190,9 +203,11 @@ function GetElement(ObjectRepo, ApplicationName, FormName, ObjectType, ObjectNam
   ORObjectName = CheckObject(ObjectRepo, StrKey, ObjectType, ObjectName);
   
   ObjApplication = Sys.Process(ApplicationName);
-  
+   
+  ObjApplication.WinFormsObject(OrFormName).WaitProperty("Visible", true, 10)
+     
   ObjScreen = ObjApplication.WinFormsObject(OrFormName);
-  
+    
   ObjElement = ObjScreen.FindChild("WinFormsControlName", ORObjectName, 15, true);
   
   WaitForElementReady(ObjElement, true);
@@ -253,7 +268,7 @@ function GetForm(ObjectRepo, ApplicationName, FormName) {
 
 function WaitForElementReady(ObjElement, ElementIsEnabled) {
   
-  let TimeOut = 60000;
+  let TimeOut = 90000;
   let Interval = 250;
   let Elapsed = 0;
   
@@ -266,7 +281,7 @@ function WaitForElementReady(ObjElement, ElementIsEnabled) {
       
       if (ElementIsEnabled === true) {
         
-        if (ObjElement.WaitProperty("Visible", true, 0) && ObjElement.WaitProperty("Enabled", true, 0)) {
+        if (ObjElement.WaitProperty("Visible", true, 3) && ObjElement.WaitProperty("Enabled", true, 3)) {
           result = true;
           return result;
           
@@ -274,7 +289,7 @@ function WaitForElementReady(ObjElement, ElementIsEnabled) {
         
       } else {
         
-        if (ObjElement.WaitProperty("Visible", true, 0)) {
+        if (ObjElement.WaitProperty("Visible", true, 3)) {
           
           result = true;
           return result;
@@ -293,12 +308,12 @@ function WaitForElementReady(ObjElement, ElementIsEnabled) {
 
 // *** Exports*********************************************** 
 module.exports.ReadOR = ReadOR;
-module.exports.CountConsecutiveChar = CountConsecutiveChar;
-module.exports.CheckObject = CheckObject;
-module.exports.GetStaticParameter = GetStaticParameter;
-module.exports.CheckForm = CheckForm;
-module.exports.GetElement = GetElement;
-module.exports.GetDisabledElement = GetDisabledElement;
 module.exports.GetForm = GetForm;
+module.exports.GetElement = GetElement;
+module.exports.CheckForm = CheckForm;
+module.exports.CheckObject = CheckObject;
+module.exports.CountConsecutiveChar = CountConsecutiveChar;
+module.exports.GetStaticParameter = GetStaticParameter;
+module.exports.GetDisabledElement = GetDisabledElement;
 module.exports.WaitForElementReady = WaitForElementReady;
 // **********************************************************

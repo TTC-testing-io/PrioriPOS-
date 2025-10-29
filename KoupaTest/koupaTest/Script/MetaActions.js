@@ -9,7 +9,7 @@ var Library = require("Library");
 function LogOnPrioriPOS(Login, Password){
   
    KeyActions.FormIsDisplayed("PrioriPOSGUI","Login");
-
+   KeyActions.CheckLabel("PrioriPOSGUI", "Login", "StaticLabel", "TitleLogin", "");
    KeyActions.SetField("PrioriPOSGUI", "Login", "Login", Login);
    KeyActions.SetField("PrioriPOSGUI", "Login", "Password", Password);
    KeyActions.ClickButton("PrioriPOSGUI", "Login", "OK");
@@ -17,12 +17,166 @@ function LogOnPrioriPOS(Login, Password){
 }
 // _______________________________________________________________________________________________________________________________________________________________  
 
+function PrioriPOSClose(){
+      
+    KeyActions.FormIsDisplayed("PrioriPOSGUI", "MainMenu");
+    KeyActions.ClickButton("PrioriPOSGUI", "MainMenu", "Exit");
+    KeyActions.FormIsDisplayed("PrioriPOSGUI", "GenericMessage");
+    KeyActions.CheckLabel("PrioriPOSGUI", "GenericMessage", "StaticLabel", "ConfirmExitApplication", "");
+    KeyActions.ClickButton("PrioriPOSGUI", "GenericMessage", "OK");
+    KeyActions.Wait(3);
+}
+// _______________________________________________________________________________________________________________________________________________________________  
 
+function PrioriPOSLogAccount(AccountName){
 
+ let StrAccount;
+ let TabValue;
+ let Login;
+ let Password;
 
+   StrAccount = KeyActions.GetAccount("PrioriPOSGUI", AccountName);
+   TabValue = StrAccount.split(":");
+  
+   Login = TabValue[0];
+   Password = TabValue[1];
+  
+   KeyActions.FormIsDisplayed("PrioriPOSGUI","Login");
+   KeyActions.CheckLabel("PrioriPOSGUI", "Login", "StaticLabel", "TitleLogin", "");
+   KeyActions.SetField("PrioriPOSGUI", "Login", "Login", Login);
+   KeyActions.SetField("PrioriPOSGUI", "Login", "Password", Password);
+   KeyActions.ClickButton("PrioriPOSGUI", "Login", "OK");
 
+}
+// _______________________________________________________________________________________________________________________________________________________________  
 
+function PrioriPOSCheckIn(AccountName){
+  
+  StrAccount = KeyActions.GetAccount("PrioriPOSGUI", AccountName);
+  TabValue = StrAccount.split(":");
+  
+  Login = TabValue[0];
+  Password = TabValue[1];
 
-// *** Exports************************************************ 
+  KeyActions.FormIsDisplayed("PrioriPOSGUI", "MainMenu");
+  KeyActions.ClickButton("PrioriPOSGUI", "MainMenu", "AttendanceReports");
+  KeyActions.FormIsDisplayed("PrioriPOSGUI", "TimeReportMenu");
+  KeyActions.CheckLabel("PrioriPOSGUI", "TimeReportMenu", "StaticLabel", "Title", "");
+  KeyActions.ClickButton("PrioriPOSGUI", "TimeReportMenu", "Enter");
+  KeyActions.FormIsDisplayed("PrioriPOSGUI", "Login");
+  KeyActions.CheckLabel("PrioriPOSGUI", "Login", "StaticLabel", "TitleAttendance", "");
+  KeyActions.SetField("PrioriPOSGUI", "Login", "EmployeeLogin", Login);
+  KeyActions.SetField("PrioriPOSGUI", "Login", "Password", Password);
+  KeyActions.ClickButton("PrioriPOSGUI", "Login", "OK");
+  KeyActions.FormIsDisplayed("PrioriPOSGUI", "TimeReportMenu");
+  KeyActions.ClickButton("PrioriPOSGUI", "TimeReportMenu", "ExitScreen");
+  KeyActions.FormIsDisplayed("PrioriPOSGUI", "MainMenu");
+  
+}
+// _______________________________________________________________________________________________________________________________________________________________  
+
+function PrioriPOSCheckOut(AccountName){
+  
+  StrAccount = KeyActions.GetAccount("PrioriPOSGUI", AccountName);
+  TabValue = StrAccount.split(":");
+  
+  Login = TabValue[0];
+  Password = TabValue[1];
+
+  KeyActions.FormIsDisplayed("PrioriPOSGUI", "MainMenu");
+  KeyActions.ClickButton("PrioriPOSGUI", "MainMenu", "AttendanceReports");
+  KeyActions.FormIsDisplayed("PrioriPOSGUI", "TimeReportMenu");
+  KeyActions.CheckLabel("PrioriPOSGUI", "TimeReportMenu", "StaticLabel", "Title", "");
+  KeyActions.ClickButton("PrioriPOSGUI", "TimeReportMenu", "Exit");
+  KeyActions.FormIsDisplayed("PrioriPOSGUI", "Login");
+  KeyActions.CheckLabel("PrioriPOSGUI", "Login", "StaticLabel", "TitleAttendance", "");
+  KeyActions.SetField("PrioriPOSGUI", "Login", "EmployeeLogin", Login);
+  KeyActions.SetField("PrioriPOSGUI", "Login", "Password", Password);
+  KeyActions.ClickButton("PrioriPOSGUI", "Login", "OK");
+  KeyActions.FormIsDisplayed("PrioriPOSGUI", "TimeReportMenu");
+  KeyActions.ClickButton("PrioriPOSGUI", "TimeReportMenu", "ExitScreen");
+  KeyActions.FormIsDisplayed("PrioriPOSGUI", "MainMenu");
+
+}
+// _______________________________________________________________________________________________________________________________________________________________  
+
+function PrioriPOSOpenCashRegister(){
+  
+  KeyActions.FormIsDisplayed("PrioriPOSGUI", "MainMenu");
+  KeyActions.ClickButton("PrioriPOSGUI", "MainMenu", "OpenCashRegister");
+  KeyActions.FormIsDisplayed("PrioriPOSGUI", "CashierDeclaration");
+  KeyActions.CheckLabel("PrioriPOSGUI", "CashierDeclaration", "StaticLabel", "Title", "");
+  KeyActions.ClickButton("PrioriPOSGUI", "CashierDeclaration", "OK");
+  KeyActions.FormIsDisplayed("PrioriPOSGUI", "GenericMessage");
+  KeyActions.CheckLabel("PrioriPOSGUI", "GenericMessage", "StaticLabel", "ErrorAtPrinting", "");
+  KeyActions.ClickButton("PrioriPOSGUI", "GenericMessage", "OK");
+  
+}
+// _______________________________________________________________________________________________________________________________________________________________  
+
+function PrioriPOSCloseCashRegister(){
+  
+  KeyActions.FormIsDisplayed("PrioriPOSGUI", "MainMenu");
+  KeyActions.ClickButton("PrioriPOSGUI", "MainMenu", "CloseCashRegister");
+  KeyActions.FormIsDisplayed("PrioriPOSGUI", "CloseCashRegister");
+  KeyActions.CheckLabel("PrioriPOSGUI", "CloseCashRegister", "StaticLabel", "Title", "");
+  KeyActions.FormIsDisplayed("PrioriPOSGUI", "MainMenu");
+  KeyActions.ElementIsEnabled("PrioriPOSGUI", "CloseCashRegister","Button", "OK");
+  KeyActions.ClickButton("PrioriPOSGUI", "CloseCashRegister", "OK");
+
+}  
+// _______________________________________________________________________________________________________________________________________________________________  
+
+function PrioriPOSStartBreakTime(){
+  
+ KeyActions.FormIsDisplayed("PrioriPOSGUI", "MainMenu");
+ KeyActions.ClickButton("PrioriPOSGUI", "MainMenu" , "CashierBreak");
+ KeyActions.CheckButtonCaption("PrioriPOSGUI","MainMenu", "CashierBreak", "המשך")
+ //KeyActions.ElementsAreDisabled("PrioriPOSGUI","MainMenu","Button","Transaction|CashierDeclaration|ChangeWorkShift|CloseCashRegister");
+ 
+
+}  
+// _______________________________________________________________________________________________________________________________________________________________  
+
+function PrioriPOSEndBreakTime(AccountName){
+  
+ StrAccount = KeyActions.GetAccount("PrioriPOSGUI", AccountName);
+ TabValue = StrAccount.split(":");
+  
+ Login = TabValue[0];
+ Password = TabValue[1];
+
+ KeyActions.FormIsDisplayed("PrioriPOSGUI", "MainMenu");
+ KeyActions.ClickButton("PrioriPOSGUI", "MainMenu" , "CashierBreak");
+ KeyActions.FormIsDisplayed("PrioriPOSGUI","Login");
+ KeyActions.CheckLabel("PrioriPOSGUI", "Login", "StaticLabel", "TitleLogin", "");
+ KeyActions.SetField("PrioriPOSGUI", "Login", "Login", Login);
+ KeyActions.SetField("PrioriPOSGUI", "Login", "Password", Password);
+ KeyActions.ClickButton("PrioriPOSGUI", "Login", "OK");
+ KeyActions.CheckButtonCaption("PrioriPOSGUI","MainMenu", "CashierBreak", "הפסקה")
+ //KeyActions.ElementsAreEnabled("PrioriPOSGUI","MainMenu","Button","Transaction|CashierDeclaration|ChangeWorkShift|CloseCashRegister");  
+ 
+}  
+// _______________________________________________________________________________________________________________________________________________________________  
+
+function PrioriPOSCheckErrorMessage(ErrorMessage){
+  
+ KeyActions.FormIsDisplayed("PrioriPOSGUI", "GenericMessage");
+ KeyActions.CheckLabel("PrioriPOSGUI", "GenericMessage", "StaticLabel", ErrorMessage, "");
+ KeyActions.ClickButton("PrioriPOSGUI", "GenericMessage", "OK");
+ KeyActions.FormIsNotDisplayed("PrioriPOSGUI", "GenericMessage");
+
+}  
+
+// *** Exports*********************************************************** 
+module.exports.PrioriPOSClose = PrioriPOSClose;
 module.exports.LogOnPrioriPOS = LogOnPrioriPOS;
-// ******* *************************************************** 
+module.exports.PrioriPOSLogAccount = PrioriPOSLogAccount;
+module.exports.PrioriPOSCheckIn = PrioriPOSCheckIn;
+module.exports.PrioriPOSCheckOut = PrioriPOSCheckOut;
+module.exports.PrioriPOSOpenCashRegister = PrioriPOSOpenCashRegister;
+module.exports.PrioriPOSCloseCashRegister = PrioriPOSCloseCashRegister;
+module.exports.PrioriPOSCheckErrorMessage = PrioriPOSCheckErrorMessage;
+module.exports.PrioriPOSStartBreakTime = PrioriPOSStartBreakTime;
+module.exports.PrioriPOSEndBreakTime = PrioriPOSEndBreakTime;
+// ********************************************************************** 
