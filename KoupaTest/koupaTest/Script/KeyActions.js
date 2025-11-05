@@ -461,7 +461,6 @@ function CheckpointGridValue(ObjGrid, RowIndex, ColName, Value) {
     //var ColumnIndex = ObjGrid.GetColumnIndex(ColName);
     var ColumnIndex = ObjGrid.GetColumnIndex(ColName);
     
-    
     var ObjGridItem;
 
     if (columnIndex == -1) {

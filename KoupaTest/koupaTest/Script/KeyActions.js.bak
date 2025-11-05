@@ -387,7 +387,6 @@ function ClickCell(ObjGrid, RowIndex, ColName) {
 
 function UpdateCell(ObjGrid, Value, PushEnterKey) {
 
-
     ObjGrid.Keys(Value);
 
     if (PushEnterKey) {
