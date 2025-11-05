@@ -16,6 +16,3 @@ Scenario: The Employee is Checking-Out (Functional Wording)
   And I end a cashier session as "User1"
   Then The Form "MainMenu" is Displayed
  
-#TO DO :
-# - Non-passing Test -> The employee has Already Checked-In -> Need more explanations
-# - Non-passing Test -> The employee has Already Checked-Out -> Need more explanations

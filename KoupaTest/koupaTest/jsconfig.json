@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "checkJs": false,
+    "module": "commonjs",
+    "baseUrl": "./Script",
+    "paths": {
+      "*": ["*", "./*"]
+    }
+  },
+  "exclude": [
+    "node_modules"
+  ],
+  "include": [
+    "Script/**/*.js",
+    "ScriptExtensions/**/*.js",
+    "testcomplete.d.ts"
+  ]
+}

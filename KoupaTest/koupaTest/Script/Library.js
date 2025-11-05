@@ -1,98 +1,97 @@
-﻿
-function Debug(StrValue) {
-  // ***************************************************************
-  // Function Name : Debug
-  // Description   : Pause script and show an inputbox with values.
-  // Parameters    : None
-  // Returns       : none
-  // Dependancies  : None
-  // ***************************************************************
-  
-  BuiltIn.InputBox(StrValue, "Debug", StrValue);
-  
+﻿function Debug(StrValue) {
+    // ***************************************************************
+    // Function Name : Debug
+    // Description   : Pause script and show an inputbox with values.
+    // Parameters    : None
+    // Returns       : none
+    // Dependancies  : None
+    // ***************************************************************
+
+    BuiltIn.InputBox(StrValue, "Debug", StrValue);
+
 }
 // _______________________________________________________________________________________________________________________________________________________________  
 
 function BlinkObject(ObjectToBlink) {
-  
-  let Interval = 200;
-  
-  ObjectToBlink.BorderStyle = 1;
-  Delay(Interval);
-  ObjectToBlink.BorderStyle = 2;
-  Delay(Interval);
-  ObjectToBlink.BorderStyle = 1;
-  Delay(Interval);
-  ObjectToBlink.BorderStyle = 0;
-  Delay(Interval);
-  
+
+    let Interval = 200;
+
+    ObjectToBlink.BorderStyle = 1;
+    Delay(Interval);
+    ObjectToBlink.BorderStyle = 2;
+    Delay(Interval);
+    ObjectToBlink.BorderStyle = 1;
+    Delay(Interval);
+    ObjectToBlink.BorderStyle = 0;
+    Delay(Interval);
+
 }
 // _______________________________________________________________________________________________________________________________________________________________  
 
 function CloseProcessIfExists(ProcessName) {
-      
-      var WshShell = Sys.OleObject("WScript.Shell");
-      var command = 'taskkill /F /IM "' + ProcessName + '.exe"';
-    
-      var result = WshShell.Run(command, 0, true);
-    
-      if (result === 0) {
-        
+
+    var WshShell = Sys.OleObject("WScript.Shell");
+    var command = 'taskkill /F /IM "' + ProcessName + '.exe"';
+
+    var result = WshShell.Run(command, 0, true);
+
+    if (result === 0) {
+
         Log.Message("The application: '" + ProcessName + "' successfully closed");
         return "success";
-        
-      } else if (result === 128) {
-        
+
+    } else if (result === 128) {
+
         //Log.Warning("The application: '" + ProcessName + "' is not running.");
         return "Non trouvé";
-        
-      } else {
-        
+
+    } else {
+
         Log.Error("Error closing application '" + ProcessName + "'. Code: " + result);
         return "error";
-        
-      }     
+
+    }
 }
 // _______________________________________________________________________________________________________________________________________________________________  
 
 function ExportStepDefinitions() {
-  
-  let Fso;
-  let DataFile;
-  let OutputFile;
-  let FilePath;
-  let OutputPath;
-  let StrLine;
-  
-  Fso = Sys.OleObject("Scripting.FileSystemObject");
-  
-  FilePath = Project.Path + "Script\\StepDefinitions.svb";
-  OutputPath = Project.Path + "Script\\" + "Steps.js";
-  
-  DataFile = Fso.OpenTextFile(FilePath, 1, false, 0); // Lecture ASCII
-  OutputFile = Fso.CreateTextFile(OutputPath, true); // Écrase si existe
-  
-  while (!DataFile.AtEndOfStream) {
-    
-    StrLine = aqString.Trim(DataFile.ReadLine());
-    
-    if (StrLine.indexOf("' [") !== -1) {
-      
-      StrLine = aqString.Replace(StrLine, "' [Given ", "Given('");
-      StrLine = aqString.Replace(StrLine, "' [When ", "When('");
-      StrLine = aqString.Replace(StrLine, "' [Then ", "Then('");
-      StrLine = aqString.Replace(StrLine, "]", "', () => {});");
-      
-      OutputFile.WriteLine(StrLine);
-      Log.Message(StrLine);
-      
+
+    let Fso;
+    let DataFile;
+    let OutputFile;
+    let FilePath;
+    let OutputPath;
+    let StrLine;
+
+    Fso = Sys.OleObject("Scripting.FileSystemObject");
+
+    FilePath = Project.Path + "Script\\StepDefinitions.svb";
+    OutputPath = Project.Path + "Script\\" + "Steps.js";
+
+    DataFile = Fso.OpenTextFile(FilePath, 1, false, 0); // Lecture ASCII
+    OutputFile = Fso.CreateTextFile(OutputPath, true); // Écrase si existe
+
+    while (!DataFile.AtEndOfStream) {
+
+        StrLine = aqString.Trim(DataFile.ReadLine());
+
+        if (StrLine.indexOf("' [") !== -1) {
+
+            StrLine = aqString.Replace(StrLine, "' [Given ", "Given('");
+            StrLine = aqString.Replace(StrLine, "' [When ", "When('");
+            StrLine = aqString.Replace(StrLine, "' [Then ", "Then('");
+            StrLine = aqString.Replace(StrLine, "]", "', () => {});");
+
+            OutputFile.WriteLine(StrLine);
+            Log.Message(StrLine);
+
+        }
+
     }
-    
-  }
-  
-  DataFile.Close();
-  OutputFile.Close();
-  
+
+    DataFile.Close();
+    OutputFile.Close();
+
 }
 // _______________________________________________________________________________________________________________________________________________________________
 

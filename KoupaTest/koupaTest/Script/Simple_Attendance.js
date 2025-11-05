@@ -1,24 +1,33 @@
 ﻿
 // *** Includes************************************* 
+//USEUNIT KeyActions
+//USEUNIT MetaActions
 var KeyActions = require("KeyActions");
 var MetaActions = require("MetaActions");
 // *************************************************
 
-  
+// @FunctionCheckIn @Programmative_FunctionCheckInAndOut    
 function CheckIn() {
   
- KeyActions.LaunchApp("PrioriPOSGUI", 20);  
- MetaActions.PrioriPOSLogAccount("User1");
- MetaActions.PrioriPOSCheckIn("User1")
+ let StrAccount="User1";
+ 
+ Library.CloseProcessIfExists("PrioriPOSGUI");
+ KeyActions.LaunchApp("PrioriPOSGUI", 30);  
+ MetaActions.PrioriPOSLogAccount(StrAccount);
+ MetaActions.PrioriPOSCheckIn(StrAccount)
  MetaActions.PrioriPOSClose();
 
 }
- 
+
+// @FunctionCheckOut @Programmative_FunctionCheckInAndOut    
 function CheckOut() {
   
- KeyActions.LaunchApp("PrioriPOSGUI", 20);  
- MetaActions.PrioriPOSLogAccount("User1");
- MetaActions.PrioriPOSCheckOut("User1")
+ let StrAccount="User1";
+ 
+ Library.CloseProcessIfExists("PrioriPOSGUI");  
+ KeyActions.LaunchApp("PrioriPOSGUI", 30);  
+ MetaActions.PrioriPOSLogAccount(StrAccount);
+ MetaActions.PrioriPOSCheckOut(StrAccount)
  MetaActions.PrioriPOSClose();
 
 }

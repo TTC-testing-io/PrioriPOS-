@@ -11,6 +11,8 @@ var Library = require("Library");
 // [BeforeScenario]
 BeforeScenario(function(scenario) {
 // scenario parameter contains the Scenario object with Tags property
+
+  //LaunchSelectedTestByTags(scenario)
     
   if (scenario.Tags.Contains("@PrioriPOS_User1")) {
     
@@ -34,7 +36,7 @@ BeforeScenario(function(scenario) {
 //    LogOnPrioriPosWith(APP_NAME,"0987", "0987");
 //    
     KeyActions.LaunchApp("PrioriPOSGUI", 20);  
-    MetaActions.PrioriPOSLogAccount("User_Retail")
+    MetaActions.PrioriPOSLogAccount("Retail")
     
   } 
   
@@ -55,3 +57,29 @@ AfterScenario(function(scenario) {
      
 })
 // _________________________________________________________________________________________________________________________________________________________________
+
+function LaunchSelectedTestByTags(scenario){
+
+  var requiredTags = Project.Variables.tags || "";
+  
+  if (requiredTags !== "") {
+    
+    var tagsArray = requiredTags.split(",");
+    var hasTag = false;
+    
+    for (var i = 0; i < tagsArray.length; i++) {
+      
+      if (scenario.Tags.Contains(tagsArray[i].trim())) {
+        hasTag = true;
+        
+        break;
+      }
+      
+    }
+    
+    if (!hasTag) {
+      Log.Message("Skip : " + scenario.Name);
+      return
+    }
+  }
+}

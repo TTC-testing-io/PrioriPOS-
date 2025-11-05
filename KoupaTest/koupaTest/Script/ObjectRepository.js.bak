@@ -268,7 +268,7 @@ function GetForm(ObjectRepo, ApplicationName, FormName) {
 
 function WaitForElementReady(ObjElement, ElementIsEnabled) {
   
-  let TimeOut = 60000;
+  let TimeOut = 90000;
   let Interval = 250;
   let Elapsed = 0;
   

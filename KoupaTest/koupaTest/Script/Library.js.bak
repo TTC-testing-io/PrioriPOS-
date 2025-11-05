@@ -31,7 +31,7 @@ function BlinkObject(ObjectToBlink) {
 
 function CloseProcessIfExists(ProcessName) {
       
-      var WshShell = new ActiveXObject("WScript.Shell");
+      var WshShell = Sys.OleObject("WScript.Shell");
       var command = 'taskkill /F /IM "' + ProcessName + '.exe"';
     
       var result = WshShell.Run(command, 0, true);

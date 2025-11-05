@@ -1,279 +1,282 @@
-﻿
-// *** Includes************************************* 
+﻿// *** Includes***************************************** 
+//USEUNIT KeyActions
+//USEUNIT MetaActions
+//USEUNIT Library
 var KeyActions = require("KeyActions");
 var MetaActions = require("MetaActions");
 var Library = require("Library");
-// ************************************************* 
+// ***************************************************** 
 
-var APP_NAME = Project.Variables.APP_NAME 
+var APP_NAME = Project.Variables.APP_NAME
 
 // _________________________________________________________________________________________________________________________________________________________________
 
-Given("I have launched the application {arg} and it completed loading in no more than {arg} seconds", function (Application_Name, TimeOutMax){
-  
- KeyActions.LaunchApp(Application_Name, TimeOutMax);
-  
-});
-// _________________________________________________________________________________________________________________________________________________________________
+Given("I have launched the application {arg} and it completed loading in no more than {arg} seconds", function(Application_Name, TimeOutMax) {
 
-Given("The Form {arg} is Displayed", function (FormName){
-  
- KeyActions.FormIsDisplayed(APP_NAME, FormName);
-  
-});
-
-When("The Form {arg} is Displayed", function (FormName){
-  
- KeyActions.FormIsDisplayed(APP_NAME, FormName);
- 
-});
-
-Then("The Form {arg} is Displayed", function (FormName){
-  
- KeyActions.FormIsDisplayed(APP_NAME, FormName);
- 
-});
-// _________________________________________________________________________________________________________________________________________________________________
-
-Then("On the Form {arg}, the Label {arg} is correctly Displayed", function (FormName, ObjectName){
-  
- KeyActions.CheckLabel(APP_NAME, FormName, "StaticLabel", ObjectName, "");
-  
-});
-// _________________________________________________________________________________________________________________________________________________________________
-
-Then("On the Form {arg} The Label {arg} displays the Text {arg}", function (FormName, ObjectName, ExpectedValue){
-  
-  KeyActions.CheckLabel(APP_NAME, FormName, "Label", ExpectedValue);
-   
-});
-// _________________________________________________________________________________________________________________________________________________________________
-
-Then("On the Form {arg} The TextBox {arg} displays the Text {arg}", function (FormName, ObjectName, ExpectedValue){
-  
-  KeyActions.CheckField(APP_NAME, FormName, "TextBox", ObjectName, ExpectedValue);
-  
-});
-// _________________________________________________________________________________________________________________________________________________________________
-
-Then("On the Form {arg} The Button {arg} is Named {arg}", function (FormName, ObjectName, ExpectedValue){
-  
-  KeyActions.CheckButtonCaption(APP_NAME, FormName, ObjectName, ExpectedValue);
-  
-});
-// _________________________________________________________________________________________________________________________________________________________________
-
-When("On the Form {arg} I click on the Button {arg}", function (FormName, ObjectName){
-  
- KeyActions.ClickButton(APP_NAME, FormName, ObjectName);
-   
-});
-
-Then("On the Form {arg} I click on the Button {arg}", function (FormName, ObjectName){
-  
- KeyActions.ClickButton(APP_NAME, FormName, ObjectName);
+    KeyActions.LaunchApp(Application_Name, TimeOutMax);
 
 });
 // _________________________________________________________________________________________________________________________________________________________________
 
-When("On the Form {arg} I enter {arg} into the {arg} Field", function (FormName, Value, ObjectName){
-  
- KeyActions.SetField(APP_NAME, FormName, ObjectName, Value);
+Given("The Form {arg} is Displayed", function(FormName) {
+
+    KeyActions.FormIsDisplayed(APP_NAME, FormName);
 
 });
 
+When("The Form {arg} is Displayed", function(FormName) {
 
-Then("On the Form {arg} I enter {arg} into the {arg} Field", function (FormName, Value, ObjectName){
-  
- KeyActions.SetField(APP_NAME, FormName, ObjectName, Value);
-  
+    KeyActions.FormIsDisplayed(APP_NAME, FormName);
+
 });
-// _________________________________________________________________________________________________________________________________________________________________
 
-Then("On the Form {arg} The Buttons {arg} are Enabled", function (FormName, ObjectNames){
-  
- KeyActions.ElementsAreEnabled(APP_NAME, FormName, "Button", ObjectNames); 
-  
+Then("The Form {arg} is Displayed", function(FormName) {
+
+    KeyActions.FormIsDisplayed(APP_NAME, FormName);
+
 });
 // _________________________________________________________________________________________________________________________________________________________________
 
-Then("On the Form {arg} The Buttons {arg} are Disabled", function (FormName, ObjectNames){
- 
- KeyActions.ElementsAreDisabled(APP_NAME, FormName, "Button", ObjectNames);
- 
+Then("On the Form {arg}, the Label {arg} is correctly Displayed", function(FormName, ObjectName) {
+
+    KeyActions.CheckLabel(APP_NAME, FormName, "StaticLabel", ObjectName, "");
+
 });
 // _________________________________________________________________________________________________________________________________________________________________
 
-Then("On the Form {arg} The Button {arg} is Enabled", function (FormName, ObjectName){
-  
-   KeyActions.ElementIsEnabled(APP_NAME, FormName, "Button", ObjectName);
-   
+Then("On the Form {arg} The Label {arg} displays the Text {arg}", function(FormName, ObjectName, ExpectedValue) {
+
+    KeyActions.CheckLabel(APP_NAME, FormName, "Label", ExpectedValue);
+
 });
 // _________________________________________________________________________________________________________________________________________________________________
 
-Then("On the Form {arg} The Button {arg} is Disabled", function (FormName, ObjectName){
-  
-  KeyActions.ElementIsDisabled(APP_NAME, FormName, "Button", ObjectName);
-  
+Then("On the Form {arg} The TextBox {arg} displays the Text {arg}", function(FormName, ObjectName, ExpectedValue) {
+
+    KeyActions.CheckField(APP_NAME, FormName, "TextBox", ObjectName, ExpectedValue);
+
 });
 // _________________________________________________________________________________________________________________________________________________________________
 
-Given("PauseTest", function (){
-  
- KeyActions.PausePopup();
-  
-});
+Then("On the Form {arg} The Button {arg} is Named {arg}", function(FormName, ObjectName, ExpectedValue) {
 
-When("PauseTest", function (){
+    KeyActions.CheckButtonCaption(APP_NAME, FormName, ObjectName, ExpectedValue);
 
- KeyActions.PausePopup();
-
-});
-
-Then("PauseTest", function (){
-  
- KeyActions.PausePopup();
-   
 });
 // _________________________________________________________________________________________________________________________________________________________________
 
-Then("I Wait {arg} Seconds", function (Seconds){
-  
-  KeyActions.Wait(Seconds);
-   
+When("On the Form {arg} I click on the Button {arg}", function(FormName, ObjectName) {
+
+    KeyActions.ClickButton(APP_NAME, FormName, ObjectName);
+
+});
+
+Then("On the Form {arg} I click on the Button {arg}", function(FormName, ObjectName) {
+
+    KeyActions.ClickButton(APP_NAME, FormName, ObjectName);
+
+});
+// _________________________________________________________________________________________________________________________________________________________________
+
+When("On the Form {arg} I enter {arg} into the {arg} Field", function(FormName, Value, ObjectName) {
+
+    KeyActions.SetField(APP_NAME, FormName, ObjectName, Value);
+
+});
+
+
+Then("On the Form {arg} I enter {arg} into the {arg} Field", function(FormName, Value, ObjectName) {
+
+    KeyActions.SetField(APP_NAME, FormName, ObjectName, Value);
+
+});
+// _________________________________________________________________________________________________________________________________________________________________
+
+Then("On the Form {arg} The Buttons {arg} are Enabled", function(FormName, ObjectNames) {
+
+    KeyActions.ElementsAreEnabled(APP_NAME, FormName, "Button", ObjectNames);
+
+});
+// _________________________________________________________________________________________________________________________________________________________________
+
+Then("On the Form {arg} The Buttons {arg} are Disabled", function(FormName, ObjectNames) {
+
+    KeyActions.ElementsAreDisabled(APP_NAME, FormName, "Button", ObjectNames);
+
+});
+// _________________________________________________________________________________________________________________________________________________________________
+
+Then("On the Form {arg} The Button {arg} is Enabled", function(FormName, ObjectName) {
+
+    KeyActions.ElementIsEnabled(APP_NAME, FormName, "Button", ObjectName);
+
+});
+// _________________________________________________________________________________________________________________________________________________________________
+
+Then("On the Form {arg} The Button {arg} is Disabled", function(FormName, ObjectName) {
+
+    KeyActions.ElementIsDisabled(APP_NAME, FormName, "Button", ObjectName);
+
+});
+// _________________________________________________________________________________________________________________________________________________________________
+
+Given("PauseTest", function() {
+
+    KeyActions.PausePopup();
+
+});
+
+When("PauseTest", function() {
+
+    KeyActions.PausePopup();
+
+});
+
+Then("PauseTest", function() {
+
+    KeyActions.PausePopup();
+
+});
+// _________________________________________________________________________________________________________________________________________________________________
+
+Then("I Wait {arg} Seconds", function(Seconds) {
+
+    KeyActions.Wait(Seconds);
+
 });
 
 // _________________________________________________________________________________________________________________________________________________________________
 ///////////////////////////////////////////////////////////////////////*** Business-Oriented Steps***///////////////////////////////////////////////////////////////
 // _________________________________________________________________________________________________________________________________________________________________
 
-Given("I have launched the PrioriPOS application", function (){
-
- KeyActions.LaunchApp("PrioriPOSGUI", 20);  
-
-});
-// _________________________________________________________________________________________________________________________________________________________________
-
-Given("I start a cashier session as {arg}", function (AccountName){
+Given("I have launched the PrioriPOS application", function() {
   
-  MetaActions.PrioriPOSCheckIn(AccountName);
-  
-});
-
-When("I start a cashier session as {arg}", function (AccountName){
-  
-  MetaActions.PrioriPOSCheckIn(AccountName);
-  
-});
-// _________________________________________________________________________________________________________________________________________________________________
-
-Given("I end a cashier session as {arg}", function (AccountName){
-  
- MetaActions.PrioriPOSCheckOut(AccountName);
-  
-});
-
-When("I end a cashier session as {arg}", function (AccountName){
-  
- MetaActions.PrioriPOSCheckOut(AccountName);
-  
-});
-// _________________________________________________________________________________________________________________________________________________________________
-
-When("I m logged as {arg}", function (AccountName){
-  
- MetaActions.PrioriPOSLogAccount(AccountName);   
-     
-});
-
-// _________________________________________________________________________________________________________________________________________________________________
-
-Given("I open the cash register", function (){
-  
-  MetaActions.PrioriPOSOpenCashRegister();
-  
-});
-
-When("I open the cash register", function (){
-  
-  MetaActions.PrioriPOSOpenCashRegister();
-  
-});
-// _________________________________________________________________________________________________________________________________________________________________
-
-Given("I close the cash register", function (){
-  
- MetaActions.PrioriPOSCloseCashRegister();
-  
-});
-
-
-When("I close the cash register", function (){
-  
- MetaActions.PrioriPOSCloseCashRegister();
-  
-});
-// _________________________________________________________________________________________________________________________________________________________________
-
-Given("I take a break", function (){
-  
- MetaActions.PrioriPOSStartBreakTime();
-  
-});
-
-
-When("I take a break", function (){
-  
- MetaActions.PrioriPOSStartBreakTime();
-  
-});
-// _________________________________________________________________________________________________________________________________________________________________
-
-Given("I end a break as {arg}", function (AccountName){
-  
-  MetaActions.PrioriPOSEndBreakTime(AccountName);
-  
-});
-
-When("I end a break as {arg}", function (AccountName){
-  
-  MetaActions.PrioriPOSEndBreakTime(AccountName);
-  
-});
-// _________________________________________________________________________________________________________________________________________________________________
-
-Then("I close PrioriPOS application", function (){
-
- MetaActions.PrioriPOSClose();  
+    Library.CloseProcessIfExists("PrioriPOSGUI")
+    KeyActions.LaunchApp("PrioriPOSGUI", 30);
 
 });
 // _________________________________________________________________________________________________________________________________________________________________
 
-Then("The break time started and the interface buttons are updated accordingly", function (){
-  
- KeyActions.ElementsAreDisabled("PrioriPOSGUI","MainMenu","Button","Transaction|CashierDeclaration|ChangeWorkShift|CloseCashRegister");
-  
+Given("I start a cashier session as {arg}", function(AccountName) {
+
+    MetaActions.PrioriPOSCheckIn(AccountName);
+
 });
-// _________________________________________________________________________________________________________________________________________________________________
 
-Then("The break time ends and the interface buttons are updated accordingly", function (){
-  
- KeyActions.ElementsAreEnabled("PrioriPOSGUI","MainMenu","Button","Transaction|CashierDeclaration|ChangeWorkShift|CloseCashRegister"); 
-  
-});
-// _________________________________________________________________________________________________________________________________________________________________
+When("I start a cashier session as {arg}", function(AccountName) {
 
-
-Then("The cash register is open and the interface buttons are updated accordingly", function (){
-  
- KeyActions.ElementsAreEnabled(APP_NAME, "MainMenu", "Button", "Transaction|CashierBreak|CashierDeclaration|ChangeWorkShift|CloseCashRegister"); 
+    MetaActions.PrioriPOSCheckIn(AccountName);
 
 });
 // _________________________________________________________________________________________________________________________________________________________________
 
-Then("The cash register is closed and the interface buttons are updated accordingly", function (){
-  
- KeyActions.ElementsDisabled(APP_NAME, "MainMenu", "Button", "Transaction|CashierBreak|CashierDeclaration|ChangeWorkShift|CloseCashRegister"); 
-  
+Given("I end a cashier session as {arg}", function(AccountName) {
+
+    MetaActions.PrioriPOSCheckOut(AccountName);
+
+});
+
+When("I end a cashier session as {arg}", function(AccountName) {
+
+    MetaActions.PrioriPOSCheckOut(AccountName);
+
+});
+// _________________________________________________________________________________________________________________________________________________________________
+
+When("I m logged as {arg}", function(AccountName) {
+
+    MetaActions.PrioriPOSLogAccount(AccountName);
+
+});
+
+// _________________________________________________________________________________________________________________________________________________________________
+
+Given("I open the cash register", function() {
+
+    MetaActions.PrioriPOSOpenCashRegister();
+
+});
+
+When("I open the cash register", function() {
+
+    MetaActions.PrioriPOSOpenCashRegister();
+
+});
+// _________________________________________________________________________________________________________________________________________________________________
+
+Given("I close the cash register", function() {
+
+    MetaActions.PrioriPOSCloseCashRegister();
+
+});
+
+
+When("I close the cash register", function() {
+
+    MetaActions.PrioriPOSCloseCashRegister();
+
+});
+// _________________________________________________________________________________________________________________________________________________________________
+
+Given("I take a break", function() {
+
+    MetaActions.PrioriPOSStartBreakTime();
+
+});
+
+
+When("I take a break", function() {
+
+    MetaActions.PrioriPOSStartBreakTime();
+
+});
+// _________________________________________________________________________________________________________________________________________________________________
+
+Given("I end a break as {arg}", function(AccountName) {
+
+    MetaActions.PrioriPOSEndBreakTime(AccountName);
+
+});
+
+When("I end a break as {arg}", function(AccountName) {
+
+    MetaActions.PrioriPOSEndBreakTime(AccountName);
+
+});
+// _________________________________________________________________________________________________________________________________________________________________
+
+Then("I close PrioriPOS application", function() {
+
+    MetaActions.PrioriPOSClose();
+
+});
+// _________________________________________________________________________________________________________________________________________________________________
+
+Then("The break time started and the interface buttons are updated accordingly", function() {
+
+    KeyActions.ElementsAreDisabled("PrioriPOSGUI", "MainMenu", "Button", "Transaction|CashierDeclaration|ChangeWorkShift|CloseCashRegister");
+
+});
+// _________________________________________________________________________________________________________________________________________________________________
+
+Then("The break time ends and the interface buttons are updated accordingly", function() {
+
+    KeyActions.ElementsAreEnabled("PrioriPOSGUI", "MainMenu", "Button", "Transaction|CashierDeclaration|ChangeWorkShift|CloseCashRegister");
+
+});
+// _________________________________________________________________________________________________________________________________________________________________
+
+
+Then("The cash register is open and the interface buttons are updated accordingly", function() {
+
+    KeyActions.ElementsAreEnabled(APP_NAME, "MainMenu", "Button", "Transaction|CashierBreak|CashierDeclaration|ChangeWorkShift|CloseCashRegister");
+
+});
+// _________________________________________________________________________________________________________________________________________________________________
+
+Then("The cash register is closed and the interface buttons are updated accordingly", function() {
+
+    KeyActions.ElementsAreDisabled(APP_NAME, "MainMenu", "Button", "Transaction|CashierBreak|CashierDeclaration|ChangeWorkShift|CloseCashRegister");
+
 });
 // _________________________________________________________________________________________________________________________________________________________________

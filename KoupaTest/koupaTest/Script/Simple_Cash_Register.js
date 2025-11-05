@@ -1,13 +1,18 @@
 ﻿
 // *** Includes************************************* 
+//USEUNIT KeyActions
+//USEUNIT MetaActions
 var KeyActions = require("KeyActions");
 var MetaActions = require("MetaActions");
 // *************************************************
 
 function OpenCashRegister() {
   
- KeyActions.LaunchApp("PrioriPOSGUI", 20);  
- MetaActions.PrioriPOSLogAccount("User1");
+let StrAccount = "User1"; 
+
+ Library.CloseProcessIfExists("PrioriPOSGUI"); 
+ KeyActions.LaunchApp("PrioriPOSGUI", 30);  
+ MetaActions.PrioriPOSLogAccount(StrAccount);
  MetaActions.PrioriPOSCheckIn("User1")
  MetaActions.PrioriPOSClose();
 
@@ -15,9 +20,12 @@ function OpenCashRegister() {
  
 function CloseCashRegister() {
   
- KeyActions.LaunchApp("PrioriPOSGUI", 20);  
- MetaActions.PrioriPOSLogAccount("User1");
- MetaActions.PrioriPOSCheckOut("User1")
+ let StrAccount = "User1"; 
+  
+ Library.CloseProcessIfExists("PrioriPOSGUI");  
+ KeyActions.LaunchApp("PrioriPOSGUI", 30);  
+ MetaActions.PrioriPOSLogAccount(StrAccount);
+ MetaActions.PrioriPOSCheckOut(StrAccount)
  MetaActions.PrioriPOSClose();
 
 }

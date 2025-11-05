@@ -1,19 +1,33 @@
 ﻿
+// *** Includes************************************* 
+//USEUNIT KeyActions
+//USEUNIT MetaActions
 var KeyActions = require("KeyActions");
 var MetaActions = require("MetaActions");
-    
-function LogOnPrioriPOSWith_Test(){
-  
- KeyActions.LaunchApp("PrioriPOSGUI", 20);  
- MetaActions.LogOnPrioriPOS("2011", "111")
+// *************************************************
+
+
+// @FunctionLoginTest1    
+function Autentification_User_Password(){
+
+let StrUser="2011";
+let StrPassword="111"
+ 
+ Library.CloseProcessIfExists("PrioriPOSGUI") 
+ KeyActions.LaunchApp("PrioriPOSGUI", 30);  
+ MetaActions.LogOnPrioriPOS(StrUser, StrPassword)
  MetaActions.PrioriPOSClose();
-   
+    
 }
 
-function LogOnPrioriPOSWithAccount_Test(){
+// @FunctionLoginTest2  
+function Autentification_Account(){
   
- KeyActions.LaunchApp("PrioriPOSGUI", 20);  
- MetaActions.PrioriPOSLogAccount("User1");
+ let StrAccount="User1";
+ 
+ Library.CloseProcessIfExists("PrioriPOSGUI")  
+ KeyActions.LaunchApp("PrioriPOSGUI", 30);  
+ MetaActions.PrioriPOSLogAccount(StrAccount);
  MetaActions.PrioriPOSClose();
    
 }

@@ -16,6 +16,7 @@
 		<Feature Path="Attendance (old).feature" />
 		<Feature Path="Cashier on break (old).feature" />
 		<Feature Path="Authentification.feature" />
+		<Feature Path="NewGherkin.feature" />
 	</Folder>
 	<Folder Name="03 - Others">
 		<Feature Path="02 - In Progress.feature" />

@@ -1,9 +1,20 @@
 {
   "cucumberautocomplete.steps": [
-    "Script/StepDefinitions.js"
+    "Script/StepDefinitions.js",
+    "Script/**/*.js"
   ],
   "cucumberautocomplete.syncfeatures": "Scenarios/**/*.feature",
   "cucumberautocomplete.strictGherkinCompletion": false,
-  "cucumberautocomplete.formatConfOverride": {
-  }
+  "cucumberautocomplete.smartSnippets": true,
+  "cucumberautocomplete.stepsInvariants": true,
+  "cucumberautocomplete.gherkinDefinitionPart": "(Given|When|Then|And|But)\\(",
+  "cucumberautocomplete.stepRegExSymbol": "\"",
+  "cucumberautocomplete.customParameters": [
+    {
+      "parameter": "{arg}",
+      "value": "([^\"\\s]*)"
+    }
+  ],
+  "cucumberautocomplete.skipDocStringsFormat": true,
+  "cucumberautocomplete.formatConfOverride": {}
 }

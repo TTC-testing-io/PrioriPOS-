@@ -1,4 +1,4 @@
-﻿Feature: 01-Campaign
+﻿Feature: NewGherkin
 
   Scenario: A description of your business scenario
     Given some precondition
