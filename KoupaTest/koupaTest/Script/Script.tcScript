@@ -9,10 +9,9 @@
 		</folder>
 		<child name="ObjectRepository" key="{478B9CC6-DDFB-4919-8BE4-F1C8E1B40CCC}" path="ObjectRepository.js" />
 		<child name="Hooks" key="{C9DF2E7B-4AEE-4282-93C4-2FC8E0A04955}" path="Hooks.js" />
-		<child name="KeyActions" key="{27DE12CD-16C2-45AA-ABD9-DD95BDD077FE}" path="KeyActions.js" />
+		<child name="ControlOperations" key="{27DE12CD-16C2-45AA-ABD9-DD95BDD077FE}" path="ControlOperations.js" />
 		<child name="Tools" key="{7D67F3B5-9AFE-4504-8CBD-610B4951BD0F}" path="Tools.js" />
 		<child name="Library" key="{AAC72864-F7B2-4DCD-ACF7-A3668C82E5FE}" path="Library.js" />
-		<child name="StepDefinitions" key="{ADCACF75-FDBE-461B-8696-9FD0D654B2DC}" path="StepDefinitions.js" />
-		<child name="MetaActions" key="{2708D26C-9893-4695-A9F9-03C48A29C506}" path="MetaActions.js" />
+		<child name="WorkFlowOperations" key="{2708D26C-9893-4695-A9F9-03C48A29C506}" path="WorkFlowOperations.js" />
 	</children>
 </Root>

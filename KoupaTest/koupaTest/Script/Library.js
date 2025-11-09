@@ -52,52 +52,10 @@ function CloseProcessIfExists(ProcessName) {
 
     }
 }
-// _______________________________________________________________________________________________________________________________________________________________  
-
-function ExportStepDefinitions() {
-
-    let Fso;
-    let DataFile;
-    let OutputFile;
-    let FilePath;
-    let OutputPath;
-    let StrLine;
-
-    Fso = Sys.OleObject("Scripting.FileSystemObject");
-
-    FilePath = Project.Path + "Script\\StepDefinitions.svb";
-    OutputPath = Project.Path + "Script\\" + "Steps.js";
-
-    DataFile = Fso.OpenTextFile(FilePath, 1, false, 0); // Lecture ASCII
-    OutputFile = Fso.CreateTextFile(OutputPath, true); // Écrase si existe
-
-    while (!DataFile.AtEndOfStream) {
-
-        StrLine = aqString.Trim(DataFile.ReadLine());
-
-        if (StrLine.indexOf("' [") !== -1) {
-
-            StrLine = aqString.Replace(StrLine, "' [Given ", "Given('");
-            StrLine = aqString.Replace(StrLine, "' [When ", "When('");
-            StrLine = aqString.Replace(StrLine, "' [Then ", "Then('");
-            StrLine = aqString.Replace(StrLine, "]", "', () => {});");
-
-            OutputFile.WriteLine(StrLine);
-            Log.Message(StrLine);
-
-        }
-
-    }
-
-    DataFile.Close();
-    OutputFile.Close();
-
-}
 // _______________________________________________________________________________________________________________________________________________________________
 
 // *** Exports************************************************ 
 module.exports.BlinkObject = BlinkObject;
 module.exports.CloseProcessIfExists = CloseProcessIfExists;
-module.exports.ExportStepDefinitions = ExportStepDefinitions;
 module.exports.Debug = Debug;
 // *********************************************************** 

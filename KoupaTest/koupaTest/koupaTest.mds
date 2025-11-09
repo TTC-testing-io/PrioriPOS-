@@ -2,7 +2,6 @@
 <Root signature="{362A8EE5-675E-43A9-869D-06ECE80B0CB4}" version="15.0">
 	<children>
 		<child name="Script" key="{1548B413-A736-4BF1-9EE6-BCD3B60CA184}" type="Script" typeId="{9252F941-DB23-4FCA-AA50-858B33BB4A19}" pluginName="Script" path="Script\Script.tcScript" />
-		<child name="Scenarios" key="{17B1404A-CED8-47EC-9E9D-C7B65DEFEE97}" type="Scenarios" typeId="{146B1623-3D4E-46FF-A0E5-CC234C212913}" pluginName="Gherkin / BDD" path="Scenarios\Scenarios.tcTestCases" />
 		<child name="Stores" key="{A56EFAD3-F10D-4DE5-881B-26E0D7189E38}" type="Stores" typeId="{5238AF17-5FE2-48FF-8BCC-9803A975A4F4}" pluginName="Stores" path="Stores\Stores.tcStores" />
 		<child name="TestedApps" key="{A55EF95E-3A35-4CCA-8DED-6F13D1634E0E}" type="Tested Applications" typeId="{90D101C8-80C7-48D4-9055-2E451B9BCD75}" pluginName="" path="TestedApps\TestedApps.tcTAs" />
 	</children>

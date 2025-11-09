@@ -121,10 +121,10 @@ function PrioriPOSCloseCashRegister() {
     KeyActions.ClickButton("PrioriPOSGUI", "MainMenu", "CloseCashRegister");
     KeyActions.FormIsDisplayed("PrioriPOSGUI", "CloseCashRegister");
     KeyActions.CheckLabel("PrioriPOSGUI", "CloseCashRegister", "StaticLabel", "Title", "");
-    KeyActions.FormIsDisplayed("PrioriPOSGUI", "MainMenu");
-    KeyActions.ElementIsEnabled("PrioriPOSGUI", "CloseCashRegister", "Button", "OK");
+    KeyActions.ClickButtonUntilEnabledElement("PrioriPOSGUI", "CloseCashRegister", "ConfirmReport","Button", "OK", 30);
     KeyActions.ClickButton("PrioriPOSGUI", "CloseCashRegister", "OK");
-
+    KeyActions.FormIsDisplayed("PrioriPOSGUI", "MainMenu");
+    
 }
 // _______________________________________________________________________________________________________________________________________________________________  
 
@@ -174,11 +174,6 @@ function PrioriPOSCashPaiement(AccountName) {
     KeyActions.SetCellValue("PrioriPOSGUI", "Transaction", "TransactionItems",1 ,"כ.", 3);
     KeyActions.SetCellValue("PrioriPOSGUI", "Transaction", "TransactionItems",1 ,"מחיר", 10);
       
-    //SetCellValue(ApplicationName, FormName, ObjectName, RowIndex, ColName, Value) {
-    //KeyActions.DiagnosticGrid("PrioriPOSGUI", "Transaction","TransactionItems");
-
-    //KeyActions.SetCell("PrioriPOSGUI", "Transaction" ,"dgTransactionItems","FieldValue","Line","Value");
-
 }
 // _______________________________________________________________________________________________________________________________________________________________  
 

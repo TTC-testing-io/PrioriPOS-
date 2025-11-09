@@ -1,11 +1,11 @@
-﻿
-// *** Includes************************************* 
-//USEUNIT KeyActions
-//USEUNIT MetaActions
-//USEUNIT ObjectRepository
+﻿//USEUNIT ControlOperations
 //USEUNIT Library
-var KeyActions = require("KeyActions");
-var MetaActions = require("MetaActions");
+//USEUNIT ObjectRepository
+//USEUNIT WorkFlowOperations
+
+// *** Includes************************************* 
+var ControlOperations = require("ControlOperations");
+var WorkFlowOperations = require("WorkFlowOperations");
 var ObjectRepository = require("ObjectRepository");
 var Library = require("Library");
 //**************************************************
@@ -25,8 +25,8 @@ BeforeScenario(function(scenario) {
     
 //    LogOnPrioriPosWith(APP_NAME, "2011", "111");
 
-    KeyActions.LaunchApp("PrioriPOSGUI", 20);  
-    MetaActions.PrioriPOSLogAccount("User1")
+    ControlOperations.LaunchApp("PrioriPOSGUI", 20);  
+    WorkFlowOperations.PrioriPOSLogAccount("User1")
     
   } else if (scenario.Tags.Contains("@PrioriPOS_UserRetail")) {
     
@@ -37,8 +37,8 @@ BeforeScenario(function(scenario) {
 //    
 //    LogOnPrioriPosWith(APP_NAME,"0987", "0987");
 //    
-    KeyActions.LaunchApp("PrioriPOSGUI", 20);  
-    MetaActions.PrioriPOSLogAccount("Retail")
+    ControlOperations.LaunchApp("PrioriPOSGUI", 20);  
+    WorkFlowOperations.PrioriPOSLogAccount("Retail")
     
   } 
   
@@ -53,7 +53,7 @@ AfterScenario(function(scenario) {
     
    Log.Message("After : Close PriroriPOS With confirmation");
     
-   MetaActions.PrioriPOSClose()
+   WorkFlowOperations.PrioriPOSClose()
     
   } 
      

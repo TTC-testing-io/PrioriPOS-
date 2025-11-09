@@ -23,92 +23,11 @@
 		<Node name="logs">
 			<Node name="log idx=0000">
 				<Prp name="caption" type="S" value=""/>
-				<Prp name="datetime" type="D" value="45966.4862949653"/>
-				<Prp name="description" type="S" value=""/>
-				<Prp name="key" type="S" value="{967A4878-F485-4BB1-8F71-62BCC878B961}"/>
-				<Prp name="nameofroot" type="S" value="Script Test Log [Tools\OpenGherkinScenarios]"/>
-				<Prp name="relpath" type="S" value="05_11_2025_11_40_15_885\Description.tcLog"/>
-				<Prp name="status" type="I" value="0"/>
-			</Node>
-			<Node name="log idx=0001">
-				<Prp name="caption" type="S" value=""/>
-				<Prp name="datetime" type="D" value="45966.6129327894"/>
+				<Prp name="datetime" type="D" value="45970.7987810185"/>
 				<Prp name="description" type="S" value="Script Test Log [Cash_Payment\Cash_Payment]"/>
-				<Prp name="key" type="S" value="{169EBF22-FAC6-4976-92FB-24803763C930}"/>
+				<Prp name="key" type="S" value="{ED027977-0D76-4DCF-AE08-988372F2BFAB}"/>
 				<Prp name="nameofroot" type="S" value="Script Test Log [Cash_Payment\Cash_Payment]"/>
-				<Prp name="relpath" type="S" value="05_11_2025_14_42_37_393\Description.tcLog"/>
-				<Prp name="status" type="I" value="0"/>
-			</Node>
-			<Node name="log idx=0002">
-				<Prp name="caption" type="S" value=""/>
-				<Prp name="datetime" type="D" value="45966.6243737269"/>
-				<Prp name="description" type="S" value=""/>
-				<Prp name="key" type="S" value="{09C61045-E490-4F9A-B618-D6404917EFF0}"/>
-				<Prp name="nameofroot" type="S" value="Script Test Log [Cash_Payment\Cash_Payment]"/>
-				<Prp name="relpath" type="S" value="05_11_2025_14_59_05_890\Description.tcLog"/>
-				<Prp name="status" type="I" value="0"/>
-			</Node>
-			<Node name="log idx=0003">
-				<Prp name="caption" type="S" value=""/>
-				<Prp name="datetime" type="D" value="45966.6252411343"/>
-				<Prp name="description" type="S" value=""/>
-				<Prp name="key" type="S" value="{78E3A665-FBB7-402B-9F99-7A1E16A01565}"/>
-				<Prp name="nameofroot" type="S" value="Script Test Log [Cash_Payment\Cash_Payment]"/>
-				<Prp name="relpath" type="S" value="05_11_2025_15_00_20_834\Description.tcLog"/>
-				<Prp name="status" type="I" value="0"/>
-			</Node>
-			<Node name="log idx=0004">
-				<Prp name="caption" type="S" value=""/>
-				<Prp name="datetime" type="D" value="45966.6311653472"/>
-				<Prp name="description" type="S" value=""/>
-				<Prp name="key" type="S" value="{843A6237-1A95-4D57-858A-0AB5A171C430}"/>
-				<Prp name="nameofroot" type="S" value="Script Test Log [Tools\DeleteDumpFiles]"/>
-				<Prp name="relpath" type="S" value="05_11_2025_15_08_52_686\Description.tcLog"/>
-				<Prp name="status" type="I" value="0"/>
-			</Node>
-			<Node name="log idx=0005">
-				<Prp name="caption" type="S" value=""/>
-				<Prp name="datetime" type="D" value="45966.6348570718"/>
-				<Prp name="description" type="S" value=""/>
-				<Prp name="key" type="S" value="{9AFD4E8A-A7AC-4014-9173-6C1F324435B5}"/>
-				<Prp name="nameofroot" type="S" value="Script Test Log [Tools\DeleteLogFiles]"/>
-				<Prp name="relpath" type="S" value="05_11_2025_15_14_11_651\Description.tcLog"/>
-				<Prp name="status" type="I" value="0"/>
-			</Node>
-			<Node name="log idx=0006">
-				<Prp name="caption" type="S" value=""/>
-				<Prp name="datetime" type="D" value="45966.648450544"/>
-				<Prp name="description" type="S" value=""/>
-				<Prp name="key" type="S" value="{1BF14C47-ECE3-4983-9607-C41D57663C99}"/>
-				<Prp name="nameofroot" type="S" value="Script Test Log [Cash_Payment\Cash_Payment]"/>
-				<Prp name="relpath" type="S" value="05_11_2025_15_33_46_127\Description.tcLog"/>
-				<Prp name="status" type="I" value="2"/>
-			</Node>
-			<Node name="log idx=0007">
-				<Prp name="caption" type="S" value=""/>
-				<Prp name="datetime" type="D" value="45966.6571524884"/>
-				<Prp name="description" type="S" value=""/>
-				<Prp name="key" type="S" value="{17A8DC63-4B12-4AE9-AEF6-0F118B6C09A7}"/>
-				<Prp name="nameofroot" type="S" value="Script Test Log [Tools\DeleteLogFiles]"/>
-				<Prp name="relpath" type="S" value="05_11_2025_15_46_17_975\Description.tcLog"/>
-				<Prp name="status" type="I" value="0"/>
-			</Node>
-			<Node name="log idx=0008">
-				<Prp name="caption" type="S" value=""/>
-				<Prp name="datetime" type="D" value="45966.6626691667"/>
-				<Prp name="description" type="S" value=""/>
-				<Prp name="key" type="S" value="{722DF2C5-5B5F-4A4A-808D-A7C1ADCE66B4}"/>
-				<Prp name="nameofroot" type="S" value="Script Test Log [Cash_Payment\Cash_Payment]"/>
-				<Prp name="relpath" type="S" value="05_11_2025_15_54_14_616\Description.tcLog"/>
-				<Prp name="status" type="I" value="0"/>
-			</Node>
-			<Node name="log idx=0009">
-				<Prp name="caption" type="S" value=""/>
-				<Prp name="datetime" type="D" value="45966.6926490741"/>
-				<Prp name="description" type="S" value=""/>
-				<Prp name="key" type="S" value="{D4564EBE-B7C8-458C-BDB1-032972FCEB92}"/>
-				<Prp name="nameofroot" type="S" value="Script Test Log [Tools\OpenGherkinScenarios]"/>
-				<Prp name="relpath" type="S" value="05_11_2025_16_37_24_880\Description.tcLog"/>
+				<Prp name="relpath" type="S" value="09_11_2025_19_10_14_680\Description.tcLog"/>
 				<Prp name="status" type="I" value="0"/>
 			</Node>
 		</Node>

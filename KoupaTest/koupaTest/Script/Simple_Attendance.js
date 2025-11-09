@@ -1,10 +1,10 @@
 ﻿
-// *** Includes************************************* 
-//USEUNIT KeyActions
-//USEUNIT MetaActions
-var KeyActions = require("KeyActions");
-var MetaActions = require("MetaActions");
-// *************************************************
+// *** Includes**************************************** 
+//USEUNIT ControlOperations
+//USEUNIT WorkFlowOperations
+var ControlOperations = require("ControlOperations");
+var WorkFlowOperations = require("WorkFlowOperations");
+// ****************************************************
 
 // @FunctionCheckIn @Programmative_FunctionCheckInAndOut    
 function CheckIn() {
@@ -12,10 +12,10 @@ function CheckIn() {
  let StrAccount="User1";
  
  Library.CloseProcessIfExists("PrioriPOSGUI");
- KeyActions.LaunchApp("PrioriPOSGUI", 30);  
- MetaActions.PrioriPOSLogAccount(StrAccount);
- MetaActions.PrioriPOSCheckIn(StrAccount)
- MetaActions.PrioriPOSClose();
+ ControlOperations.LaunchApp("PrioriPOSGUI", 30);  
+ WorkFlowOperations.PrioriPOSLogAccount(StrAccount);
+ WorkFlowOperations.PrioriPOSCheckIn(StrAccount)
+ WorkFlowOperations.PrioriPOSClose();
 
 }
 
@@ -25,10 +25,10 @@ function CheckOut() {
  let StrAccount="User1";
  
  Library.CloseProcessIfExists("PrioriPOSGUI");  
- KeyActions.LaunchApp("PrioriPOSGUI", 30);  
- MetaActions.PrioriPOSLogAccount(StrAccount);
- MetaActions.PrioriPOSCheckOut(StrAccount)
- MetaActions.PrioriPOSClose();
+ ControlOperations.LaunchApp("PrioriPOSGUI", 30);  
+ WorkFlowOperations.PrioriPOSLogAccount(StrAccount);
+ WorkFlowOperations.PrioriPOSCheckOut(StrAccount)
+ WorkFlowOperations.PrioriPOSClose();
 
 }
  

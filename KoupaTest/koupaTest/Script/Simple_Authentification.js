@@ -1,11 +1,10 @@
 ﻿
-// *** Includes************************************* 
-//USEUNIT KeyActions
-//USEUNIT MetaActions
-var KeyActions = require("KeyActions");
-var MetaActions = require("MetaActions");
-// *************************************************
-
+// *** Includes**************************************** 
+//USEUNIT ControlOperations
+//USEUNIT WorkFlowOperations
+var ControlOperations = require("ControlOperations");
+var WorkFlowOperations = require("WorkFlowOperations");
+// ****************************************************
 
 // @FunctionLoginTest1    
 function Autentification_User_Password(){
@@ -14,9 +13,9 @@ let StrUser="2011";
 let StrPassword="111"
  
  Library.CloseProcessIfExists("PrioriPOSGUI"); 
- KeyActions.LaunchApp("PrioriPOSGUI", 30);  
- MetaActions.LogOnPrioriPOS(StrUser, StrPassword)
- MetaActions.PrioriPOSClose();
+ ControlOperations.LaunchApp("PrioriPOSGUI", 30);  
+ WorkFlowOperations.LogOnPrioriPOS(StrUser, StrPassword)
+ WorkFlowOperations.PrioriPOSClose();
     
 }
 
@@ -26,8 +25,8 @@ function Autentification_Account(){
  let StrAccount="User1";
  
  Library.CloseProcessIfExists("PrioriPOSGUI");  
- KeyActions.LaunchApp("PrioriPOSGUI", 30);  
- MetaActions.PrioriPOSLogAccount(StrAccount);
- MetaActions.PrioriPOSClose();
+ ControlOperations.LaunchApp("PrioriPOSGUI", 30);  
+ WorkFlowOperations.PrioriPOSLogAccount(StrAccount);
+ WorkFlowOperations.PrioriPOSClose();
    
 }
