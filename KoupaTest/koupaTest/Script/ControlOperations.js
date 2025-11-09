@@ -85,11 +85,11 @@ function FormIsDisplayed(ApplicationName, FormName) {
 
     if (ObjForm.Exists) {
 
-        Log.Picture(ObjForm, `${FormName} : Is Displayed`);
+        Log.Picture(ObjForm, `The form : ${FormName}  is Displayed`);
 
     } else {
 
-        Log.Error(`Error FormIsDisplayed : ${FormName} : Not Found`);
+        Log.Error(`Error FormIsDisplayed : ${FormName} is Not Displayed`);
 
     }
 }
@@ -103,11 +103,11 @@ function FormIsNotDisplayed(ApplicationName, FormName) {
 
     if (!ObjForm.Exists) {
 
-        Log.Picture(ObjForm, `${FormName} : Is Not Displayed`);
+        Log.Picture(ObjForm, `The form : ${FormName} is Not Displayed`);
 
     } else {
 
-        Log.Error(`Error FormIsNotDisplayed : ${FormName} : Is Displayed`);
+        Log.Error(`Error FormIsNotDisplayed : ${FormName} : is Displayed`);
 
     }
 }
@@ -141,7 +141,7 @@ function ClickButton(ApplicationName, FormName, ObjectName) {
         ObjButton.SetFocus();
         ObjButton.Click();
 
-        Log.Checkpoint(`${ObjectName} : Click OK`);
+        Log.Checkpoint(`Button ${ObjectName} : Clicked`);
 
     } else {
 
