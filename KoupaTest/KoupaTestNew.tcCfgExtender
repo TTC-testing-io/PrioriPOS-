@@ -253,16 +253,6 @@
 					<Prp name="description" type="S" value=""/>
 					<Prp name="enabled" type="B" value="-1"/>
 					<Prp name="executable" type="B" value="-1"/>
-					<Prp name="line" type="I" value="273"/>
-					<Prp name="owner" type="S" value="{478B9CC6-DDFB-4919-8BE4-F1C8E1B40CCC}"/>
-					<Prp name="pass count" type="I" value="0"/>
-				</Node>
-				<Node name="1">
-					<Prp name="column" type="I" value="2147483647"/>
-					<Prp name="condition" type="S" value=""/>
-					<Prp name="description" type="S" value=""/>
-					<Prp name="enabled" type="B" value="-1"/>
-					<Prp name="executable" type="B" value="-1"/>
 					<Prp name="line" type="I" value="126"/>
 					<Prp name="owner" type="S" value="{2708D26C-9893-4695-A9F9-03C48A29C506}"/>
 					<Prp name="pass count" type="I" value="0"/>
@@ -3369,13 +3359,16 @@
 				<Node name="koupatestnew">
 					<Node name="koupatest">
 						<Node name="script">
-							<Node name="test plan"/>
+							<Node name="02 - unit tests"/>
+							<Node name="libraries"/>
+							<Node name="operations"/>
 						</Node>
-						<Node name="stores"/>
 						<Node name="testedapps"/>
 					</Node>
 				</Node>
-				<Node name="koupatestnew logs"/>
+				<Node name="koupatestnew logs">
+					<Node name="koupatest logs"/>
+				</Node>
 			</Node>
 		</Node>
 		<Prp name="signature" type="S" value="{8EBE6EB3-803D-4913-AD7A-D71552123A67}"/>
